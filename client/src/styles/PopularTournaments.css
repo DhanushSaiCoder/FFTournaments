@@ -1,0 +1,177 @@
+.popularTournamentsContent {
+    width: 100%;
+    height: 600px;
+    display: flex;
+    align-items: center;
+    justify-content: space-evenly;
+    background-color: rgb(255, 174, 84, 0.1);
+    border-bottom: 1.5px solid rgb(236, 155, 64, 0.15);
+
+    /* position: relative; */
+
+}
+.popularTournamentsContainer{
+    position: relative;
+}
+.tournamentDetailsDiv {
+    width: 35%;
+    height: 85%;
+    /* border: 1px solid rgba(255, 0, 0, 0.238); */
+    display: flex;
+    align-items: flex-start;
+    justify-content: center;
+    flex-direction: column;
+    gap: 20px;
+}
+.pricingDetailsDiv {
+    width: 25%;
+    height: 85%;
+    /* border: 1px solid rgba(255, 0, 0, 0.212); */
+}
+.learnMoreBtn {
+    background-color: #ec9c401b;
+    border: none;
+    padding: 15px 45px;
+    border-radius: 5px;
+    color: #ffaa2a;
+}
+.tDetailsDiv {
+    padding-left: 20px;
+    opacity: 0.7;
+    line-height: 1.5;
+    font-size: 20px;
+}
+.tFreq {
+    width: min-content;
+    padding: 0 5px;
+    font-size: 29px;
+    background: linear-gradient(180deg, #ffcf54, #e7983f);
+    -webkit-background-clip: text;
+    background-clip: text;
+
+    -webkit-text-fill-color: transparent;
+    /* text-shadow: 0 0 5px #ffcf5442, 0 0 10px #ffcf5455, 0 0 15px #ffcf544d,
+        0 0 20px #ffcf5447, 0 0 25px #ffcf543d, 0 0 30px #ffcf5423,
+        0 0 35px #ffcf5434; */
+}
+.tName {
+    font-size: 48px;
+    background: linear-gradient(180deg, #ffcf54, #e7983f);
+
+    -webkit-background-clip: text;
+    -webkit-text-fill-color: transparent;
+    background-clip: text;
+    padding-right: 10px;
+    font-weight: bolder;
+}
+.pricingDetailsDiv{
+    /* border: 1px solid red; */
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    flex-direction: column;
+    gap: 20px;
+
+}
+.threeBarsDiv{
+    height: 60%;
+    width: 75%;
+    /* border: 1px solid blue; */
+    display: flex;
+    align-items: flex-end;
+    justify-content: space-evenly;
+
+}
+.secondBar, .firstBar, .thirdBar{
+    width: 80px;
+    min-height: 20%;
+    background: linear-gradient(90deg, #626262, #ababab );
+    border-radius: 5px;
+
+    display: flex;
+    align-items: flex-start;
+    justify-content: center;
+
+    padding: 10px;
+
+    position: relative;
+}
+.firstBar{
+    height: 80%;
+}
+.secondBar{
+    height: 50%;
+}
+.thirdBar{
+    height: 30%;
+}
+.secondTag, .firstTag, .thirdTag{
+    font-family: poppins;
+    color: #000;
+    opacity: 0.7;
+    font-size: 24px;
+    font-style: italic;
+
+}
+
+.secondPrize, .firstPrize, .thirdPrize{
+    position: absolute;
+    top: -55px;
+    left: 50%;
+    transform: translateX(-50%);
+    width: auto;
+    font-family: poppins;
+    font-style: italic;
+    font-size: 38px;
+    
+    background: linear-gradient(180deg, #dadada, #e9e9e9);
+
+    -webkit-background-clip: text;
+    -webkit-text-fill-color: transparent;
+    background-clip: text;
+}
+.firstPrize{
+    background: linear-gradient(180deg, #f2db46, #e3d68c);
+    -webkit-background-clip: text;
+    -webkit-text-fill-color: transparent;
+    background-clip: text;
+    font-size: 48px;
+    top: -70px;
+}
+.thirdPrize{
+    background: linear-gradient(180deg, #c1b1a8, #9c8973);
+    -webkit-background-clip: text;
+    -webkit-text-fill-color: transparent;
+    background-clip: text;
+    font-size: 32px;
+    top: -50px;
+}
+
+.champion{
+    position: absolute ;
+    top: -100px;
+    font-family: poppins;
+    font-size: 32px;
+    font-style: italic;
+    background: linear-gradient(180deg, #f2db46, #e3d68c);
+    
+
+    -webkit-background-clip: text;
+    -webkit-text-fill-color: transparent;
+    background-clip: text;
+}
+.prizeDetailsText{
+    color: #ff4d88;
+    text-align: center;
+    margin: 10px 0;
+}
+.prizeDetailsTextDiv{
+    padding: 0 60px;
+}
+.showMoreLink{
+    position: absolute;
+    bottom: 20px;
+    left: 50%;
+    transform: translateX(-50%);
+
+}

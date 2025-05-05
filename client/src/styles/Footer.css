@@ -1,0 +1,46 @@
+.Footer{
+    width: 100%;
+    height: 200px;
+    display: flex;
+    align-items: center;
+    justify-content: flex-end;
+    flex-direction: column;
+    gap: 10px;
+    padding: 20px;
+}
+.footerNavLinksDiv, .footerLastDiv{
+    width: 100%;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    height: auto;
+    padding: 10px;
+    gap: 40px;
+    text-decoration: unset;
+    font-size: none;
+}
+.footerNavLinksDiv a{
+    text-decoration: none;
+    font-size: 20px;
+    color: #ffffffbf;
+
+}
+.footerNavLinksDiv a:hover{
+    color: #ffffff;
+    transition: 0.3s;
+}
+.logOutFooterLink:hover{
+    color: #ff9292;
+    transition: 0.3s;
+}
+.footerLastDiv a{
+    text-decoration: none;
+    font-size: 16px;
+    color: #ffffffbf;
+    opacity: 0.25;
+}
+.copyright{
+    opacity: 0.25;
+    font-size: 16px;
+
+}
