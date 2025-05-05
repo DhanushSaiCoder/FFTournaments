@@ -6,6 +6,12 @@
     justify-content: space-evenly;
     background-color: rgb(255, 174, 84, 0.1);
     border-bottom: 1.5px solid rgb(236, 155, 64, 0.15);
+
+    /* position: relative; */
+
+}
+.popularTournamentsContainer{
+    position: relative;
 }
 .tournamentDetailsDiv {
     width: 35%;
@@ -161,4 +167,11 @@
 }
 .prizeDetailsTextDiv{
     padding: 0 60px;
+}
+.showMoreLink{
+    position: absolute;
+    bottom: 20px;
+    left: 50%;
+    transform: translateX(-50%);
+
 }

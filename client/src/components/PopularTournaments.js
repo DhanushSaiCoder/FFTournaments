@@ -1,6 +1,7 @@
 import React from 'react';
 import "../styles/PopularTournaments.css";
 import SectionDivider from './SectionDivider';
+import App from './../App';
 
 const data = [
     {
@@ -78,7 +79,7 @@ const oddGradient = {
 
 const PopularTournaments = () => {
     return (
-        <div>
+        <div className='popularTournamentsContainer'>
             <SectionDivider text="POPULAR TOURNAMENTS" />
             {
                 data.map((tournament, index) => (
@@ -166,7 +167,7 @@ const PopularTournaments = () => {
                     </div>
                 ))
             }
-
+            <a className='showMoreLink' href="/tournaments">Show More</a>
         </div>
     );
 }
