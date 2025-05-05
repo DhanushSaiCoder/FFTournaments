@@ -12,6 +12,7 @@ import Tournaments from './pages/Tournaments';
 import NoPage from './pages/NoPage';
 import Profile from './pages/Profile';
 import Settings from './pages/Settings';
+import Footer from './components/Footer';
 
 const root = ReactDOM.createRoot(document.getElementById('root'));
 root.render(
@@ -28,6 +29,7 @@ root.render(
         <Route path="/settings" element={<Settings />} />
         <Route path="*" element={<NoPage />} />
       </Routes>
+      <Footer/>
     </div>
   </BrowserRouter>
 );
