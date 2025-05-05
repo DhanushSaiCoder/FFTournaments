@@ -41,7 +41,7 @@ nav ul li.active a::after {
     height: 1.8px; /* Border thickness */
     border-radius: 5px; /* Rounded corners */
     background: linear-gradient(
-        180deg,
+        270deg,
         #ff7e5f,
         #feb47b
     ); /* Gradient for the border */
@@ -55,7 +55,7 @@ nav ul li.active a::after {
     gap: 20px;
     align-items: center;
     background-color: #050509;
-    border-bottom: 1px solid rgba(255, 255, 255, 0.2);
+    border-bottom: 1px solid rgba(255, 255, 255, 0.12);
 }
 .logoImg {
     height: 180px;
@@ -67,5 +67,21 @@ nav ul li.active a::after {
     background-position: center;
     width: 300px;
     height: 100px;
-    border-right: 1px solid rgba(255, 255, 255, 0.2);
+    border-right: 1px solid rgba(255, 255, 255, 0.12);
+}
+.navLinksDiv {
+    height: 100%;
+    display: flex;
+    align-items: center;
+    justify-content: flex-start;
+    width: 70%;
+}
+.iconsDiv {
+    flex: 1;
+    height: 100%;
+    display: flex;
+    align-items: center;
+    justify-content: flex-end;
+    gap: 40px;
+    padding-right: 20px;
 }

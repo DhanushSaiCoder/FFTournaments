@@ -1,7 +1,9 @@
 import React from 'react';
 import { Link, useLocation } from 'react-router-dom';
-import '../styles/Header.css'; // Optional: Add styles for active links
-import logo from '../images/Logo.png'; // Import your logo image
+import { CgProfile } from "react-icons/cg";
+import { FaGear } from "react-icons/fa6";
+import '../styles/Header.css'; 
+
 const Header = () => {
   const location = useLocation(); // Get the current location
 
@@ -21,14 +23,19 @@ const Header = () => {
             <li className={location.pathname === '/rankings' ? 'active' : ''}>
               <Link to="/rankings">RANKING</Link>
             </li>
-            <li className={location.pathname === '/help' ? 'active' : ''}>
-              <Link to="/help">HELP</Link>
-            </li>
             <li className={location.pathname === '/contactUs' ? 'active' : ''}>
               <Link to="/contactUs">CONTACT US</Link>
             </li>
+            <li className={location.pathname === '/help' ? 'active' : ''}>
+              <Link to="/help">HELP</Link>
+            </li>
           </ul>
         </nav>
+      </div>
+
+      <div className='iconsDiv'>
+          <CgProfile className='userIcon' size={30} />
+          <FaGear className='settingsIcon' size={30} />
       </div>
 
     </div >
