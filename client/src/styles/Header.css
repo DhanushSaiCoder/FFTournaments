@@ -8,43 +8,50 @@ nav ul {
 nav ul li {
     padding: 0.5rem 1rem;
 }
-
 nav ul li a {
     text-decoration: none;
-    /* color: #fff8f2; */
+    position: relative;
+    display: inline-block;
+    transition: color 0.3s ease, transform 0.3s ease;
 }
 
-nav ul li.active a {
-    position: relative; /* Required for positioning the pseudo-element */
-    background: linear-gradient(
-        180deg,
-        #ff7e5f,
-        #feb47b
-    ); /* Define your gradient */
-    -webkit-background-clip: text;
-    -webkit-text-fill-color: transparent;
-
-    /* For Firefox */
-    background-clip: text;
-    color: transparent;
-    transition: color 0.3s ease, background 0.3s ease; /* Add transition for color and background */
-
-    font-family: "gff-latin", sans-serif; /* fallback optional */
-}
-
-nav ul li.active a::after {
+nav ul li a::after {
     content: "";
     position: absolute;
     left: 0;
-    bottom: -4px; /* Adjust the position of the border */
+    bottom: -4px;
+    width: 0;
+    height: 2px;
+    border-radius: 5px;
+    background: linear-gradient(270deg, #ff7e5f, #feb47b);
+    transition: width 0.3s ease, height 0.3s ease;
+}
+
+nav ul li.active a {
+  display: inline-block;
+  background: linear-gradient(180deg, #ff7e5f, #feb47b);
+  -webkit-background-clip: text;
+  -webkit-text-fill-color: transparent;
+  background-clip: text;
+  font-weight: bold;
+}
+
+nav ul li a:hover::after {
     width: 100%;
-    height: 1.8px; /* Border thickness */
-    border-radius: 5px; /* Rounded corners */
-    background: linear-gradient(
-        270deg,
-        #ff7e5f,
-        #feb47b
-    ); /* Gradient for the border */
+    height: 2px;
+}
+
+nav ul li.active a::after {
+    width: 100%;
+    height: 2px;
+}
+
+
+
+nav ul li.active a:focus::after,
+nav ul li.active a:active::after {
+    width: 100%; /* Expand the underline to full width */
+    left: 0; /* Move the starting point to the left */
 }
 
 .header {
@@ -57,9 +64,11 @@ nav ul li.active a::after {
     background-color: #050509;
     border-bottom: 1px solid rgba(255, 255, 255, 0.12);
 }
+
 .logoImg {
     height: 180px;
 }
+
 .logoDiv {
     overflow: hidden;
     background: url("../images/Logo.png");
@@ -69,6 +78,7 @@ nav ul li.active a::after {
     height: 100px;
     border-right: 1px solid rgba(255, 255, 255, 0.12);
 }
+
 .navLinksDiv {
     height: 100%;
     display: flex;
@@ -76,6 +86,7 @@ nav ul li.active a::after {
     justify-content: flex-start;
     width: 70%;
 }
+
 .iconsDiv {
     flex: 1;
     height: 100%;
