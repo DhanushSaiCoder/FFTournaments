@@ -1,0 +1,33 @@
+.popularTournamentsContent{
+    width: 100%;
+    height: 700px;
+    display: flex;
+    align-items: center;
+    justify-content: space-evenly;
+    gap: 40px;
+    background-color: rgb(255, 174, 84, 0.1);
+    border-bottom: 1.5px solid rgb(236, 155, 64, 0.15);
+}
+.tournamentDetailsDiv{
+    width: 35%;
+    height: 85%;
+    border: 1px solid red;
+    display: flex;
+    align-items: flex-start;
+    justify-content: center;
+    flex-direction: column;
+    gap: 20px;
+}
+.pricingDetailsDiv{
+    width: 25%;
+    height: 85%;
+    border: 1px solid red;  
+}
+.learnMoreBtn{
+    background-color: #ec9c401b;
+    border: none;
+    padding: 15px 45px;
+    border-radius: 5px;
+    margin-top: 20px;
+    color: #ffaa2a;
+}

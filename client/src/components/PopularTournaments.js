@@ -8,9 +8,9 @@ const data = [
         name: "APT FF CHAMPIONSHIP",
         frequency: "Weekly",
         details: [
-            "• Players are divided into multiple rooms ( 20 - 48 players per room).",
-            "• Winners of each BR room battle 1 v 1 in CS match(s).",
-            "• The Ultimate winner is crowned the APT FF Champion."
+            "Players are divided into multiple rooms ( 20 - 48 players per room).",
+            "Winners of each BR room battle 1 v 1 in CS match(s).",
+            "The Ultimate winner is crowned the APT FF Champion."
         ],
         prizes: {
             first: "₹1000",
@@ -29,9 +29,9 @@ const data = [
         name: "DAILY BR TOURNAMENT",
         frequency: "Daily",
         details: [
-            "• Players are divided into multiple rooms ( 20 - 48 players per room).",
-            "• Winners of each BR room battle 1 v 1 in CS match(s).",
-            "• The Ultimate winner is crowned the APT FF Champion."
+            "Players are divided into multiple rooms ( 20 - 48 players per room).",
+            "Winners of each BR room battle 1 v 1 in CS match(s).",
+            "The Ultimate winner is crowned the APT FF Champion."
         ],
         prizes: {
             first: "₹1000",
@@ -40,7 +40,7 @@ const data = [
         },
         prizePerKill: "₹10",
         prizeDetails: ["The more players join, the bigger the prize pool!", "No kill rewards—100% of the prize pool goes to the winners!"],
-        entryFee: "₹50",    
+        entryFee: "₹50",
         maxPlayers: 48,
         date: "2023-10-01",
         time: "10:00 AM",
@@ -51,23 +51,22 @@ const PopularTournaments = () => {
     return (
         <div>
             <SectionDivider text="POPULAR TOURNAMENTS" />
-            <h2>Popular Tournaments</h2>
-            <div className="tournament-list">
-                <div className="tournament-item">
-                    <h3>Tournament 1</h3>
-                    <p>Date: 2023-10-01</p>
-                    <p>Prize Pool: $1000</p>
+            <div className='popularTournamentsContent'>
+                <div className='tournamentDetailsDiv'>
+                    <div className='tHeadingsDiv'>
+                        <h3><i>{data[0].frequency.toUpperCase()}</i></h3>
+                        <h2><i>{data[0].name.toUpperCase()}</i></h2>
+                    </div>
+                    <div className='tDetailsDiv'>
+                        <ul>
+                            {data[0].details.map((detail, index) => (
+                                <li key={index}>{detail}</li>
+                            ))}
+                        </ul>
+                    </div>
+                    <button className='learnMoreBtn'>Learn More</button>
                 </div>
-                <div className="tournament-item">
-                    <h3>Tournament 2</h3>
-                    <p>Date: 2023-10-15</p>
-                    <p>Prize Pool: $2000</p>
-                </div>
-                <div className="tournament-item">
-                    <h3>Tournament 3</h3>
-                    <p>Date: 2023-11-01</p>
-                    <p>Prize Pool: $1500</p>
-                </div>
+                <div className='pricingDetailsDiv'></div>
             </div>
         </div>
     );
