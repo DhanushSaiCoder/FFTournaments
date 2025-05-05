@@ -15,7 +15,7 @@ const data = [
         prizes: {
             first: "₹1000",
             second: "₹500",
-            third: "₹250",
+            third: null,
         },
         prizePerKill: "₹10",
         prizeDetails: ["The more players join, the bigger the prize pool!", "No kill rewards—100% of the prize pool goes to the winners!"],
@@ -44,7 +44,29 @@ const data = [
         maxPlayers: 48,
         date: "2023-10-01",
         time: "10:00 AM",
+    },
+    {
+        _id: "bnsd8f7sd9f8s7df9s8df7s9df8s7df9s8df7",
+        name: "ULTIMATE FF SHOWDOWN",
+        frequency: "Monthly",
+        details: [
+            "Players compete in a series of BR matches (50 players per room).",
+            "Top 10 players from each room advance to the final battle.",
+            "The last player standing in the final match is crowned the Ultimate FF Champion."
+        ],
+        prizes: {
+            first: "₹5000",
+            second: "₹3000",
+            third: "₹1000",
+        },
+        prizePerKill: "₹20",
+        prizeDetails: ["Higher kill count increases your earnings!", "Top 3 winners also get exclusive in-game rewards!"],
+        entryFee: "₹100",
+        maxPlayers: 100,
+        date: "2023-11-15",
+        time: "5:00 PM",
     }
+
 ]
 
 const PopularTournaments = () => {
@@ -53,7 +75,41 @@ const PopularTournaments = () => {
             <SectionDivider text="POPULAR TOURNAMENTS" />
             {
                 data.map((tournament, index) => (
-                    <div className='popularTournamentsContent'>
+                    <div style={index % 2 != 0 ? { backgroundColor: "#40ec792d" } : {}} className='popularTournamentsContent'>
+
+
+                        {/* render only if the index is an odd */}
+                        {index % 2 != 0 && (
+                           <div className='pricingDetailsDiv'>
+                           <div className='threeBarsDiv'>
+                               <div className='secondBar'>
+                                   <h4 className='secondTag'>#2</h4>
+                                   <h2 className='secondPrize'>₹399/-</h2>
+                               </div>
+                               <div className='firstBar'>
+                                   <h4 className='firstTag'>#1</h4>
+                                   <h2 className='firstPrize'>₹555/-</h2>
+                                   <h3 className='champion'>CHAMPION</h3>
+                               </div>
+                               <div className='thirdBar'>
+                                   <h4 className='thirdTag'>#3</h4>
+                                   <h2 className='thirdPrize'>₹199/-</h2>
+
+                               </div>
+                           </div>
+                           <div className='prizeDetailsTextDiv'>
+
+                               {
+
+                                   tournament.prizeDetails.map((detail, index) => (
+                                       <p key={index} className='prizeDetailsText'> {detail}</p>
+                                   ))
+                               }
+                           </div>
+                       </div>
+                        )}
+
+                        {/* actual tournament data */}
                         <div className='tournamentDetailsDiv'>
                             <div className='tHeadingsDiv'>
                                 <h3 className='tFreq'><i>{tournament.frequency.toUpperCase()}</i></h3>
@@ -68,7 +124,39 @@ const PopularTournaments = () => {
                             </div>
                             <button className='learnMoreBtn'>Learn More</button>
                         </div>
-                        <div className='pricingDetailsDiv'></div>
+
+
+                        {/* render if the index is an even */}
+                        {index % 2 === 0 && (
+                            <div className='pricingDetailsDiv'>
+                                <div className='threeBarsDiv'>
+                                    <div className='secondBar'>
+                                        <h4 className='secondTag'>#2</h4>
+                                        <h2 className='secondPrize'>₹399/-</h2>
+                                    </div>
+                                    <div className='firstBar'>
+                                        <h4 className='firstTag'>#1</h4>
+                                        <h2 className='firstPrize'>₹555/-</h2>
+                                        <h3 className='champion'>CHAMPION</h3>
+                                    </div>
+                                    <div className='thirdBar'>
+                                        <h4 className='thirdTag'>#3</h4>
+                                        <h2 className='thirdPrize'>₹199/-</h2>
+
+                                    </div>
+                                </div>
+                                <div className='prizeDetailsTextDiv'>
+
+                                    {
+
+                                        tournament.prizeDetails.map((detail, index) => (
+                                            <p key={index} className='prizeDetailsText'> {detail}</p>
+                                        ))
+                                    }
+                                </div>
+                            </div>
+                        )}
+
                     </div>
                 ))
             }
