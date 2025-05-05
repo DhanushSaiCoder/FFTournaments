@@ -9,9 +9,13 @@ const Home = () => {
                     <div className='heroLeft'>
                         <h1>Win Exciting Cash Prizes<br/>By Playing Your Favorite Game.</h1>
                         <p>Join college-level Free Fire tournaments<br/>and win exciting cash prizes!</p>
+                        <div className='heroCTADiv'>
+                            <button className='registerBtn'>Register</button>
+                            <button className='loginBtn'>Log in</button>
+                        </div>
                     </div>
                     <div className='heroRight'></div>
-
+                    
                 </div>
             </div>
         </div>
