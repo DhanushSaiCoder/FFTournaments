@@ -12,8 +12,6 @@ nav ul li {
 nav ul li a {
     text-decoration: none;
     /* color: #fff8f2; */
-    
-
 }
 
 nav ul li.active a {
@@ -25,6 +23,8 @@ nav ul li.active a {
     /* For Firefox */
     background-clip: text;
     color: transparent;
+    transition: color 0.3s ease, background 0.3s ease; /* Add transition for color and background */
+
 }
 
 nav ul li.active a::after {
@@ -33,7 +33,7 @@ nav ul li.active a::after {
     left: 0;
     bottom: -4px; /* Adjust the position of the border */
     width: 100%;
-    height: 3px; /* Border thickness */
+    height: 1.8px; /* Border thickness */
     border-radius: 5px; /* Rounded corners */
     background: linear-gradient(180deg, #ff7e5f, #feb47b); /* Gradient for the border */
 }
