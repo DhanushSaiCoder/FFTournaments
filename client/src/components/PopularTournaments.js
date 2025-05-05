@@ -69,6 +69,13 @@ const data = [
 
 ]
 
+const oddGradient = {
+    background: "linear-gradient(90deg, #54ff98, #3ee777)",
+    WebkitBackgroundClip: "text",
+    WebkitTextFillColor: "transparent",
+
+}
+
 const PopularTournaments = () => {
     return (
         <div>
@@ -80,40 +87,39 @@ const PopularTournaments = () => {
 
                         {/* render only if the index is an odd */}
                         {index % 2 != 0 && (
-                           <div className='pricingDetailsDiv'>
-                           <div className='threeBarsDiv'>
-                               <div className='secondBar'>
-                                   <h4 className='secondTag'>#2</h4>
-                                   <h2 className='secondPrize'>₹399/-</h2>
-                               </div>
-                               <div className='firstBar'>
-                                   <h4 className='firstTag'>#1</h4>
-                                   <h2 className='firstPrize'>₹555/-</h2>
-                                   <h3 className='champion'>CHAMPION</h3>
-                               </div>
-                               <div className='thirdBar'>
-                                   <h4 className='thirdTag'>#3</h4>
-                                   <h2 className='thirdPrize'>₹199/-</h2>
+                            <div className='pricingDetailsDiv'>
+                                <div className='threeBarsDiv'>
+                                    <div className='secondBar'>
+                                        <h4 className='secondTag'>#2</h4>
+                                        <h2 className='secondPrize'>₹399/-</h2>
+                                    </div>
+                                    <div className='firstBar'>
+                                        <h4 className='firstTag'>#1</h4>
+                                        <h2 className='firstPrize'>₹555/-</h2>
+                                        <h3 className='champion'>CHAMPION</h3>
+                                    </div>
+                                    <div className='thirdBar'>
+                                        <h4 className='thirdTag'>#3</h4>
+                                        <h2 className='thirdPrize'>₹199/-</h2>
 
-                               </div>
-                           </div>
-                           <div className='prizeDetailsTextDiv'>
+                                    </div>
+                                </div>
+                                <div className='prizeDetailsTextDiv'>
 
-                               {
-
-                                   tournament.prizeDetails.map((detail, index) => (
-                                       <p key={index} className='prizeDetailsText'> {detail}</p>
-                                   ))
-                               }
-                           </div>
-                       </div>
+                                    {
+                                        tournament.prizeDetails.map((detail, index2) => (
+                                            <p key={index2} style={index % 2 != 0 ? { color: "#54ff98" } : {}} className='prizeDetailsText'> {detail}</p>
+                                        ))
+                                    }
+                                </div>
+                            </div>
                         )}
 
                         {/* actual tournament data */}
                         <div className='tournamentDetailsDiv'>
                             <div className='tHeadingsDiv'>
-                                <h3 className='tFreq'><i>{tournament.frequency.toUpperCase()}</i></h3>
-                                <h2 className='tName'><i>{tournament.name.toUpperCase()}</i></h2>
+                                <h3 style={index % 2 != 0 ? oddGradient : {}} className='tFreq'><i>{tournament.frequency.toUpperCase()}</i></h3>
+                                <h2 style={index % 2 != 0 ? oddGradient : {}} className='tName'><i>{tournament.name.toUpperCase()}</i></h2>
                             </div>
                             <div className='tDetailsDiv'>
                                 <ul>
@@ -122,7 +128,7 @@ const PopularTournaments = () => {
                                     ))}
                                 </ul>
                             </div>
-                            <button className='learnMoreBtn'>Learn More</button>
+                            <button style={index % 2 != 0 ? { backgroundColor: "#224a35", color:"#52fb94"  } : {}} className='learnMoreBtn'>Learn More</button>
                         </div>
 
 

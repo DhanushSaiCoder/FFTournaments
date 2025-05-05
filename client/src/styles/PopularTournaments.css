@@ -156,7 +156,8 @@
 }
 .prizeDetailsText{
     color: #ff4d88;
-    text-align: left;
+    text-align: center;
+    margin: 10px 0;
 }
 .prizeDetailsTextDiv{
     padding: 0 60px;
