@@ -2,14 +2,16 @@ import React from 'react';
 import { Link, useLocation } from 'react-router-dom';
 import { CgProfile } from "react-icons/cg";
 import { FaGear } from "react-icons/fa6";
-import '../styles/Header.css'; 
+import '../styles/Header.css';
 
 const Header = () => {
   const location = useLocation(); // Get the current location
 
   return (
     <div className="header">
-      <div className='logoDiv'></div>
+      <Link to="/">
+        <div className='logoDiv'></div>
+      </Link>
 
       <div className='navLinksDiv'>
         <nav>
@@ -34,8 +36,12 @@ const Header = () => {
       </div>
 
       <div className='iconsDiv'>
+        <Link to="/profile">
           <CgProfile className='userIcon' size={30} />
+        </Link>
+        <Link to="/settings">
           <FaGear className='settingsIcon' size={30} />
+        </Link>
       </div>
 
     </div >
