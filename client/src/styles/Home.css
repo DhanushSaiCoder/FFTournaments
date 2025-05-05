@@ -1,3 +1,5 @@
+/* main: #ffaa2a */
+
 .HomeHeroDiv {
     width: 100vw;
     height: 65vh;
@@ -74,20 +76,21 @@ p{
 }
 .registerBtn{
     padding: 15px 65px;
-    background: rgba(236, 155, 65, 0.15);
+    background: #ffaa2a;
     border: none;
     border-radius: 5px;
-    color: #ffae54;
+    color: #1b1208;
     font-size: 20px;
     border: 2px solid #ffaf540a;
+    font-family: gff-latin-bold;
 }
 .loginBtn{
     padding: 15px 55px;
     background: rgba(236, 156, 65, 0);
     border: none;
     border-radius: 5px;
-    color: #ffae54;
+    color: #ffaa2a;
     font-size: 20px;
-    border: 1.5px solid #e7993fab;
+    border: 2.5px solid #ffaa2a;
 
 }
