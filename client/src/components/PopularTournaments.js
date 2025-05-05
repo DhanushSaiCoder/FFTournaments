@@ -51,23 +51,28 @@ const PopularTournaments = () => {
     return (
         <div>
             <SectionDivider text="POPULAR TOURNAMENTS" />
-            <div className='popularTournamentsContent'>
-                <div className='tournamentDetailsDiv'>
-                    <div className='tHeadingsDiv'>
-                    <h3 className='tFreq'><i>{data[0].frequency.toUpperCase()}</i></h3>
-                        <h2 className='tName'><i>{data[0].name.toUpperCase()}</i></h2>
+            {
+                data.map((tournament, index) => (
+                    <div className='popularTournamentsContent'>
+                        <div className='tournamentDetailsDiv'>
+                            <div className='tHeadingsDiv'>
+                                <h3 className='tFreq'><i>{tournament.frequency.toUpperCase()}</i></h3>
+                                <h2 className='tName'><i>{tournament.name.toUpperCase()}</i></h2>
+                            </div>
+                            <div className='tDetailsDiv'>
+                                <ul>
+                                    {tournament.details.map((detail, index) => (
+                                        <li key={index}>{detail}</li>
+                                    ))}
+                                </ul>
+                            </div>
+                            <button className='learnMoreBtn'>Learn More</button>
+                        </div>
+                        <div className='pricingDetailsDiv'></div>
                     </div>
-                    <div className='tDetailsDiv'>
-                        <ul>
-                            {data[0].details.map((detail, index) => (
-                                <li key={index}>{detail}</li>
-                            ))}
-                        </ul>
-                    </div>
-                    <button className='learnMoreBtn'>Learn More</button>
-                </div>
-                <div className='pricingDetailsDiv'></div>
-            </div>
+                ))
+            }
+
         </div>
     );
 }
