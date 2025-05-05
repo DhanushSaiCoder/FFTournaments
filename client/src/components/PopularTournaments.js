@@ -1,9 +1,10 @@
 import React from 'react';
 import "../styles/PopularTournaments.css";
-
+import SectionDivider from './SectionDivider';
 const PopularTournaments = () => {
     return (
         <div>
+            <SectionDivider text="POPULAR TOURNAMENTS"/>
             <h2>Popular Tournaments</h2>
             <div className="tournament-list">
                 <div className="tournament-item">
