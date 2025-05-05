@@ -1,12 +1,19 @@
 import React from 'react';
+import "../styles/Home.css";
 
 const Home = () => {
     return (
-        <div>
-            <h1>Welcome to the Home Page</h1>
-            <p>This is the home page of our application.</p>
-            <p>Here you can find information about our services and features.</p>
-            <p>Feel free to explore the site!</p>
+        <div className='Home'>
+            <div className='HomeHeroDiv'>
+                <div className='HomeHeroContent'>
+                    <div className='heroLeft'>
+                        <h1>Win Exciting Cash Prizes<br/>By Playing Your Favorite Game.</h1>
+                        <p>Join college-level Free Fire tournaments<br/>and win exciting cash prizes!</p>
+                    </div>
+                    <div className='heroRight'></div>
+
+                </div>
+            </div>
         </div>
     );
 }
