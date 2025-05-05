@@ -1,33 +1,59 @@
-.popularTournamentsContent{
+.popularTournamentsContent {
     width: 100%;
-    height: 700px;
+    height: 600px;
     display: flex;
     align-items: center;
     justify-content: space-evenly;
-    gap: 40px;
     background-color: rgb(255, 174, 84, 0.1);
     border-bottom: 1.5px solid rgb(236, 155, 64, 0.15);
 }
-.tournamentDetailsDiv{
+.tournamentDetailsDiv {
     width: 35%;
     height: 85%;
-    border: 1px solid red;
+    /* border: 1px solid rgba(255, 0, 0, 0.238); */
     display: flex;
     align-items: flex-start;
     justify-content: center;
     flex-direction: column;
     gap: 20px;
 }
-.pricingDetailsDiv{
+.pricingDetailsDiv {
     width: 25%;
     height: 85%;
-    border: 1px solid red;  
+    /* border: 1px solid rgba(255, 0, 0, 0.212); */
 }
-.learnMoreBtn{
+.learnMoreBtn {
     background-color: #ec9c401b;
     border: none;
     padding: 15px 45px;
     border-radius: 5px;
-    margin-top: 20px;
     color: #ffaa2a;
+}
+.tDetailsDiv {
+    padding-left: 20px;
+    opacity: 0.7;
+    line-height: 1.5;
+    font-size: 20px;
+}
+.tFreq {
+    width: min-content;
+    padding: 0 5px;
+    font-size: 29px;
+    background: linear-gradient(180deg, #ffcf54, #e7983f);
+    -webkit-background-clip: text;
+    -webkit-text-fill-color: transparent;
+    /* text-shadow: 0 0 5px #ffcf5442, 0 0 10px #ffcf5455, 0 0 15px #ffcf544d,
+        0 0 20px #ffcf5447, 0 0 25px #ffcf543d, 0 0 30px #ffcf5423,
+        0 0 35px #ffcf5434; */
+
+}
+.tName {
+    font-size: 48px;
+    background: linear-gradient(180deg, #ffcf54, #e7983f);
+
+    -webkit-background-clip: text;
+    -webkit-text-fill-color: transparent;
+    background-clip: text;
+    padding-right: 10px;
+    font-weight: bolder;
 }

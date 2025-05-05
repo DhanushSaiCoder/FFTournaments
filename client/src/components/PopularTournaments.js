@@ -54,8 +54,8 @@ const PopularTournaments = () => {
             <div className='popularTournamentsContent'>
                 <div className='tournamentDetailsDiv'>
                     <div className='tHeadingsDiv'>
-                        <h3><i>{data[0].frequency.toUpperCase()}</i></h3>
-                        <h2><i>{data[0].name.toUpperCase()}</i></h2>
+                    <h3 className='tFreq'><i>{data[0].frequency.toUpperCase()}</i></h3>
+                        <h2 className='tName'><i>{data[0].name.toUpperCase()}</i></h2>
                     </div>
                     <div className='tDetailsDiv'>
                         <ul>
