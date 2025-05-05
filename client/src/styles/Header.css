@@ -1,0 +1,21 @@
+nav ul {
+    list-style: none;
+    display: flex;
+    gap: 1rem;
+    padding: 0;
+  }
+  
+  nav ul li {
+    padding: 0.5rem 1rem;
+  }
+  
+  nav ul li a {
+    text-decoration: none;
+    color: black;
+  }
+  
+  nav ul li.active a {
+    font-weight: bold;
+    color: blue; /* Highlight active link */
+    border-bottom: 2px solid blue;
+  }
