@@ -3,9 +3,10 @@
     height: 200px;
     display: flex;
     align-items: center;
-    justify-content: center;
+    justify-content: flex-end;
     flex-direction: column;
-    gap: 20px;
+    gap: 10px;
+    padding: 20px;
 }
 .footerNavLinksDiv, .footerLastDiv{
     width: 100%;

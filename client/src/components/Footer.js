@@ -12,11 +12,11 @@ const Footer = () => {
             </div>
 
             <div className="footerLastDiv">
-                <a href="/termsAndConditions">Terms & Conditions</a>
+                <a href="/termsAndConditions">Terms & Conditions</a> <a>|</a>
                 <a href="/message">Message from developers</a>
 
             </div>
-            <p className='copyright'>© FFTournments 2025</p>
+            <p className='copyright'>© FFTournments 2025 | BY AN APT STUDENT</p>
 
         </div>
     );
