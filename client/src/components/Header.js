@@ -10,7 +10,7 @@ const Header = () => {
   const handleLogoClick = () => {
     window.location.href = '/';
   }
-  
+
   return (
     <div className="header">
       <div onClick={handleLogoClick} className='logoDiv'></div>
@@ -25,7 +25,7 @@ const Header = () => {
               <Link to="/tournaments">TOURNAMENTS</Link>
             </li>
             <li className={location.pathname === '/rankings' ? 'active' : ''}>
-              <Link to="/rankings">RANKING</Link>
+              <Link to="/rankings">RANKINGS</Link>
             </li>
             <li className={location.pathname === '/contactUs' ? 'active' : ''}>
               <Link to="/contactUs">CONTACT US</Link>
