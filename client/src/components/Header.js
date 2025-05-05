@@ -7,11 +7,13 @@ import '../styles/Header.css';
 const Header = () => {
   const location = useLocation(); // Get the current location
 
+  const handleLogoClick = () => {
+    window.location.href = '/';
+  }
+  
   return (
     <div className="header">
-      <Link to="/">
-        <div className='logoDiv'></div>
-      </Link>
+      <div onClick={handleLogoClick} className='logoDiv'></div>
 
       <div className='navLinksDiv'>
         <nav>
