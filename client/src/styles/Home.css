@@ -5,10 +5,11 @@
     height: 65vh;
     position: relative; /* Required for positioning the pseudo-element */
     overflow: hidden;
-    border: 1px solid #cccccc22;
     display: flex;
     justify-content: center;
     align-items: center;
+    border-bottom: 1px solid rgba(255, 255, 255, 0.12);
+
 }
 
 .HomeHeroDiv::before {
