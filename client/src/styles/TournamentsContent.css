@@ -1,4 +1,68 @@
 .tournamentsContent{
     width: 100%;
     min-height: 200px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    flex-direction: column;
+    padding: 30px;
+}
+.tournamentsTable{
+    width: 80%;
+    border: 1px solid red;
+    border: none;
+    border-spacing: 0;
+
+}
+.tournamentsTable *{
+    border: none;
+    border-spacing: 0;
+    /* border-collapse: collapse; */
+}
+.tournamentsTable thead{
+    height: 100px;
+    background-color: #1a1a20;
+    padding: 10px;
+    text-align: left;
+    border-radius:  20px 20px 0 0; 
+}
+/* last th child should have a different border top right radius*/
+.tournamentsTable thead tr th:last-child{
+    border-top-right-radius: 20px;
+}
+.tournamentsTable thead tr th:first-child{
+    border-top-left-radius: 20px;
+    padding-left: 40px;
+}
+.tournamentsTable thead tr th{
+    background: linear-gradient(180deg, #fff6e9, #ffddcf);
+    -webkit-background-clip: text;
+    background-clip: text;
+    -webkit-text-fill-color: transparent;
+    font-family: "gff-latin-bold", sans-serif !important;
+    font-size: larger;
+    border-bottom: 2px solid rgba(252, 253, 255, 0.2);
+
+}
+.tournamentsTable tbody tr:nth-child(odd){
+    background-color: #15151a;
+}
+.tournamentsTable tbody tr:nth-child(even){
+    background-color: #1a1a20;
+}
+
+.tournamentsTable tbody tr{
+    height: 70px;
+    padding: 10px;
+    text-align: left;
+    border-radius: 0 0 20px 20px; 
+    
+}
+.tournamentsTable tbody tr td{
+    background: linear-gradient(180deg, #fff6e9, #ffddcf);
+    -webkit-background-clip: text;
+    background-clip: text;
+    -webkit-text-fill-color: transparent;   
+    opacity: 0.8;
+    font-style: capitalize;
 }
