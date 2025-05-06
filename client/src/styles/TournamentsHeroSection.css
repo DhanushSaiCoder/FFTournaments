@@ -15,10 +15,10 @@
     left: 0;
     width: 100%;
     height: 100%;
-    background: url("../images/background.jpg");
+    background: url("../images/background2.jpg");
     background-size: cover;
     background-position: center;
-    opacity: 0.1; /* Adjust the opacity here */
+    opacity: 0.06; /* Adjust the opacity here */
     z-index: -1; /* Place the pseudo-element behind the content */
 }
 .tsHeroSectionContent {
@@ -51,10 +51,10 @@
     background-size: cover;
     background-repeat: no-repeat;
     background-position: center;
-
+    margin-bottom: -20px;
 }
 .userUserNameDiv {
-    margin-top: -50px;
+    margin-top: -30px;
 
     height: 20%;
     width: 60%;
@@ -78,7 +78,7 @@
 }
 
 .tsHeroUserId{
-    min-height: 55px;
+    min-height: 35px;
     padding: 5px 10px;
     background: linear-gradient(180deg,#34343f 0%,#15151a 100%);
     display: flex;
