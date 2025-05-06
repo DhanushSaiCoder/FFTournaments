@@ -4,23 +4,47 @@ import "../styles/TournamentsContent.css"
 
 // SAMPLE DATA FOR TOURNAMENTS CONTENT
 const tournamentsData = [
+
     {
-        _id: "78sdf5s7adf8sfa98sd7f",
-        name: "TOURNAMENT 1",
-        participants: 50,
-        prizePool: "$5000",
-        endDate: "2023-10-01",
-        startDate: "2023-09-01"
+        _id: "a1b2c3d4e5f6g7h8i9j0",
+        name: "ULTIMATE BR SHOWDOWN",
+        participants: 100,
+        prizePool: "$10000",
+        endDate: "2023-12-01",
+        startDate: "2023-11-01"
     },
     {
-        _id: "s8f8s7fs9d8f7sd8f9asd",
-        name: "TOURNAMENT 2",
-        participants: 30,
-        prizePool: "$3000",
-        endDate: "2023-11-01",
-        startDate: "2023-10-01"
+        _id: "z9y8x7w6v5u4t3s2r1q0",
+        name: "CHAMPIONSHIP CLASH",
+        participants: 75,
+        prizePool: "$7500",
+        endDate: "2024-01-15",
+        startDate: "2023-12-15"
     },
-    // Add more sample data as needed
+    {
+        _id: "p0o9i8u7y6t5r4e3w2q1",
+        name: "BATTLE ROYALE LEGENDS",
+        participants: 60,
+        prizePool: "$6000",
+        endDate: "2024-02-01",
+        startDate: "2024-01-01"
+    },
+    {
+        _id: "m1n2b3v4c5x6z7a8s9d0",
+        name: "SURVIVAL OF THE FITTEST",
+        participants: 80,
+        prizePool: "$8000",
+        endDate: "2024-03-01",
+        startDate: "2024-02-01"
+    },
+    {
+        _id: "q1w2e3r4t5y6u7i8o9p0",
+        name: "THE FINAL STAND",
+        participants: 90,
+        prizePool: "$9000",
+        endDate: "2024-04-01",
+        startDate: "2024-03-01"
+    }
 ];
 
 const TournamentsContent = () => {
@@ -38,20 +62,19 @@ const TournamentsContent = () => {
                     </tr>
                 </thead>
                 <tbody>
-                    {/* Sample data */}
-                    {Array.from({ length: 10 }, (_, index) => (
-                        <tr key={index}>
-                            <td className="tournamentName">TOURNAMENT {index + 1}</td>
-                            <td>{Math.floor(Math.random() * 100) + 1}</td>
-                            <td>${(Math.random() * 10000).toFixed(2)}</td>
-                            <td>{new Date().toLocaleDateString()}</td>
-                            <td>{new Date().toLocaleDateString()}</td>
-
+                    {/* Render rows by mapping through the sample data */}
+                    {tournamentsData.map((tournament) => (
+                        <tr key={tournament._id}>
+                            <td className="tournamentName">{tournament.name}</td>
+                            <td>{tournament.participants}</td>
+                            <td>{tournament.prizePool}</td>
+                            <td>{tournament.endDate}</td>
+                            <td>{tournament.startDate}</td>
                         </tr>
                     ))}
                     <tr key="xyz">
                         <td colSpan={5} className="comingSoonRow">
-                           <b>MORE TOURNAMENTS COMING SOON</b>
+                            <b>MORE TOURNAMENTS COMING SOON</b>
                         </td>
                     </tr>
                 </tbody>
