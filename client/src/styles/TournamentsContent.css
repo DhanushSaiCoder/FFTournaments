@@ -65,4 +65,42 @@
     -webkit-text-fill-color: transparent;   
     opacity: 0.8;
     font-style: capitalize;
+
+}
+.tournamentsTable tbody tr td:first-child{
+    padding-left: 40px;
+}
+.tournamentsTable tbody tr:hover{
+    background-color: #1f1f27;
+    color: #ffaa2a;
+    cursor: pointer;
+}
+.tournamentsTable tbody tr:last-child td:last-child{
+    border-bottom-right-radius: 20px;
+}
+.tournamentsTable tbody tr:last-child td:first-child{
+    border-bottom-left-radius: 20px;
+}
+
+.tournamentName{
+    background: linear-gradient(180deg, #fff6e9, #ffddcf);
+    -webkit-background-clip: text;
+    background-clip: text;
+    -webkit-text-fill-color: transparent;   
+    opacity: 0.8;
+    font-style: capitalize;
+
+}
+.tournamentsTable tbody tr td:hover{
+    color: #ffaa2a;
+    cursor: pointer;
+}
+.comingSoonRow{
+    height: 70px;
+    padding: 10px;
+    text-align: center;
+    border-radius: 0 0 20px 20px; 
+    background-color: #1a1a20;
+    border-top: 2px solid rgba(252, 253, 255, 0.2);
+    
 }

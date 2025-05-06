@@ -18,13 +18,19 @@ const TournamentsContent = () => {
                     {/* Sample data */}
                     {Array.from({ length: 10 }, (_, index) => (
                         <tr key={index}>
-                            <td>{index + 1}</td>
-                            <td>Tournament {index + 1}</td>
-                            <td>${(Math.random() * 10000).toFixed(2)}</td>
+                            <td className="tournamentName">TOURNAMENT {index + 1}</td>
                             <td>{Math.floor(Math.random() * 100) + 1}</td>
+                            <td>${(Math.random() * 10000).toFixed(2)}</td>
                             <td>{new Date().toLocaleDateString()}</td>
+                            <td>{new Date().toLocaleDateString()}</td>
+
                         </tr>
                     ))}
+                    <tr key="xyz">
+                        <td colSpan={5} className="comingSoonRow">
+                           <b>MORE TOURNAMENTS COMING SOON</b>
+                        </td>
+                    </tr>
                 </tbody>
             </table>
         </div>
