@@ -1,0 +1,9 @@
+.tournamentDetails{
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    padding: 20px;
+    border: 1px solid red;
+    width: 100%;
+    height: 80%;
+}

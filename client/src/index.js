@@ -13,6 +13,7 @@ import NoPage from './pages/NoPage';
 import Profile from './pages/Profile';
 import Settings from './pages/Settings';
 import Footer from './components/Footer';
+import TournamentDetails from './components/TournamentDetails';
 
 const root = ReactDOM.createRoot(document.getElementById('root'));
 root.render(
@@ -22,6 +23,7 @@ root.render(
       <Routes>
         <Route path="/" element={<Home />} />
         <Route path="/tournaments" element={<Tournaments />} />
+        <Route path="/tournament/:id" element={<TournamentDetails />} />
         <Route path="/rankings" element={<Rankings />} />
         <Route path="/help" element={<Help />} />
         <Route path="/contactUs" element={<ContactUs />} />
