@@ -7,6 +7,7 @@
     flex-direction: column;
     gap: 10px;
     padding: 20px;
+    background: linear-gradient(180deg,#ffffff00, #0b0b0d 40%, #1c1c1eac 100%);
 }
 .footerNavLinksDiv, .footerLastDiv{
     width: 100%;
