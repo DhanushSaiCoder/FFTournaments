@@ -18,7 +18,15 @@ const TournamentsHeroSection = () => {
                         </div>
                     </div>
                 </div>
-                <div className='tsHeroSectionRight'></div>
+                <div className='tsHeroSectionRight'>
+                    <div className='circlesDiv'>
+                        <div className='tsPlayedCircle'></div>
+                        <div className='moneyEarntCircle'></div>
+                        <div className='moneyEarntCircle'></div>
+
+                    </div>
+                    <div className='statsDiv'></div>
+                </div>
             </div>
         </div>
     );
