@@ -1,0 +1,16 @@
+.backButtonContainer{
+    width: 100%;
+    height: 50px;
+    display: flex;
+    align-items: center;
+    justify-content: start;
+    background: linear-gradient(90deg, #2e2e38, #ffffff00);
+    padding: 0 60px;
+    font-family: "gff-latin-bold" !important;
+    font-size: 28px;
+}
+.backButtonContainer:hover{
+    cursor: pointer;
+    color:#c9c9c9;
+    transition: 0.3s;
+}
