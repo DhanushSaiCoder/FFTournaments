@@ -1,6 +1,7 @@
 import React from 'react';
 import "../styles/TournamentsContent.css"
 
+import { useNavigate } from 'react-router-dom';
 
 // SAMPLE DATA FOR TOURNAMENTS CONTENT
 const tournamentsData = [
@@ -48,6 +49,7 @@ const tournamentsData = [
 ];
 
 const TournamentsContent = () => {
+    const navigate = useNavigate();
     return (
         <div className='tournamentsContent'>
             {/* table of tournaments data */}
@@ -64,14 +66,16 @@ const TournamentsContent = () => {
                 <tbody>
                     {/* Render rows by mapping through the sample data */}
                     {tournamentsData.map((tournament) => (
-                        <tr key={tournament._id}>
-                            <td className="tournamentName">{tournament.name}</td>
-                            <td>{tournament.participants}</td>
-                            <td>{tournament.prizePool}</td>
-                            <td>{tournament.endDate}</td>
-                            <td>{tournament.startDate}</td>
-                        </tr>
-                    ))}
+                            <tr onClick={() => { 
+                                navigate(`/tournament/${tournament._id}`)  // Navigate to tournament details page
+                            }} key={tournament._id}>
+                                <td className="tournamentName">{tournament.name}</td>
+                                <td>{tournament.participants}</td>
+                                <td>{tournament.prizePool}</td>
+                                <td>{tournament.endDate}</td>
+                                <td>{tournament.startDate}</td>
+                            </tr>
+                     ))}
                     <tr key="xyz">
                         <td colSpan={5} className="comingSoonRow">
                             <b>MORE TOURNAMENTS COMING SOON</b>
