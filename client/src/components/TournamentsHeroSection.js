@@ -4,7 +4,7 @@ import "../styles/TournamentsHeroSection.css";
 
 const data = {
     id: "42k53k4jlk341l42l3k5",
-    costumeUrl: "https://picsum.photos/200/300",
+    costumeUrl: "../images/costume.png",
     name: "꧁༒☬𝕵𝖆𝖌𝖚𝖆𝖗☬༒꧂",
     uid: "8919552348",
     tournamentsPlayed: 16,
