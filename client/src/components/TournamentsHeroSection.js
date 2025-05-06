@@ -1,12 +1,29 @@
 import React from 'react';
 import "../styles/TournamentsHeroSection.css";
 
+
+const data = {
+    id: "42k53k4jlk341l42l3k5",
+    costumeUrl: "https://picsum.photos/200/300",
+    name: "꧁༒☬𝕵𝖆𝖌𝖚𝖆𝖗☬༒꧂",
+    uid: "8919552348",
+    tournamentsPlayed: 16,
+    moneySpent: 212,
+    moneyEarned: 1473,
+    tournamentsWon: 12,
+    totalKills: 34,
+    totalCashWon: 2341,
+    totalSpendings: 432,
+    avgKillsPerMatch: 3,
+
+}
+
 const TournamentsHeroSection = () => {
     return (
         <div className="tournamentsHeroSection">
             <div className='tsHeroSectionContent'>
                 <div className='tsHeroSectionLeft'>
-                    <div className='userCostumeImgDiv'>
+                    <div style={{ background: `url("${data.costumeUrl}")`}} className='userCostumeImgDiv'>
                         {/* image with background  with css. */}
                     </div>
                     <div className='userUserNameDiv'>
@@ -55,10 +72,10 @@ const TournamentsHeroSection = () => {
                             <p className='statHeading'>AVG KILLS PER MATCH: </p>
                             <p className='statValue'>3</p>
                         </div>
-                       
-                       
-                        
-                        
+
+
+
+
                     </div>
                 </div>
             </div>

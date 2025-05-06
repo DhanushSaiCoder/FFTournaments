@@ -48,13 +48,13 @@
     aspect-ratio: 9/14;
     height: 80%;
     background: url("../images/wokong.png");
-    background-size: cover;
-    background-repeat: no-repeat;
-    background-position: center;
-    margin-bottom: -20px;
+    background-size: cover !important;
+    background-repeat: no-repeat !important;
+    background-position: center !important;
+    border: 1px solid #fcf6ff16;
+    margin: 20px;
 }
 .userUserNameDiv {
-    margin-top: -30px;
 
     height: 20%;
     width: 60%;
