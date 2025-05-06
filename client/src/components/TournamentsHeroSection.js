@@ -34,7 +34,32 @@ const TournamentsHeroSection = () => {
                         </div>
 
                     </div>
-                    <div className='statsDiv'></div>
+                    <div className='statsDiv'>
+                        <div className='stat'>
+                            <p className='statHeading'>TOURNAMENTS WON: </p>
+                            <p className='statValue'>12</p>
+                        </div>
+                        <div className='stat'>
+                            <p className='statHeading'>TOTAL KILLS: </p>
+                            <p className='statValue'>34</p>
+                        </div>
+                        <div className='stat'>
+                            <p className='statHeading'>TOTAL CASH WON: </p>
+                            <p className='statValue'>₹2341/-</p>
+                        </div>
+                        <div className='stat'>
+                            <p className='statHeading'>TOTAL SPENDINGS: </p>
+                            <p className='statValue'>₹432/-</p>
+                        </div>
+                        <div className='stat'>
+                            <p className='statHeading'>AVG KILLS PER MATCH: </p>
+                            <p className='statValue'>3</p>
+                        </div>
+                       
+                       
+                        
+                        
+                    </div>
                 </div>
             </div>
         </div>

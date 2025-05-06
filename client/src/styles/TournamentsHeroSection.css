@@ -127,7 +127,7 @@
     background: linear-gradient(180deg, #101011 0%, #050509 100%);
 
     border-radius: 10px;
-    border: 1px solid #fcf6ff2f;
+    border: 1px solid #fcf6ff16;
 }
 .tsPlayedCircle {
     border: 4.5px solid #a81bff;
@@ -167,4 +167,22 @@
     background-clip: text;
     -webkit-text-fill-color: transparent;
     font-size: 65px;
+}
+.statsDiv{
+    padding: 20px 0;    
+    align-items: flex-start;
+    justify-content: flex-start;
+    flex-direction: column;
+    flex-wrap: wrap;
+}
+.stat{
+    width: 30%;
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    padding: 5px 20px;
+
+}
+.statValue{
+    opacity: 0.4;
 }
