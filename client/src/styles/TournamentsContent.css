@@ -104,3 +104,42 @@
     border-top: 2px solid rgba(252, 253, 255, 0.2);
     
 }
+/* src/styles/tournaments.css */
+
+.tournamentName {
+    /* base styles */
+    color: #2c3e50;
+    font-weight: 500;
+    transition: color 0.2s ease-in-out;
+  }
+  
+  .tournamentName:hover {
+    color: #3498db;           /* change text color on hover */
+    text-decoration: underline;
+    cursor: pointer;          /* show the pointer cursor */
+  }
+  .tournamentName{
+    /* keep your gradient look */
+    background: linear-gradient(180deg, #fff6e9, #ffddcf);
+    -webkit-background-clip: text;
+    background-clip: text;
+    -webkit-text-fill-color: transparent;
+    opacity: 0.8;
+    font-style: capitalize;
+    transition: all 0.2s ease-in-out;
+  }
+  
+  .tournamentName:hover {
+    /* remove the gradient so color shows up */
+    background: none !important;
+    -webkit-background-clip: unset;
+    background-clip: unset;
+    
+    /* apply the hover color */
+    -webkit-text-fill-color: #ffaa2a !important;
+    /* fallback for non-WebKit browsers */
+    color: #ffaa2a !important;
+    
+    text-decoration: underline;
+    cursor: pointer;
+  }
