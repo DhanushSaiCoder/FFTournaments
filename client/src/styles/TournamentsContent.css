@@ -28,10 +28,10 @@
 }
 /* last th child should have a different border top right radius*/
 .tournamentsTable thead tr th:last-child{
-    border-top-right-radius: 20px;
+    border-top-right-radius: 10px;
 }
 .tournamentsTable thead tr th:first-child{
-    border-top-left-radius: 20px;
+    border-top-left-radius: 10px;
     padding-left: 40px;
 }
 .tournamentsTable thead tr th{
@@ -76,10 +76,10 @@
     cursor: pointer;
 }
 .tournamentsTable tbody tr:last-child td:last-child{
-    border-bottom-right-radius: 20px;
+    border-bottom-right-radius: 10px;
 }
 .tournamentsTable tbody tr:last-child td:first-child{
-    border-bottom-left-radius: 20px;
+    border-bottom-left-radius: 10px;
 }
 
 .tournamentName{
