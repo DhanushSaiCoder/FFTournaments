@@ -1,5 +1,28 @@
 import React from 'react';
 import "../styles/TournamentsContent.css"
+
+
+// SAMPLE DATA FOR TOURNAMENTS CONTENT
+const tournamentsData = [
+    {
+        _id: "78sdf5s7adf8sfa98sd7f",
+        name: "TOURNAMENT 1",
+        participants: 50,
+        prizePool: "$5000",
+        endDate: "2023-10-01",
+        startDate: "2023-09-01"
+    },
+    {
+        _id: "s8f8s7fs9d8f7sd8f9asd",
+        name: "TOURNAMENT 2",
+        participants: 30,
+        prizePool: "$3000",
+        endDate: "2023-11-01",
+        startDate: "2023-10-01"
+    },
+    // Add more sample data as needed
+];
+
 const TournamentsContent = () => {
     return (
         <div className='tournamentsContent'>
