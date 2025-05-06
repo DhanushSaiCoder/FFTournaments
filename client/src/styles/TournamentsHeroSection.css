@@ -1,0 +1,188 @@
+.tournamentsHeroSection {
+    height: 65vh; /* Adjust height to fit the header */
+    overflow: hidden;
+    position: relative;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    flex-direction: column;
+}
+
+.tournamentsHeroSection::before {
+    content: "";
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    background: url("../images/background2.jpg");
+    background-size: cover;
+    background-position: center;
+    opacity: 0.06; /* Adjust the opacity here */
+    z-index: -1; /* Place the pseudo-element behind the content */
+}
+.tsHeroSectionContent {
+    width: 70%;
+    height: 100%;
+
+    display: flex;
+    align-items: center;
+    justify-content: center;
+}
+
+.tsHeroSectionLeft {
+    height: 100%;
+    width: 30%;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    flex-direction: column;
+}
+.tsHeroSectionRight {
+    height: 100%;
+    width: 70%;
+    /* border: 1px solid blue; */
+}
+.userCostumeImgDiv {
+    /* width: 100%; */
+    aspect-ratio: 9/14;
+    height: 80%;
+    background: url("../images/costume.png") !important;
+    background-size: cover !important;
+    background-repeat: no-repeat !important;
+    background-position: center !important;
+    margin: 20px;
+    border-radius: 20px;
+}
+.userUserNameDiv {
+
+    height: 20%;
+    width: 60%;
+    /* border: 1px solid green; */
+}
+.tsHeroUserName {
+    padding: 5px 10px;
+    min-height: 55px;
+    background: linear-gradient(180deg, #ab8939 0%, #ffdc00 100%);
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    border-radius: 10px 10px 0 0;
+    color: #0f0f0f;
+}
+.tsHeroUserName p {
+    color: #0f0f0f;
+    /* word-break: break-all; */
+    word-wrap: break-word;
+    font-size: medium;
+}
+
+.tsHeroUserId {
+    min-height: 35px;
+    padding: 5px 10px;
+    background: linear-gradient(180deg, #34343f 0%, #15151a 100%);
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    border-radius: 0 0 10px 10px;
+    color: #0f0f0f;
+}
+.tsHeroSectionRight {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    gap: 20px;
+    flex-direction: column;
+
+    flex-wrap: wrap;
+}
+.circlesDiv {
+    width: 100%;
+    height: 50%;
+    display: flex;
+    align-items: center;
+    justify-content: flex-start;
+    padding: 0 20px;
+    gap: 20px;
+}
+.tsPlayedCircle,
+.moneyEarntCircle,
+.moneySpentCircle {
+    height: 99%;
+    aspect-ratio: 1/1;
+    border-radius: 50%;
+    background: linear-gradient(180deg, #101011 0%, #050509 100%);
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    flex-direction: column;
+}
+.statsDiv {
+    width: calc(100% - 40px);
+    height: 40%;
+    display: flex;
+    align-items: center;
+    justify-content: space-evenly;
+    gap: 20px;
+    background: linear-gradient(180deg, #101011 0%, #050509 100%);
+
+    border-radius: 10px;
+    border: 1px solid #fcf6ff16;
+}
+.tsPlayedCircle {
+    border: 4.5px solid #a81bff;
+   
+}
+.moneySpentCircle {
+    border: 4.5px solid #ffaa2a;
+}
+.moneyEarntCircle {
+    border: 4.5px solid rgb(20, 255, 71);
+}
+.circleLabel {
+    opacity: 0.6;
+    font-size: medium;
+    
+}
+.tsPlayedTxt {
+    background: linear-gradient(180deg, #a81bff, #d91bff);
+    -webkit-background-clip: text;
+    background-clip: text;
+    -webkit-text-fill-color: transparent;
+    font-size: 65px;
+}
+
+
+.moneySpentTxt {
+    background: linear-gradient(180deg, #ffaa2a, #ff6a2a);
+    -webkit-background-clip: text;
+    background-clip: text;
+    -webkit-text-fill-color: transparent;
+    font-size: 65px;
+}
+
+.moneyEarntTxt {
+    background: linear-gradient(180deg, rgb(20, 255, 71), rgb(20, 255, 141));
+    -webkit-background-clip: text;
+    background-clip: text;
+    -webkit-text-fill-color: transparent;
+    font-size: 65px;
+}
+.statsDiv{
+    padding: 20px 0;    
+    align-items: flex-start;
+    justify-content: flex-start;
+    flex-direction: column;
+    flex-wrap: wrap;
+}
+.stat{
+    width: 30%;
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    padding: 5px 20px;
+
+}
+.statValue{
+    opacity: 0.4;
+}
