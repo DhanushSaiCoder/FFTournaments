@@ -60,43 +60,43 @@
     width: 60%;
     /* border: 1px solid green; */
 }
-.tsHeroUserName{
+.tsHeroUserName {
     padding: 5px 10px;
     min-height: 55px;
-    background: linear-gradient(180deg,#ab8939 0%,#ffdc00 100%);
+    background: linear-gradient(180deg, #ab8939 0%, #ffdc00 100%);
     display: flex;
     align-items: center;
     justify-content: center;
-    border-radius: 10px 10px 0 0 ;
+    border-radius: 10px 10px 0 0;
     color: #0f0f0f;
 }
-.tsHeroUserName p{
+.tsHeroUserName p {
     color: #0f0f0f;
     /* word-break: break-all; */
     word-wrap: break-word;
     font-size: medium;
 }
 
-.tsHeroUserId{
+.tsHeroUserId {
     min-height: 35px;
     padding: 5px 10px;
-    background: linear-gradient(180deg,#34343f 0%,#15151a 100%);
+    background: linear-gradient(180deg, #34343f 0%, #15151a 100%);
     display: flex;
     align-items: center;
     justify-content: center;
     border-radius: 0 0 10px 10px;
     color: #0f0f0f;
 }
-.tsHeroSectionRight{
+.tsHeroSectionRight {
     display: flex;
     align-items: center;
     justify-content: center;
     gap: 20px;
     flex-direction: column;
-  
+
     flex-wrap: wrap;
 }
-.circlesDiv{
+.circlesDiv {
     width: 100%;
     height: 50%;
     display: flex;
@@ -105,22 +105,66 @@
     padding: 0 20px;
     gap: 20px;
 }
-.tsPlayedCircle, .moneyEarntCircle{
+.tsPlayedCircle,
+.moneyEarntCircle,
+.moneySpentCircle {
     height: 99%;
     aspect-ratio: 1/1;
     border-radius: 50%;
-    border: 1px solid rgb(50, 50, 50);
-    background: linear-gradient(180deg,#1d1d2b 0%,#15151a 100%);
+    background: linear-gradient(180deg, #101011 0%, #050509 100%);
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    flex-direction: column;
 }
-.statsDiv{
+.statsDiv {
     width: calc(100% - 40px);
     height: 40%;
     display: flex;
     align-items: center;
     justify-content: space-evenly;
     gap: 20px;
-    background: linear-gradient(180deg,#1d1d2b 0%,#15151a 100%);
-    border-radius: 10px;
-    border: 1px solid rgb(50, 50, 50);
+    background: linear-gradient(180deg, #101011 0%, #050509 100%);
 
+    border-radius: 10px;
+    border: 1px solid #fcf6ff2f;
+}
+.tsPlayedCircle {
+    border: 4.5px solid #a81bff;
+   
+}
+.moneySpentCircle {
+    border: 4.5px solid #ffaa2a;
+}
+.moneyEarntCircle {
+    border: 4.5px solid rgb(20, 255, 71);
+}
+.circleLabel {
+    opacity: 0.6;
+    font-size: medium;
+    
+}
+.tsPlayedTxt {
+    background: linear-gradient(180deg, #a81bff, #d91bff);
+    -webkit-background-clip: text;
+    background-clip: text;
+    -webkit-text-fill-color: transparent;
+    font-size: 65px;
+}
+
+
+.moneySpentTxt {
+    background: linear-gradient(180deg, #ffaa2a, #ff6a2a);
+    -webkit-background-clip: text;
+    background-clip: text;
+    -webkit-text-fill-color: transparent;
+    font-size: 65px;
+}
+
+.moneyEarntTxt {
+    background: linear-gradient(180deg, rgb(20, 255, 71), rgb(20, 255, 141));
+    -webkit-background-clip: text;
+    background-clip: text;
+    -webkit-text-fill-color: transparent;
+    font-size: 65px;
 }

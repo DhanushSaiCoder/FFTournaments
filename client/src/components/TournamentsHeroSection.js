@@ -20,9 +20,18 @@ const TournamentsHeroSection = () => {
                 </div>
                 <div className='tsHeroSectionRight'>
                     <div className='circlesDiv'>
-                        <div className='tsPlayedCircle'></div>
-                        <div className='moneyEarntCircle'></div>
-                        <div className='moneyEarntCircle'></div>
+                        <div className='tsPlayedCircle'>
+                            <h3 className='circleLabel'>TOURNAMENTS PLAYED</h3>
+                            <h2 className='tsPlayedTxt'>16</h2>
+                        </div>
+                        <div className='moneySpentCircle'>
+                            <h3 className='circleLabel'>MONEY SPENT</h3>
+                            <h2 className='moneySpentTxt'>₹212/-</h2>
+                        </div>
+                        <div className='moneyEarntCircle'>
+                            <h3 className='circleLabel'>MONEY EARNED</h3>
+                            <h2 className='moneyEarntTxt'>₹1473/-</h2>
+                        </div>
 
                     </div>
                     <div className='statsDiv'></div>
