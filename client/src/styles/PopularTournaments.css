@@ -150,6 +150,7 @@
 .champion{
     position: absolute ;
     top: -100px;
+    padding-right: 10px;
     font-family: poppins;
     font-size: 32px;
     font-style: italic;

@@ -35,7 +35,7 @@
 }
 h1 {
     font-size: 45px;
-    font-family: gff-latin-bold;
+    font-family: gff-latin-bold !important;
 
 }
 p{
