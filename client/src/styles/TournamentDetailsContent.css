@@ -21,10 +21,13 @@
     gap: 20px;
 
     min-height: 300px;
+
+
 }
 .tournamentDetailsInTDC {
     width: 60%;
     height: 100%;
+
 }
 
 .nameAndFrequencyDiv h2,
@@ -130,4 +133,14 @@
     border: none;
     border-radius: 5px;
     margin-top: 10px;
+}
+.tournamentPricesInTDC{
+    min-height: 300px;
+    border: 1px solid #f1f0f520;
+    background: #15151a;
+    border-radius: 20px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    padding-top: 30px;
 }

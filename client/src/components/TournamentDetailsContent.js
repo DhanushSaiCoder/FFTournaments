@@ -1,6 +1,7 @@
 import React from 'react';
 import data from '../sampleData/sampleTournamentData';
 import '../styles/TournamentDetailsContent.css';
+import PricingChart from './PricingChart';
 
 const TournamentDetailsContent = () => {
     console.log(data);
@@ -66,7 +67,7 @@ const TournamentDetailsContent = () => {
 
                     {/* TOURNAMENT PRICING DETAILS IN TDC */}
                     <div className='tournamentPricesInTDC'>
-                            
+                            <PricingChart tournament={data} />
                     </div>
                 </div>
 

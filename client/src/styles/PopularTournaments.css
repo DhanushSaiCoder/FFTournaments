@@ -66,13 +66,13 @@
     font-weight: bolder;
 }
 .pricingDetailsDiv{
-    /* border: 1px solid red; */
     display: flex;
     align-items: center;
     justify-content: center;
     flex-direction: column;
     gap: 20px;
-
+    width: 500px;
+    height: 500px;
 }
 .threeBarsDiv{
     height: 60%;
