@@ -1,8 +1,7 @@
 import React from 'react';
 import '../styles/TournamentDetailsImpInfo.css';
-import SectionDivider from './SectionDivider';
 
-const TournamentDetialsImpInfo = () => {
+const TournamentDetialsImpInfo = ({ data }) => {
     return (
         <div className='TournamentDetialsImpInfo'>
             <div className="importantInformation">
@@ -10,19 +9,21 @@ const TournamentDetialsImpInfo = () => {
                     <div className='impInfoDetailsDiv'>
                         <h3 className='impInfoHeadings'><u>DETAILS:</u></h3>
                         <ol className='impInfoDetailsList'>
-                            <li className='impInfoText'>Detail</li>
-                            <li className='impInfoText'>Detail</li>
-                            <li className='impInfoText'>Detail</li>
-                            <li className='impInfoText'>Detail</li>
+                            {
+                                data.importantInformation.details.map((detail, index) => (
+                                    <li className='impInfoText' key={index}>{detail}</li>
+                                ))
+                            }
                         </ol>
                     </div>
                     <div className='impInfoRulesDiv'>
                         <h3 className='impInfoHeadings'><u>RULES:</u></h3>
                         <ol className='impInfoDetailsList'>
-                            <li className='impInfoText'>Rule</li>
-                            <li className='impInfoText'>Rule</li>
-                            <li className='impInfoText'>Rule</li>
-                            <li className='impInfoText'>Rule</li>
+                           {
+                                data.importantInformation.rules.map((rule, index) => (
+                                    <li className='impInfoText' key={index}>{rule}</li>
+                                ))
+                            }
                         </ol>
                     </div>
                 </div>
@@ -30,19 +31,21 @@ const TournamentDetialsImpInfo = () => {
                     <div className='impInfoHowToJoinDiv'>
                         <h3 className='impInfoHeadings'><u>HOW TO JOIN:</u></h3>
                         <ol className='impInfoDetailsList'>
-                            <li className='impInfoText'>Step</li>
-                            <li className='impInfoText'>Step</li>
-                            <li className='impInfoText'>Step</li>
-                            <li className='impInfoText'>Step</li>
+                        {
+                                data.importantInformation.howToJoin.map((rule, index) => (
+                                    <li className='impInfoText' key={index}>{rule}</li>
+                                ))
+                            }
                         </ol>
                     </div>
                     <div className='impInfoHowToClaimPrizeMoneyDiv'>
                         <h3 className='impInfoHeadings'><u>HOW TO CLAIM PRIZE MONEY:</u></h3>
                         <ol className='impInfoDetailsList'>
-                            <li className='impInfoText'>Step</li>
-                            <li className='impInfoText'>Step</li>
-                            <li className='impInfoText'>Step</li>
-                            <li className='impInfoText'>Step</li>
+                        {
+                                data.importantInformation.howToClaimPrizeMoney.map((rule, index) => (
+                                    <li className='impInfoText' key={index}>{rule}</li>
+                                ))
+                            }
                         </ol>
                     </div>
                 </div>

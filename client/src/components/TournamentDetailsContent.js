@@ -1,10 +1,9 @@
 import React from 'react';
-import data from '../sampleData/sampleTournamentData';
 import '../styles/TournamentDetailsContent.css';
 import PricingChart from './PricingChart';
 import TournamentTimer from './TournamentTimer';
 
-const TournamentDetailsContent = () => {
+const TournamentDetailsContent = ({data}) => {
     console.log(data);
     return (
         <div className="tournamentDetailsContentContainer">
