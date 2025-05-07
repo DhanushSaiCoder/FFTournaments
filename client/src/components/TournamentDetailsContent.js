@@ -2,6 +2,7 @@ import React from 'react';
 import data from '../sampleData/sampleTournamentData';
 import '../styles/TournamentDetailsContent.css';
 import PricingChart from './PricingChart';
+import TournamentTimer from './TournamentTimer';
 
 const TournamentDetailsContent = () => {
     console.log(data);
@@ -74,7 +75,7 @@ const TournamentDetailsContent = () => {
 
                 {/* TOURNAMENT PRICING DETAILS IN TDC */}
                 <div className='tournamentTimerDiv'>
-
+                    <TournamentTimer startDateTime="2023-10-01T10:00:00Z"/>
                 </div>
 
             </div>
