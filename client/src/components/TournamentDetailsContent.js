@@ -29,13 +29,44 @@ const TournamentDetailsContent = () => {
                                 </div>
                             ))}
                         </div>
+                        <div className="detailsBox statsDiv">
+                            <div className='stat'>
+                                <p className='statHeading'>GAMES MODE: </p>
+                                <p className='statValue'>{data.gameMode.toUpperCase()}</p>
+                            </div>
+                            <div className='stat'>
+                                <p className='statHeading'>MAX PLAYERS: </p>
+                                <p className='statValue'>{data.maxPlayers}</p>
+                            </div>
+                            <div className='stat'>
+                                <p className='statHeading'>MAX PRIZE POOL: </p>
+                                <p className='statValue'>₹{data.maxPrizePool}/-</p>
+                            </div>
+                            <div className='stat'>
+                                <p className='statHeading'>PRIZE PER KILL: </p>
+                                <p className='statValue'>₹{data.prizePerKill}/-</p>
+                            </div>
+                        </div>
+
                         <div className="entryFeeAndRegisterNowBtnDiv">
-                            <p>Entry Fee: ₹{data.entryFee}/-</p>
-                            <button className='registerNowBtn'>Register Now</button>
+                            <p className='entryFee'>Entry Fee:
+                                <span className='en tryFee prevEntryFee'>
+                                    <s>₹{Math.ceil((80 / 100 * data.entryFee) + data.entryFee)}/-</s>
+                                </span>
+                                <span className='entryFee feeValue'>₹{data.entryFee}/-</span>
+                            </p>
+                            <div className="registerNowBtnDiv">
+
+                                <button className='registerNowBtn'>Register Now</button>
+                                <button className='moreInfoBtn'>More Info</button>
+                            </div>
                         </div>
                     </div>
-                    <div className='tournamentPricesInTDC'>
 
+
+                    {/* TOURNAMENT PRICING DETAILS IN TDC */}
+                    <div className='tournamentPricesInTDC'>
+                            
                     </div>
                 </div>
 
