@@ -1,34 +1,51 @@
 import React from 'react';
+import '../styles/TournamentDetailsImpInfo.css';
+import SectionDivider from './SectionDivider';
 
 const TournamentDetialsImpInfo = () => {
     return (
-        <div>
-            <h2>Important Information</h2>
+        <div className='TournamentDetialsImpInfo'>
             <div className="importantInformation">
-                <h3>Details</h3>
-                <ul>
-                    <li>Important information about the tournament</li>
-                    <li>More important information about the tournament</li>
-                    <li>Even more important information about the tournament</li>
-                </ul>
-                <h3>Rules</h3>
-                <ul>
-                    <li>Rule 1</li>
-                    <li>Rule 2</li>
-                    <li>Rule 3</li>
-                </ul>
-                <h3>How to Join</h3>
-                <ul>
-                    <li>How to join the tournament</li>
-                    <li>More information on how to join</li>
-                    <li>Even more information on how to join</li>
-                </ul>
-                <h3>How to Claim Prize Money</h3>
-                <ul>
-                    <li>How to claim the prize money</li>
-                    <li>More information on how to claim the prize money</li>
-                    <li>Even more information on how to claim the prize money</li>
-                </ul>
+                <div className='impInfoLeftDiv'>
+                    <div className='impInfoDetailsDiv'>
+                        <h3 className='impInfoHeadings'><u>DETAILS:</u></h3>
+                        <ol className='impInfoDetailsList'>
+                            <li className='impInfoText'>Detail</li>
+                            <li className='impInfoText'>Detail</li>
+                            <li className='impInfoText'>Detail</li>
+                            <li className='impInfoText'>Detail</li>
+                        </ol>
+                    </div>
+                    <div className='impInfoRulesDiv'>
+                        <h3 className='impInfoHeadings'><u>RULES:</u></h3>
+                        <ol className='impInfoDetailsList'>
+                            <li className='impInfoText'>Rule</li>
+                            <li className='impInfoText'>Rule</li>
+                            <li className='impInfoText'>Rule</li>
+                            <li className='impInfoText'>Rule</li>
+                        </ol>
+                    </div>
+                </div>
+                <div className='impInfoRightDiv'>
+                    <div className='impInfoHowToJoinDiv'>
+                        <h3 className='impInfoHeadings'><u>HOW TO JOIN:</u></h3>
+                        <ol className='impInfoDetailsList'>
+                            <li className='impInfoText'>Step</li>
+                            <li className='impInfoText'>Step</li>
+                            <li className='impInfoText'>Step</li>
+                            <li className='impInfoText'>Step</li>
+                        </ol>
+                    </div>
+                    <div className='impInfoHowToClaimPrizeMoneyDiv'>
+                        <h3 className='impInfoHeadings'><u>HOW TO CLAIM PRIZE MONEY:</u></h3>
+                        <ol className='impInfoDetailsList'>
+                            <li className='impInfoText'>Step</li>
+                            <li className='impInfoText'>Step</li>
+                            <li className='impInfoText'>Step</li>
+                            <li className='impInfoText'>Step</li>
+                        </ol>
+                    </div>
+                </div>
             </div>
         </div>
     );
