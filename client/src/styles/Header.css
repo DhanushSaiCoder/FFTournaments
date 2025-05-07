@@ -75,7 +75,7 @@ nav ul li.active a:active::after {
     justify-content: flex-start;
     gap: 20px;
     align-items: center;
-    background-color: rgba(5, 5, 9, 0.78); /* Add transparency */
+    background-color: rgba(5, 5, 9, 0.7); /* Add transparency */
     backdrop-filter: blur(15px); /* Blur effect */
     box-shadow: 0 4px 8px rgba(0, 0, 0, 0.2);
     padding: 0 20px;
