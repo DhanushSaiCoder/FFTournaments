@@ -2,6 +2,7 @@ import React from 'react';
 import "../styles/PopularTournaments.css";
 import SectionDivider from './SectionDivider';
 import App from './../App';
+import PricingChart from './PricingChart';
 
 const data = [
     {
@@ -88,32 +89,7 @@ const PopularTournaments = () => {
 
                         {/* render only if the index is an odd */}
                         {index % 2 != 0 && (
-                            <div className='pricingDetailsDiv'>
-                                <div className='threeBarsDiv'>
-                                    <div className='secondBar'>
-                                        <h4 className='secondTag'>#2</h4>
-                                        <h2 className='secondPrize'>₹399/-</h2>
-                                    </div>
-                                    <div className='firstBar'>
-                                        <h4 className='firstTag'>#1</h4>
-                                        <h2 className='firstPrize'>₹555/-</h2>
-                                        <h3 className='champion'>CHAMPION</h3>
-                                    </div>
-                                    <div className='thirdBar'>
-                                        <h4 className='thirdTag'>#3</h4>
-                                        <h2 className='thirdPrize'>₹199/-</h2>
-
-                                    </div>
-                                </div>
-                                <div className='prizeDetailsTextDiv'>
-
-                                    {
-                                        tournament.prizeDetails.map((detail, index2) => (
-                                            <p key={index2} style={index % 2 != 0 ? { color: "#54ff98" } : {}} className='prizeDetailsText'> {detail}</p>
-                                        ))
-                                    }
-                                </div>
-                            </div>
+                            <PricingChart tournament={tournament} />
                         )}
 
                         {/* actual tournament data */}
@@ -129,39 +105,13 @@ const PopularTournaments = () => {
                                     ))}
                                 </ul>
                             </div>
-                            <button style={index % 2 != 0 ? { backgroundColor: "#224a35", color:"#52fb94"  } : {}} className='learnMoreBtn'>Learn More</button>
+                            <button style={index % 2 != 0 ? { backgroundColor: "#224a35", color: "#52fb94" } : {}} className='learnMoreBtn'>Learn More</button>
                         </div>
 
 
                         {/* render if the index is an even */}
                         {index % 2 === 0 && (
-                            <div className='pricingDetailsDiv'>
-                                <div className='threeBarsDiv'>
-                                    <div className='secondBar'>
-                                        <h4 className='secondTag'>#2</h4>
-                                        <h2 className='secondPrize'>₹399/-</h2>
-                                    </div>
-                                    <div className='firstBar'>
-                                        <h4 className='firstTag'>#1</h4>
-                                        <h2 className='firstPrize'>₹555/-</h2>
-                                        <h3 className='champion'>CHAMPION</h3>
-                                    </div>
-                                    <div className='thirdBar'>
-                                        <h4 className='thirdTag'>#3</h4>
-                                        <h2 className='thirdPrize'>₹199/-</h2>
-
-                                    </div>
-                                </div>
-                                <div className='prizeDetailsTextDiv'>
-
-                                    {
-
-                                        tournament.prizeDetails.map((detail, index) => (
-                                            <p key={index} className='prizeDetailsText'> {detail}</p>
-                                        ))
-                                    }
-                                </div>
-                            </div>
+                            <PricingChart tournament={tournament} />
                         )}
 
                     </div>
