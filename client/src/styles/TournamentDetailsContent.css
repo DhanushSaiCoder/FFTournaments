@@ -1,0 +1,156 @@
+.tournamentDetailsContentContainer {
+    width: 100%;
+    height: auto;
+    padding: 20px 20px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    flex-direction: column;
+    gap: 20px;
+    padding-top: 80px;
+    padding-bottom: 0;
+}
+.tournamentDetailsContent {
+    width: 80%;
+    padding: 10px;
+}
+.tDataAndPricesDiv {
+    width: 100%;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    gap: 20px;
+
+    min-height: 300px;
+
+
+}
+.tournamentDetailsInTDC {
+    width: 60%;
+    height: 100%;
+
+}
+
+.nameAndFrequencyDiv h2,
+.nameAndFrequencyDiv h3 {
+    font-family: "poppins" !important;
+    font-style: italic;
+    line-height: 40px;
+}
+.nameAndFrequencyDiv h3 {
+    font-size: 24px;
+    padding-left: 10px;
+    background: linear-gradient(180deg, #ffcf54, #e7983f);
+    -webkit-background-clip: text;
+    background-clip: text;
+    -webkit-text-fill-color: transparent;
+}
+.nameAndFrequencyDiv h2 {
+    font-size: 48px;
+    background: linear-gradient(180deg, #ffcf54, #e7983f);
+    -webkit-background-clip: text;
+    background-clip: text;
+    -webkit-text-fill-color: transparent;
+}
+.tagsDiv {
+    display: flex;
+    align-items: center;
+    justify-content: flex-start;
+    gap: 10px;
+    padding: 10px 0;
+}
+.tag {
+    border: 1.5px solid #b200ff;
+    width: max-content;
+    padding: 5px 15px;
+    border-radius: 5px;
+
+    background: linear-gradient(180deg, #a202ff3a, #ff62ff30);
+}
+.tag p {
+    background: linear-gradient(180deg, #a202ff, #ff62ff);
+    -webkit-background-clip: text;
+    background-clip: text;
+    -webkit-text-fill-color: transparent;
+    opacity: 1 !important;
+    font-size: 14px;
+}
+.detail p {
+    font-size: 24px;
+    padding: 5px 0;
+}
+.detailsBox {
+    width: 100%;
+    min-height: 50px;
+    border: 1px solid #f1f0f520;
+    border-radius: 10px;
+    margin: 10px 0;
+    max-height: 150px;
+    background: #15151a;
+    margin-bottom: 20px;
+    margin-top: 20px;
+}
+.statHeading {
+    font-family: "gff-latin-bold" !important;
+}
+.entryFee{
+    color: #e2ffe4;
+    font-size: 20px;
+    opacity: 1 !important;
+}
+.prevEntryFee{
+    opacity: 0.5 !important;
+    margin-left: 10px;
+    margin-right: 10px;
+}
+.feeValue{
+    font-size: 24px;
+    color: #68ff72;
+}
+.registerNowBtnDiv{
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    gap: 10px;
+}
+.registerNowBtn{
+    padding: 20px 20px;
+    width: 60%;
+    background: linear-gradient(180deg, #68ff72, #68ffa9);
+    color: #081408;
+    font-size: 28px;
+    font-family: "gff-latin-bold" !important;
+    border: none;
+    border-radius: 5px;
+    margin-top: 10px;
+}
+.moreInfoBtn{
+    padding: 20px 20px;
+    width: 39%;
+    background: linear-gradient(180deg, #222229, #2c2c36);
+    color: #ffffff80;
+    font-size: 28px;
+    font-family: "gff-latin-bold" !important;
+    border: none;
+    border-radius: 5px;
+    margin-top: 10px;
+}
+.tournamentPricesInTDC{
+    min-height: 300px;
+    border: 1px solid #f1f0f520;
+    background: #15151a;
+    border-radius: 20px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    padding-top: 30px;
+}
+.tournamentTimerDiv{
+    width: 100%;
+    height: 300px;
+    border-radius: 20px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    margin: 40px 0;
+}

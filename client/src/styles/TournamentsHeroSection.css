@@ -151,6 +151,8 @@
     background-clip: text;
     -webkit-text-fill-color: transparent;
     font-size: 65px;
+    font-family: "gff-latin-bold" !important;
+
 }
 
 
@@ -160,6 +162,8 @@
     background-clip: text;
     -webkit-text-fill-color: transparent;
     font-size: 65px;
+    font-family: "gff-latin-bold" !important;
+
 }
 
 .moneyEarntTxt {
@@ -168,6 +172,8 @@
     background-clip: text;
     -webkit-text-fill-color: transparent;
     font-size: 65px;
+    font-family: "gff-latin-bold" !important;
+
 }
 .statsDiv{
     padding: 20px 0;    
