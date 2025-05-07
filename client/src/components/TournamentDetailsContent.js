@@ -25,7 +25,7 @@ const TournamentDetailsContent = () => {
                         <div className='threeDetailsDiv'>
                             {data.details.map((detail, index) => (
                                 <div className='detail' key={index}>
-                                    <p>{detail}</p>
+                                    <p>• {detail}</p>
                                 </div>
                             ))}
                         </div>

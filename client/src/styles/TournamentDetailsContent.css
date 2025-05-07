@@ -14,7 +14,6 @@
     padding: 20px;
 }
 .tDataAndPricesDiv{
-    border: 1px solid blue;
     width: 100%;
     display: flex;
     justify-content: space-between;
@@ -51,4 +50,28 @@
     background-clip: text;
     -webkit-text-fill-color: transparent;
 
+}
+.tagsDiv{
+    display: flex;
+    align-items: center;
+    justify-content: flex-start;
+    gap: 20px;  
+    padding: 10px 0;
+}
+.tag{
+    border: 2px solid #b200ff;
+    width: max-content;
+    padding: 5px 10px;
+    border-radius: 5px;
+
+    background: linear-gradient(180deg, #a202ff3a, #ff62ff30);
+    
+}
+.tag p{
+    background: linear-gradient(180deg, #a202ff, #ff62ff);
+    -webkit-background-clip: text;
+    background-clip: text;
+    -webkit-text-fill-color: transparent;
+    opacity: 1 !important;
+    font-size: 14px;
 }
