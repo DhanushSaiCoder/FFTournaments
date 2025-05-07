@@ -67,7 +67,7 @@ const TournamentsContent = () => {
                     {/* Render rows by mapping through the sample data */}
                     {tournamentsData.map((tournament) => (
                             <tr onClick={() => { 
-                                navigate(`/tournament/${tournament._id}`)  // Navigate to tournament details page
+                                window.location.href = `/tournament/${tournament._id}`; // Redirect to tournament details page
                             }} key={tournament._id}>
                                 <td className="tournamentName">{tournament.name}</td>
                                 <td>{tournament.participants}</td>
