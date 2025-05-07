@@ -48,8 +48,9 @@
     background: linear-gradient(180deg, #ffcf54, #e7983f);
     -webkit-background-clip: text;
     background-clip: text;
-
     -webkit-text-fill-color: transparent;
+
+    
     /* text-shadow: 0 0 5px #ffcf5442, 0 0 10px #ffcf5455, 0 0 15px #ffcf544d,
         0 0 20px #ffcf5447, 0 0 25px #ffcf543d, 0 0 30px #ffcf5423,
         0 0 35px #ffcf5434; */

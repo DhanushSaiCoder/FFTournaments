@@ -1,0 +1,54 @@
+.tournamentDetailsContentContainer{
+    width: 100%;
+    height: auto;
+    padding: 30px 20px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    flex-direction: column;
+    gap: 20px;
+    padding-top: 80px;
+}
+.tournamentDetailsContent{
+    width: 80%;
+    padding: 20px;
+}
+.tDataAndPricesDiv{
+    border: 1px solid blue;
+    width: 100%;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    gap: 20px;
+
+    min-height: 300px
+}
+.tournamentDetailsInTDC{
+    width: 60%;
+    height: 100%;   
+    border: 1px solid red;
+    padding: 20px 0;
+}
+
+.nameAndFrequencyDiv h2, .nameAndFrequencyDiv h3{
+    font-family: "poppins" !important;
+    font-style: italic;
+    line-height: 40px;
+}
+.nameAndFrequencyDiv h3{
+    font-size: 24px;
+    padding-left: 10px;
+    background: linear-gradient(180deg, #ffcf54, #e7983f);
+    -webkit-background-clip: text;
+    background-clip: text;
+    -webkit-text-fill-color: transparent;
+
+}
+.nameAndFrequencyDiv h2{
+    font-size: 48px;
+    background: linear-gradient(180deg, #ffcf54, #e7983f);
+    -webkit-background-clip: text;
+    background-clip: text;
+    -webkit-text-fill-color: transparent;
+
+}
