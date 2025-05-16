@@ -12,7 +12,7 @@ const RegisterPage = () => {
   const allFilled = fullName && mobile && upi;
   return (
     <div className='RegisterPageContainer'>
-      <BackButton/>
+      <BackButton />
       <div className='RegisterPageContent'>
         <RegistrationStepper />
 
@@ -37,7 +37,12 @@ const RegisterPage = () => {
                 value={mobile}
                 onChange={(e) => setMobile(e.target.value)}
               />
-              <span className="info-icon" title="We need your number to send you payment confirmations."><InfoIcon/></span>
+               <span className="info-icon-wrapper">
+                <InfoIcon className="info-icon" />
+                <span className="custom-tooltip">
+                  We use UPI to process your entry fee quickly.
+                </span>
+              </span>
             </div>
 
             <div className="form-group">
@@ -48,7 +53,13 @@ const RegisterPage = () => {
                 value={upi}
                 onChange={(e) => setUpi(e.target.value)}
               />
-              <span className="info-icon" title="We use UPI to process your entry fee quickly."><InfoIcon/></span>
+              <span className="info-icon-wrapper">
+                <InfoIcon className="info-icon" />
+                <span className="custom-tooltip">
+                  We use UPI to process your entry fee quickly.
+                </span>
+              </span>
+
             </div>
 
             <div className="fee-row">
