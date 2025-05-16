@@ -30,7 +30,7 @@ const RegisterPage = () => {
 
             <div className="form-group">
               <input
-                type="tel"
+                type="number"
                 className="form-input"
                 placeholder="Mobile Number"
                 value={mobile}
@@ -41,7 +41,7 @@ const RegisterPage = () => {
 
             <div className="form-group">
               <input
-                type="text"
+                type="number"
                 className="form-input"
                 placeholder="UPI ID"
                 value={upi}
