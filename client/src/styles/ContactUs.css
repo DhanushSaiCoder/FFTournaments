@@ -1,0 +1,103 @@
+.ContactUsContainer{
+    padding-top: 100px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    flex-direction: column;
+}
+.ContactUs{
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    flex-direction: column;
+}
+/* Container */
+.ContactUs {
+  max-width: 500px;
+  margin: 2rem auto;
+  padding: 2rem;
+  border-radius: 8px;
+  font-family: /* your font‑family */;
+  color: #fff;                 /* primary text */
+}
+
+/* Title & Intro */
+.ContactUs h1 {
+  font-size: 1.75rem;
+  margin-bottom: 0.5rem;
+  text-align: center;
+}
+
+.ContactUs p {
+  font-size: 1rem;
+  margin-bottom: 1.5rem;
+  text-align: center;
+  color: #bbb;                 /* secondary text */
+}
+
+/* Form Layout */
+.ContactUs form {
+  display: flex;
+  flex-direction: column;
+  gap: 1.25rem;
+}
+
+.ContactUs form > div {
+  display: flex;
+  flex-direction: column;
+  gap: 0.25rem;
+}
+
+/* Labels */
+.ContactUs label {
+  font-size: 0.9rem;
+  color: #bbb;                 /* secondary text */
+}
+
+/* Inputs & Textarea */
+.ContactUs input[type="text"],
+.ContactUs input[type="email"],
+.ContactUs textarea {
+  padding: 0.75rem 1rem;
+  font-size: 1rem;
+  color: #eee;                 /* input text */
+  background-color: #222;      /* input bg */
+  border: none;
+  border-radius: 4px;
+  resize: vertical;
+}
+
+.ContactUs input::placeholder,
+.ContactUs textarea::placeholder {
+  color: #777;                 /* placeholder text */
+}
+
+/* Remove spinner on number fields if you ever add one */
+input[type="number"]::-webkit-outer-spin-button,
+input[type="number"]::-webkit-inner-spin-button {
+  -webkit-appearance: none;
+  margin: 0;
+}
+input[type="number"] {
+  -moz-appearance: textfield;
+}
+
+/* Submit Button */
+.ContactUs button[type="submit"] {
+  margin-top: 1rem;
+  padding: 0.9rem;
+  font-size: 1rem;
+  text-transform: uppercase;
+  letter-spacing: 0.05em;
+  background: linear-gradient(90deg, #bbb, #dde);  /* placeholder gradient */
+  color: #000;                  /* button text (adjust for contrast) */
+  border: none;
+  border-radius: 4px;
+  cursor: pointer;
+  transition: opacity 0.2s ease;
+}
+
+.ContactUs button:disabled {
+  opacity: 0.5;
+  cursor: not-allowed;
+}
