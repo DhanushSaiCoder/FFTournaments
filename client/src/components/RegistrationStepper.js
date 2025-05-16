@@ -95,7 +95,7 @@ const RegistrationStepper = () => {
 
     return (
         <div className="stepperDiv">
-            <Stepper alternativeLabel activeStep={0} connector={<ColorlibConnector />}>
+            <Stepper alternativeLabel activeStep={2} connector={<ColorlibConnector />}>
                 {steps.map((label) => (
                     <Step key={label}>
                         <StepLabel StepIconComponent={ColorlibStepIcon}>{label}</StepLabel>

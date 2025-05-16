@@ -40,7 +40,18 @@
     -webkit-text-fill-color: transparent;
     font-family: "gff-latin-bold" !important;
 }
-
+.css-12eb3rq-MuiStepLabel-label.Mui-completed{
+    background: linear-gradient(
+        95deg,
+        rgb(242, 113, 33) 0%,
+        rgb(233, 64, 87) 50%,
+        rgb(138, 35, 135) 100%
+    );
+    -webkit-background-clip: text;
+    background-clip: text;
+    -webkit-text-fill-color: transparent;
+    font-family: "gff-latin-bold" !important;
+}
 /* form styles */
 /* Container & Title */
 .reg-form-container {
