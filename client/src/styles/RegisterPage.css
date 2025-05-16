@@ -8,15 +8,23 @@
 }
 
 .RegisterPageContent{
-    border: 1px solid red;
+    border: 1px solid rgba(255, 0, 0, 0.192);
     width: 80%;
-
     display: flex;
     align-items: center;
     justify-content: center;
     flex-direction: column;
     gap: 20px;
 }
+
 .stepperDiv{
-    border: 2px solid blue;
+    width: 80%;
+}
+
+.css-12eb3rq-MuiStepLabel-label.Mui-active{
+     background: linear-gradient( 95deg,rgb(242,113,33) 0%,rgb(233,64,87) 50%,rgb(138,35,135) 100%) ;
+    -webkit-background-clip: text;
+    background-clip: text;
+    -webkit-text-fill-color: transparent;
+    font-family: "gff-latin-bold" !important;
 }

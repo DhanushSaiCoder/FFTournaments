@@ -2,6 +2,9 @@ import React from 'react';
 import SettingsIcon from '@mui/icons-material/Settings';
 import GroupAddIcon from '@mui/icons-material/GroupAdd';
 import VideoLabelIcon from '@mui/icons-material/VideoLabel';
+import CreateIcon from '@mui/icons-material/Create';
+import CheckCircleOutlineIcon from '@mui/icons-material/CheckCircleOutline';
+import CurrencyRupeeIcon from '@mui/icons-material/CurrencyRupee';
 import PropTypes from 'prop-types';
 import { styled } from '@mui/material/styles';
 import Stack from '@mui/material/Stack';
@@ -73,9 +76,9 @@ const RegistrationStepper = () => {
         const { active, completed, className } = props;
 
         const icons = {
-            1: <SettingsIcon />,
-            2: <GroupAddIcon />,
-            3: <VideoLabelIcon />,
+            1: <CreateIcon />,
+            2: <CurrencyRupeeIcon />,
+            3: <CheckCircleOutlineIcon />,
         };
 
         return (
@@ -84,10 +87,10 @@ const RegistrationStepper = () => {
             </ColorlibStepIconRoot>
         );
     }
-    const steps = ['Select campaign settings', 'Create an ad group', 'Create an ad'];
+    const steps = ['Enter Details', 'Complete Payment', 'Finish RegistrationG'];
     return (
         <div className="stepperDiv">
-            <Stepper alternativeLabel activeStep={1} connector={<ColorlibConnector />}>
+            <Stepper alternativeLabel activeStep={0} connector={<ColorlibConnector />}>
                 {steps.map((label) => (
                     <Step key={label}>
                         <StepLabel StepIconComponent={ColorlibStepIcon}>{label}</StepLabel>
