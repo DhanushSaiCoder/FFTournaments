@@ -17,7 +17,6 @@
   margin: 2rem auto;
   padding: 2rem;
   border-radius: 8px;
-  font-family: /* your font‑family */;
   color: #fff;                 /* primary text */
 }
 
@@ -39,7 +38,7 @@
 .ContactUs form {
   display: flex;
   flex-direction: column;
-  gap: 1.25rem;
+  gap: 20px;
 }
 
 .ContactUs form > div {
@@ -100,4 +99,55 @@ input[type="number"] {
 .ContactUs button:disabled {
   opacity: 0.5;
   cursor: not-allowed;
+}
+/* Container positioning */
+.floating {
+  position: relative;
+  margin-top: 10px; 
+}
+
+/* The actual control */
+.floating .form-input {
+  width: 100%;
+  padding: 1.25rem 1rem 0.5rem;  /* extra top padding for label */
+  background: #222;
+  border: none;
+  border-radius: 4px;
+  color: #eee;
+}
+
+/* Hide the empty placeholder text visually */
+.floating .form-input::placeholder {
+  color: transparent;
+}
+
+/* Label styling */
+.floating label {
+  position: absolute;
+  top: .7rem;
+  left: 1rem;
+  font-size: 1rem;
+  color: #888;              /* match your placeholder color */
+  transition: all 0.2s ease;
+  pointer-events: none;
+}
+
+/* Move up & shrink when input is focused or has content */
+.floating .form-input:focus + label,
+.floating .form-input:not(:placeholder-shown) + label {
+  top: -1.3rem;
+  left: 0rem;
+  font-size: 0.8rem;
+  color: #bbb;             /* maybe brighten a bit on active */
+}
+
+.form-input{
+    height: 45px;
+}
+.floating .form-input:focus {
+  border: 1px solid red;
+}
+.textareaInp{
+    height: auto;
+    margin-bottom: 20px;
 }

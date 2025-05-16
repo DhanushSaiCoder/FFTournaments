@@ -8,19 +8,44 @@ const ContactUs = () => {
                 <h1>Contact Us</h1>
                 <p>If you have any questions or feedback, please reach out to us!</p>
                 <form>
-                    <div>
-                        <label htmlFor="name">Name:</label>
-                        <input type="text" id="name" name="name" required />
+                    <div className="form-group floating">
+                        <input
+                            type="text"
+                            id="name"
+                            name="name"
+                            placeholder=" "
+                            required
+                            className="form-input"
+                        />
+                        <label htmlFor="name">Name</label>
+
                     </div>
-                    <div>
-                        <label htmlFor="email">Email:</label>
-                        <input type="email" id="email" name="email" required />
+                    <div className="form-group floating">
+                        <input
+                            type="text"
+                            id="email"
+                            name="email"
+                            placeholder=" "
+                            required
+                            className="form-input"
+                        />
+                        <label htmlFor="email">Email</label>
+
                     </div>
-                    <div>
-                        <label htmlFor="message">Message:</label>
-                        <textarea id="message" name="message" required></textarea>
+                    <div className="form-group floating">
+                        <textarea
+                            type="text"
+                            id="message"
+                            name="message"
+                            placeholder=" "
+                            required
+                            className="form-input textareaInp"
+                            rows={4}
+                        />
+                        <label htmlFor="message">Write message here...</label>
                     </div>
-                    <button type="submit">Send</button>
+
+                    <button className='contactUsSubmitBtn' type="submit">Send</button>
                 </form>
             </div>
         </div>
