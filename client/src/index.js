@@ -14,6 +14,7 @@ import Profile from './pages/Profile';
 import Settings from './pages/Settings';
 import Footer from './components/Footer';
 import TournamentDetails from './components/TournamentDetails';
+import RegisterPage from './pages/RegisterPage';
 
 const root = ReactDOM.createRoot(document.getElementById('root'));
 root.render(
@@ -24,6 +25,7 @@ root.render(
         <Route path="/" element={<Home />} />
         <Route path="/tournaments" element={<Tournaments />} />
         <Route path="/tournament/:id" element={<TournamentDetails />} />
+        <Route path="/register/:id" element={<RegisterPage />} />
         <Route path="/rankings" element={<Rankings />} />
         <Route path="/help" element={<Help />} />
         <Route path="/contactUs" element={<ContactUs />} />
