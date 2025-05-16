@@ -14,6 +14,10 @@
     font-family: "gff-latin-bold" !important;
     font-size: 28px;
     padding: 0 20px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    gap: 10px;
 }
 
 .backButton:hover {
