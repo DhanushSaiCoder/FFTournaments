@@ -15,12 +15,14 @@ import Settings from './pages/Settings';
 import Footer from './components/Footer';
 import TournamentDetails from './components/TournamentDetails';
 import RegisterPage from './pages/RegisterPage';
+import ScrollToTop from './components/ScrollToTop';
 
 const root = ReactDOM.createRoot(document.getElementById('root'));
 root.render(
   <BrowserRouter>
     <div>
       <Header /> {/* Always visible */}
+      <ScrollToTop/>
       <Routes>
         <Route path="/" element={<Home />} />
         <Route path="/tournaments" element={<Tournaments />} />
