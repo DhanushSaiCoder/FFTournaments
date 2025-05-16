@@ -87,7 +87,7 @@ const RegistrationStepper = () => {
             </ColorlibStepIconRoot>
         );
     }
-    const steps = ['Enter Details', 'Complete Payment', 'Finish RegistrationG'];
+    const steps = ['Enter Details', 'Complete Payment', 'Finish Registration'];
     return (
         <div className="stepperDiv">
             <Stepper alternativeLabel activeStep={0} connector={<ColorlibConnector />}>
