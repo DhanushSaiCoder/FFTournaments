@@ -1,0 +1,22 @@
+.RegisterPageContainer{
+    display: flex;
+    align-items: center;
+    justify-content: flex-start;
+    min-height: calc(100vh - 200px);
+    padding-top: 100px;
+    flex-direction: column;
+}
+
+.RegisterPageContent{
+    border: 1px solid red;
+    width: 80%;
+
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    flex-direction: column;
+    gap: 20px;
+}
+.stepperDiv{
+    border: 2px solid blue;
+}
