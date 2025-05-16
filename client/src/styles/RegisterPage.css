@@ -2,6 +2,7 @@
     font-size: 32px;
     font-family: "gff-latin-bold" !important;
     margin-bottom: 40px;
+    margin-top: 40px;
 }
 .RegisterPageContainer {
     display: flex;
@@ -20,6 +21,8 @@
     justify-content: center;
     flex-direction: column;
     gap: 20px;
+    margin-top: 90px;
+
 }
 
 .stepperDiv {
@@ -54,6 +57,7 @@
     color: #ffffff90; /* placeholder */
     margin-bottom: 1.5rem;
     text-align: left;
+    width: 100%;
 
 }
 

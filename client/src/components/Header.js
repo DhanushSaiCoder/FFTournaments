@@ -21,7 +21,7 @@ const Header = () => {
             <li className={location.pathname === '/' ? 'active' : ''}>
               <Link to="/">HOME</Link>
             </li>
-            <li className={location.pathname.startsWith('/tournament') ? 'active' : ''}>
+            <li className={location.pathname.startsWith('/tournament') || location.pathname.startsWith("/register") ? 'active' : ''}>
               <Link to="/tournaments">TOURNAMENTS</Link>
             </li>
             <li className={location.pathname === '/rankings' ? 'active' : ''}>

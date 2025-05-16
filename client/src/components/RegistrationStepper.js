@@ -90,7 +90,7 @@ const RegistrationStepper = () => {
     const steps = [
         'Provide Personal Information',
         'Submit Payment',
-        'Confirm Registration'
+        'Complete Registration'
     ];
 
     return (

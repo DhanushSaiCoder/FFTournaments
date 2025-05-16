@@ -2,6 +2,7 @@ import React, { useState } from 'react';
 import "../styles/RegisterPage.css"
 import RegistrationStepper from '../components/RegistrationStepper';
 import InfoIcon from '@mui/icons-material/Info';
+import BackButton from './../components/BackButton';
 
 
 const RegisterPage = () => {
@@ -11,8 +12,8 @@ const RegisterPage = () => {
   const allFilled = fullName && mobile && upi;
   return (
     <div className='RegisterPageContainer'>
+      <BackButton/>
       <div className='RegisterPageContent'>
-        <h2 className='registerHeading'>REGISTER FOR TOURNAMENT</h2>
         <RegistrationStepper />
 
         <div className="reg-form-container">
