@@ -55,6 +55,16 @@ p{
     background-size: cover;
     background-position: center;
 }
+@keyframes float {
+  0%   { transform: translateY(0);scale: 1; }
+  50%  { transform: translateY(-10px);scale: 1.025; }
+  100% { transform: translateY(0); scale: 1; }
+}
+
+.heroRight {
+  animation: float 3s ease-in-out infinite;
+}
+
 .heroLeft {
     height: 100%;
     display: flex;
