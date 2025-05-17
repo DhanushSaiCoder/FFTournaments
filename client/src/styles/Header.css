@@ -94,7 +94,7 @@ nav ul li.active a:active::after {
     background-size: cover;
     background-position: center;
     width: 300px;
-    height: 100px;
+    height: 100%;
     border-right: 1px solid rgba(255, 255, 255, 0.12);
 }
 .logoDiv:hover {
