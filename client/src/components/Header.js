@@ -6,10 +6,17 @@ import '../styles/Header.css';
 
 const Header = () => {
   const location = useLocation(); // Get the current location
-
   const handleLogoClick = () => {
     window.location.href = '/';
   }
+
+  const validRoutes = ["/", "/tournament", "/register", "/rankings", "/contactUs", "/profile", "/settings"]
+  // if the pathname do not start with the any of thee valid routes do not show header.
+  const shouldShowHeader = location.pathname === "/" || validRoutes.some(route =>
+    route != "/" && location.pathname.startsWith(route)
+  );
+
+  if (!shouldShowHeader) return null;
 
   return (
     <div className="header">
@@ -21,7 +28,7 @@ const Header = () => {
             <li className={location.pathname === '/' ? 'active' : ''}>
               <Link to="/">HOME</Link>
             </li>
-            <li className={location.pathname.startsWith('/tournament') ? 'active' : ''}>
+            <li className={location.pathname.startsWith('/tournament') || location.pathname.startsWith("/register") ? 'active' : ''}>
               <Link to="/tournaments">TOURNAMENTS</Link>
             </li>
             <li className={location.pathname === '/rankings' ? 'active' : ''}>
@@ -30,9 +37,9 @@ const Header = () => {
             <li className={location.pathname === '/contactUs' ? 'active' : ''}>
               <Link to="/contactUs">CONTACT US</Link>
             </li>
-            <li className={location.pathname === '/help' ? 'active' : ''}>
+            {/* <li className={location.pathname === '/help' ? 'active' : ''}>
               <Link to="/help">HELP</Link>
-            </li>
+            </li> */}
           </ul>
         </nav>
       </div>

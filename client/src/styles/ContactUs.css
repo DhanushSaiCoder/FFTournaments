@@ -1,0 +1,154 @@
+.ContactUsContainer{
+    padding-top: 100px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    flex-direction: column;
+    min-height: 80vh;
+}
+.ContactUs{
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    flex-direction: column;
+}
+/* Container */
+.ContactUs {
+  max-width: 500px;
+  margin: 2rem auto;
+  padding: 2rem;
+  border-radius: 8px;
+  color: #fff;                 /* primary text */
+}
+
+/* Title & Intro */
+.ContactUs h1 {
+  font-size: 1.75rem;
+  margin-bottom: 0.5rem;
+  text-align: center;
+}
+
+.ContactUs p {
+  font-size: 1rem;
+  margin-bottom: 1.5rem;
+  text-align: center;
+  color: #bbb;                 /* secondary text */
+}
+
+/* Form Layout */
+.ContactUs form {
+  display: flex;
+  flex-direction: column;
+  gap: 20px;
+}
+
+.ContactUs form > div {
+  display: flex;
+  flex-direction: column;
+  gap: 0.25rem;
+}
+
+/* Labels */
+.ContactUs label {
+  font-size: 0.9rem;
+  color: #bbb;                 /* secondary text */
+}
+
+/* Inputs & Textarea */
+.ContactUs input[type="text"],
+.ContactUs input[type="email"],
+.ContactUs textarea {
+  padding: 0.75rem 1rem;
+  font-size: 1rem;
+  color: #eee;                 /* input text */
+  background-color: #222;      /* input bg */
+  border: none;
+  border-radius: 4px;
+  resize: vertical;
+}
+
+.ContactUs input::placeholder,
+.ContactUs textarea::placeholder {
+  color: #777;                 /* placeholder text */
+}
+
+/* Remove spinner on number fields if you ever add one */
+input[type="number"]::-webkit-outer-spin-button,
+input[type="number"]::-webkit-inner-spin-button {
+  -webkit-appearance: none;
+  margin: 0;
+}
+input[type="number"] {
+  -moz-appearance: textfield;
+}
+
+/* Submit Button */
+.ContactUs button[type="submit"] {
+  margin-top: 1rem;
+  padding: 0.9rem;
+  font-size: 1rem;
+  text-transform: uppercase;
+  letter-spacing: 0.05em;
+  background: linear-gradient(90deg, #bbb, #dde);  /* placeholder gradient */
+  color: #000;                  /* button text (adjust for contrast) */
+  border: none;
+  border-radius: 4px;
+  cursor: pointer;
+  transition: opacity 0.2s ease;
+}
+
+.ContactUs button:disabled {
+  opacity: 0.5;
+  cursor: not-allowed;
+}
+/* Container positioning */
+.floating {
+  position: relative;
+  margin-top: 10px; 
+}
+
+/* The actual control */
+.floating .form-input {
+  width: 100%;
+  padding: 1.25rem 1rem 0.5rem;  /* extra top padding for label */
+  background: #222;
+  border: none;
+  border-radius: 4px;
+  color: #eee;
+}
+
+/* Hide the empty placeholder text visually */
+.floating .form-input::placeholder {
+  color: transparent;
+}
+
+/* Label styling */
+.floating label {
+  position: absolute;
+  top: .7rem;
+  left: 1rem;
+  font-size: 1rem;
+  color: #888;              /* match your placeholder color */
+  transition: all 0.2s ease;
+  pointer-events: none;
+}
+
+/* Move up & shrink when input is focused or has content */
+.floating .form-input:focus + label,
+.floating .form-input:not(:placeholder-shown) + label {
+  top: -1.3rem;
+  left: 0rem;
+  font-size: 0.8rem;
+  color: #bbb;             /* maybe brighten a bit on active */
+}
+
+.form-input{
+    height: 45px;
+}
+.floating .form-input:focus {
+  border: 1px solid red;
+}
+.textareaInp{
+    height: auto;
+    margin-bottom: 20px;
+}

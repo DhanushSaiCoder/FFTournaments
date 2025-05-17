@@ -2,9 +2,15 @@ import React from 'react';
 import '../styles/TournamentDetailsContent.css';
 import PricingChart from './PricingChart';
 import TournamentTimer from './TournamentTimer';
+import { useNavigate } from 'react-router-dom';
 
 const TournamentDetailsContent = ({data}) => {
-    console.log(data);
+    const navigate = useNavigate();
+    const handleRegister = () => {
+        navigate(`/register/${data._id}`)
+    }
+
+
     return (
         <div className="tournamentDetailsContentContainer">
             <div className='tournamentDetailsContent'>
@@ -58,7 +64,7 @@ const TournamentDetailsContent = ({data}) => {
                             </p>
                             <div className="registerNowBtnDiv">
 
-                                <button className='registerNowBtn'>Register Now</button>
+                                <button onClick={handleRegister} className='registerNowBtn'>Register Now</button>
                                 <button className='moreInfoBtn'>More Info</button>
                             </div>
                         </div>
