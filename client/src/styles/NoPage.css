@@ -1,0 +1,18 @@
+.NoPage{
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    flex-direction: column;
+    min-height: 100vh;
+}
+.NoPage h1{
+    margin-top: 20px;
+}
+.NoPage p:nth-of-type(1) {
+  margin-top: 20px;
+}
+
+.NoPage a{
+    margin-top: 40px;
+    opacity: 0.8;
+}
