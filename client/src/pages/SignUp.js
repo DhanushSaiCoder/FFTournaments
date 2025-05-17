@@ -1,12 +1,14 @@
 import React from 'react';
 import "../styles/SignUp.css";
-
+import Logo from "../images/Logo.png"
 import { FcGoogle } from 'react-icons/fc';
 import { FaFacebookF, FaTwitter } from 'react-icons/fa';
+import Login from './Login';
 
 const SignUp = () => {
     return (
         <div className="SignUpContainer">
+
             <div className="SignUp">
                 <h2 className="signup-title">Sign Up</h2>
 
