@@ -47,6 +47,11 @@
   height: 70px;
   margin-bottom: 0.75rem;          /* adjusted margin */
   object-fit: cover;
+  transition: all 0.23s ease;
+}
+.brand-logo:hover{
+  transform: scale(.981);
+  cursor: pointer;
 }
 .signup-title {
   font-size: 1.8rem;

@@ -9,7 +9,7 @@ const SignUp = () => {
         <div className="SignUpContainer">
             <div className="SignUpCard">
                 <div className="brand-header">
-                    <img src={Logo} alt="Logo" className="brand-logo" />
+                    <img onClick={() => window.location.href = "/"} src={Logo} alt="Logo" className="brand-logo" />
                     <h2 className="signup-title">Create Your Account</h2>
                     <p className="signup-subtitle">Join the community. It’s quick and easy.</p>
                 </div>
