@@ -75,7 +75,7 @@ const oddGradient = {
     background: "linear-gradient(90deg, #54ff98, #3ee777)",
     WebkitBackgroundClip: "text",
     WebkitTextFillColor: "transparent",
-
+    
 }
 
 const PopularTournaments = () => {

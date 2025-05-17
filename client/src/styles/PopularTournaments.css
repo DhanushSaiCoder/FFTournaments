@@ -177,3 +177,41 @@
     transform: translateX(-50%);
 
 }
+.learnMoreBtn {
+  background-color: #ec9c401b;
+  border: none;
+  padding: 15px 45px;
+  border-radius: 5px;
+  color: #ffaa2a;
+  position: relative;
+  overflow: hidden;
+  cursor: pointer;
+  transition:
+    transform 0.3s ease,
+    box-shadow 0.3s ease,
+    color 0.3s ease;
+}
+
+/* sliding “gloss” sweep */
+.learnMoreBtn::after {
+  content: "";
+  position: absolute;
+  top: 0;
+  left: -75%;
+  width: 50%;
+  height: 100%;
+  background: rgba(255, 255, 255, 0.15);
+  transform: skewX(-20deg);
+  transition: left 0.5s ease;
+}
+
+/* glow border on hover */
+.learnMoreBtn:hover {
+  transform: translateY(-3px) scale(1.03);
+}
+
+/* animate the gloss sweep */
+.learnMoreBtn:hover::after {
+  left: 125%;
+}
+
