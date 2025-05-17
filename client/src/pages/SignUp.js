@@ -88,14 +88,14 @@ const SignUp = () => {
                 <div className="social-login">
                     <div className="social-buttons">
                         <GoogleSignIn />
-                        <button className="social-btn facebook">
+                        {/* <button className="social-btn facebook">
                             <FaFacebookF className="social-icon" />
                             <span>Facebook</span>
                         </button>
                         <button className="social-btn twitter">
                             <FaTwitter className="social-icon" />
                             <span>Twitter</span>
-                        </button>
+                        </button> */}
                     </div>
                 </div>
 

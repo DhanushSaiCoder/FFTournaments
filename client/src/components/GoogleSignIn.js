@@ -45,7 +45,7 @@ const GoogleSignIn = () => {
       localStorage.setItem('token', data.token);
       const user = jwtDecode(data.token);
       console.log('Logged in user:', user);
-      window.location.href = '/';
+      window.location.href = '/signup?getUID=true';
     } catch (err) {
       console.error('Google sign-in error:', err);
       alert(err.message || 'Google sign‑in failed');
