@@ -1,0 +1,113 @@
+.SignUpContainer {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    flex-direction: column;
+    min-height: 100vh;
+}
+
+.SignUp {
+    width: 100%;
+    max-width: 420px;
+    padding: 2rem;
+    border-radius: 8px;
+    color: #fff;
+}
+
+/* Title */
+.signup-title {
+    font-size: 1.75rem;
+    text-align: center;
+    margin-bottom: 1.5rem;
+}
+
+/* Form layout */
+.signup-form {
+    display: flex;
+    flex-direction: column;
+    gap: 1.25rem;
+}
+
+/* Floating label base */
+.floating {
+    position: relative;
+}
+
+/* Inputs */
+.floating .form-input {
+    width: 100%;
+    padding: 1.25rem 1rem 0.5rem;
+    font-size: 1rem;
+    color: #eee;
+    background-color: #222;
+    border: 1px solid transparent;
+    border-radius: 4px;
+    box-sizing: border-box;
+    transition: border-color 0.2s ease;
+    outline: none;
+}
+
+.floating .form-input::placeholder {
+    color: transparent;
+}
+
+/* Floating labels */
+.floating label {
+    position: absolute;
+    top: 0.7rem;
+    left: 1rem;
+    font-size: 1rem;
+    color: #888;
+    pointer-events: none;
+    transition: all 0.2s ease;
+}
+
+.floating .form-input:focus + label,
+.floating .form-input:not(:placeholder-shown) + label {
+    top: -1.3rem;
+    left: 0rem;
+    font-size: 0.8rem;
+    color: #bbb;
+}
+
+/* Focus border */
+.floating .form-input:focus {
+    border-color: #bbb; /* or your accent focus color */
+}
+
+/* Remove spinner if using number inputs */
+input[type="number"]::-webkit-outer-spin-button,
+input[type="number"]::-webkit-inner-spin-button {
+    -webkit-appearance: none;
+    margin: 0;
+}
+input[type="number"] {
+    -moz-appearance: textfield;
+}
+
+/* Submit button */
+.submit-btn {
+    margin-top: 1.5rem;
+    padding: 0.9rem;
+    font-size: 1rem;
+    text-transform: uppercase;
+    letter-spacing: 0.05em;
+    background: linear-gradient(90deg, #bbb, #dde);
+    color: #000; /* adjust for contrast */
+    border: none;
+    border-radius: 4px;
+    cursor: pointer;
+    transition: opacity 0.32s ease, background 0.3s ease;
+}
+.submit-btn:hover {
+    background: linear-gradient(
+        180deg,
+        #bcbcff,
+        #a5a5d8
+    ); /* placeholder gradient */
+}
+
+.submit-btn:disabled {
+    opacity: 0.5;
+    cursor: not-allowed;
+}

@@ -40,7 +40,7 @@
     -webkit-text-fill-color: transparent;
     font-family: "gff-latin-bold" !important;
 }
-.css-12eb3rq-MuiStepLabel-label.Mui-completed{
+.css-12eb3rq-MuiStepLabel-label.Mui-completed {
     background: linear-gradient(
         95deg,
         rgb(242, 113, 33) 0%,
@@ -152,7 +152,7 @@
 .submit-btn:disabled {
     cursor: not-allowed;
 }
-.submit-btn:disabled:hover{
+.submit-btn:disabled:hover {
     margin-top: 1.5rem;
     padding: 0.9rem 1rem;
     font-family: "gff-latin-bold" !important;
@@ -166,9 +166,8 @@
     ); /* placeholder gradient */
     border: none;
     border-radius: 4px;
-    transition: all 0.32s ease-in-out;
+    transition: opacity 0.32s ease, background 0.3s ease;
     color: black;
-    
 }
 
 .submit-btn:hover {
