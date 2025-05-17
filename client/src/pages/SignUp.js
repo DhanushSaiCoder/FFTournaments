@@ -13,8 +13,11 @@ const SignUp = () => {
         email: '',
         password: '',
         confirmPassword: '',
+
     });
+    const [uid, setUid] = useState('')
     const [error, setError] = useState('');
+
     const navigate = useNavigate();
 
     const handleChange = e => {
@@ -69,10 +72,45 @@ const SignUp = () => {
         confirmPassword: 'Confirm Password',
     };
 
+    const handleUIDInpChange = (e) => {
+        setUid(e.target.value);
+    };
+
+    const handleUIDEntry = async () => {
+        console.log("UID: ", uid)
+        //send a patch request to the auth route to edit the uid in the db
+        try {
+            const token = localStorage.getItem('token');
+            const res = await fetch(
+                `${process.env.REACT_APP_BACKEND_URL}/api/auth/uid`,
+                {
+                    method: 'PATCH',
+                    headers: {
+                        'Content-Type': 'application/json',
+                        Authorization: `Bearer ${token}`,
+                    },
+                    body: JSON.stringify({ uid: uid }),
+                }
+            );
+            const data = await res.json();
+            if (!data.success) throw new Error(data.message || 'Update failed');
+            navigate('/');
+        } catch (err) {
+            console.error('UID update error:', err);
+            alert("error setting the uid")
+            console.error(`Error: ${err.message}`);
+        }
+    }
+
+    const params = new URLSearchParams(window.location.search);
+
+    // read individual keys
+    const getUID = params.get("getUID");     // e.g. ?user=dhanush
+
     return (
         <div className="SignUpContainer">
             <div className="SignUpCard">
-                <div className="brand-header">
+                {!getUID && <div className="brand-header">
                     <img
                         onClick={() => navigate('/')}
                         src={Logo}
@@ -83,9 +121,9 @@ const SignUp = () => {
                     <p className="signup-subtitle">
                         Join the community. It’s quick and easy.
                     </p>
-                </div>
+                </div>}
 
-                <div className="social-login">
+                {!getUID && <div className="social-login">
                     <div className="social-buttons">
                         <GoogleSignIn />
                         {/* <button className="social-btn facebook">
@@ -97,15 +135,15 @@ const SignUp = () => {
                             <span>Twitter</span>
                         </button> */}
                     </div>
-                </div>
+                </div>}
 
-                <div className="separator">
+                {!getUID && <div className="separator">
                     <span>OR</span>
-                </div>
+                </div>}
 
-                {error && <div className="form-error">{error}</div>}
+                {error && !getUID && <div className="form-error">{error}</div>}
 
-                <form className="signup-form" onSubmit={e => e.preventDefault()}>
+                {!getUID && <form className="signup-form" onSubmit={e => e.preventDefault()}>
                     {Object.keys(form).map((field, i) => {
                         const type = field.includes('password')
                             ? 'password'
@@ -152,7 +190,26 @@ const SignUp = () => {
                     >
                         Create Account
                     </button>
-                </form>
+                </form>}
+
+                {getUID && (
+                    <div className='getUIDContainer'>
+
+                        <h2>Enter Free Fire UID</h2>
+                        <div className="form-group floating getUIDContent" >
+                            <input
+                                type="number"
+                                id="getUIDInp"
+                                name="getUIDInp"
+                                placeholder="eg. 4372957623"
+                                required
+                                className="form-input"
+                                onChange={handleUIDInpChange}
+                            />
+                            <button onClick={handleUIDEntry} className='submit-btn getUID-submit'>ENTER</button>
+                        </div>
+                    </div>
+                )}
             </div>
         </div>
     );
