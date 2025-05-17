@@ -6,18 +6,21 @@ require('dotenv').config();
 
 const port = process.env.PORT
 
-
 //middleware
 app.use(express.json());
 app.use(cors({
     origin: process.env.FRONTEND_URL
 }));
 
+//routing
+app.use('/api/auth', require('./routes/auth.route'))
 
+// connect to mongodb
 mongoose.connect(process.env.MONGO_URI)
     .then(() => console.log('MongoDB connected'))
     .catch((err) => console.error('MongoDB connection error:', err));
 
+// home route
 app.get('/', (req, res) => {
     res.send(`
     <h1>Hello, Gamer!</h1>
