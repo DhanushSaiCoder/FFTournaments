@@ -94,6 +94,8 @@ p{
     font-size: 20px;
     border: 2px solid #ffaf540a;
     font-family: gff-latin-bold;
+    transition: all 0.123s ease;
+    font-family: "gff-latin-bold" !important;
 }
 .loginBtn{
     padding: 15px 55px;
@@ -104,4 +106,142 @@ p{
     font-size: 20px;
     border: 2.5px solid #ffaa2a;
 
+}
+
+
+.registerBtn {
+  position: relative;
+  display: inline-block;
+  padding: 15px 65px;        /* unchanged */
+  background: #ffaa2a;        /* unchanged */
+  border: 2px solid #ffaf540a;
+  border-radius: 5px;
+  color: #1b1208;
+  font-size: 20px;
+  font-family: "gff-latin-bold" !important;
+  text-transform: uppercase;
+  letter-spacing: 0.5px;
+  cursor: pointer;
+  overflow: hidden;
+  transition: transform 0.2s ease, box-shadow 0.2s ease, border-color 0.2s ease;
+  will-change: transform, box-shadow;
+}
+
+/* subtle base shadow for depth */
+.registerBtn {
+  box-shadow: 
+    0 2px 4px rgba(0,0,0,0.1),
+    0 1px 0 rgba(255,255,255,0.2) inset;
+}
+
+/* shift up + intensify shadow on hover */
+.registerBtn:hover {
+  transform: translateY(-2px);
+  box-shadow: 
+    0 6px 12px rgba(0,0,0,0.15),
+    0 1px 0 rgba(255,255,255,0.2) inset;
+  border-color: rgba(255,175,84,0.25);
+}
+
+/* Optional focus style for accessibility */
+.registerBtn:focus {
+  outline: none;
+  box-shadow:
+    0 0 0 3px rgba(255,170,42,0.4),
+    0 1px 0 rgba(255,255,255,0.2) inset;
+}
+
+/* “shine” effect using a pseudo-element */
+.registerBtn::before {
+  content: "";
+  position: absolute;
+  top: -100%;
+  left: -45%;
+  width: 40%;
+  height: 250%;
+  background: rgba(255, 255, 255, 0.2);
+  transform: rotate(25deg);
+  transition: all 0.5s ease;
+  pointer-events: none;
+}
+
+.registerBtn:hover::before {
+  top: -30%;
+  left: 130%;
+}
+.loginBtn {
+  position: relative;
+  display: inline-block;
+  padding: 15px 55px;           /* unchanged */
+  background: transparent;      /* rgba(236,156,65,0) */
+  border: 2.5px solid #ffaa2a;
+  border-radius: 5px;
+  color: #ffaa2a;
+  font-size: 20px;
+  font-family: "gff-latin-bold" !important;
+  text-transform: uppercase;
+  letter-spacing: 0.5px;
+  cursor: pointer;
+  overflow: hidden;
+  transition: color 0.3s ease, border-color 0.3s ease;
+  will-change: color, border-color;
+}
+
+/* create the “fill” layer */
+.loginBtn::after {
+  content: "";
+  position: absolute;
+  top: 0; left: 0;
+  width: 0;
+  height: 100%;
+  background: #ffaa2a;
+  z-index: 0;
+  transition: width 0.3s ease;
+}
+
+/* keep text above the fill */
+.loginBtn > * {
+  position: relative;
+  z-index: 1;
+}
+
+/* hover: slide the fill in, invert colors & deepen border */
+.loginBtn:hover {
+  border-color: rgba(255,170,42,0.8);
+  color: #1b1208 !important;
+}
+.loginBtn:hover::after {
+  width: 100%;
+  color: #1b1208 !important;
+
+}
+
+/* focus ring for accessibility */
+.loginBtn:focus {
+  outline: none;
+  box-shadow: 0 0 0 3px rgba(255,170,42,0.4);
+}
+.loginBtn {
+  position: relative;
+  z-index: 1;               /* ensure text is on top */
+}
+
+.loginBtn::after {
+  content: "";
+  position: absolute;
+  top: 0; left: 0;
+  width: 0;
+  height: 100%;
+  background: #ffaa2a;
+  transition: width 0.3s ease;
+  z-index: -1;              /* send fill behind the button’s content */
+}
+
+.loginBtn:hover {
+  color: #1b1208;           /* dark text for contrast */
+  border-color: rgba(255,170,42,0.8);
+}
+
+.loginBtn:hover::after {
+  width: 100%;
 }
