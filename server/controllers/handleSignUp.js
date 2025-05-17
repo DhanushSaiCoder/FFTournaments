@@ -13,13 +13,13 @@ const handleSignUp = async (req, res) => {
             console.log(existingUser)
 
             if (existingUser.email === email) {
-                return res.status(400).json({ field: 'email', msg: 'Email already in use' });
+                return res.status(400).json({errors: [{ field: 'email', msg: 'Email already in use' }]});
             }
             if (existingUser.uid === uid) {
-                return res.status(400).json({ field: 'uid', msg: 'UID already in use' });
+                return res.status(400).json({errors: [{ field: 'uid', msg: 'UID already in use' }]});
             }
             if (existingUser.username === username) {
-                return res.status(400).json({ field: 'username', msg: 'Username already in use' });
+                return res.status(400).json({errors: [{ field: 'username', msg: 'Username already in use' }]});
             }
         }
 
