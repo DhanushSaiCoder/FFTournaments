@@ -3,6 +3,7 @@ const bcrypt = require('bcryptjs');
 const jwt = require('jsonwebtoken');
 
 const handleSignUp = async (req, res) => {
+    console.log('body:', req.body);
 
     const { username, uid, email, password } = req.body;
 

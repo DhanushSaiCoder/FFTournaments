@@ -3,6 +3,7 @@ const router = express.Router();
 const { check, validationResult } = require('express-validator');
 const User = require('../models/User.model');
 const auth = require('../middleware/auth.middleware');
+const handleGoogleAuth = require('../controllers/handleGoogleAuth')
 
 //validators
 const signupValidator = require("../middleware/validators/signupValidator")
@@ -21,6 +22,8 @@ router.post('/signup', signupValidator, async (req, res) => {
 
     handleSignUp(req, res);
 })
+
+router.post('/google', handleGoogleAuth); // <-- new route
 
 //login route
 router.post('/login', loginValidator, async (req, res) => {

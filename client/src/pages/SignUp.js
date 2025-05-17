@@ -4,6 +4,7 @@ import '../styles/SignUp.css';
 import Logo from '../images/Logo.png';
 import { FcGoogle } from 'react-icons/fc';
 import { FaFacebookF, FaTwitter } from 'react-icons/fa';
+import GoogleSignIn from './../components/GoogleSignIn';
 
 const SignUp = () => {
     const [form, setForm] = useState({
@@ -86,10 +87,7 @@ const SignUp = () => {
 
                 <div className="social-login">
                     <div className="social-buttons">
-                        <button className="social-btn google">
-                            <FcGoogle className="social-icon" />
-                            <span>Google</span>
-                        </button>
+                        <GoogleSignIn />
                         <button className="social-btn facebook">
                             <FaFacebookF className="social-icon" />
                             <span>Facebook</span>
