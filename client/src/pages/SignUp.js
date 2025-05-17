@@ -94,7 +94,7 @@ const SignUp = () => {
                         />
                         <label htmlFor="confirmPassword">Confirm Password</label>
                     </div>
-                    <div>
+                    <div className='footer-links'>
 
                         <span class="register-footer__text">
                             Already have an account?
@@ -103,6 +103,7 @@ const SignUp = () => {
                             tabindex="0"
                             data-testid="login-here-link"
                             class="register-footer__link"
+                            href='/login'
                         >
                             Login here.
                         </a>
