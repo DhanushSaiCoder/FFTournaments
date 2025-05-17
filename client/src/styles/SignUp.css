@@ -1,302 +1,232 @@
+/* ───────────────────────────────────────────────────────────────────────── */
+/* Container & Background */
+/* ───────────────────────────────────────────────────────────────────────── */
 .SignUpContainer {
-    display: flex;
-    align-items: center;
-    justify-content: space-between;
-    min-height: 100vh;
-    width: 100vw;
-    position: relative;
-    z-index: 0;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  min-height: 100vh;
+  width: 100vw;
+  background: rgba(0, 0, 0, 0.8);
+  overflow: hidden;
 }
-
 .SignUpContainer::before {
-    content: "";
-    position: fixed;
-    top: 0;
-    left: 0;
-    right: 0;
-    bottom: 0;
-    background: url("../images/parachuting.jpg") center center / cover no-repeat;
-    opacity: 0.1;
-    z-index: -1;
-}
-.SignUp {
-    width: 100%;
-    height: 100vh;
-    padding: 20px 40%;
-    padding-top: 5%;
-    border-radius: 50px 0 0 50px;
-    color: #fff;
-    background: #05050940;
-    backdrop-filter: blur(15px); /* blur effect */
-    -webkit-backdrop-filter: blur(15x); /* Safari support */
-    box-shadow: 0 8px 32px rgba(0, 0, 0, 0.125);
+  content: "";
+  position: fixed;
+  top: 0; left: 0; right: 0; bottom: 0;
+  background: url("../images/parachuting.jpg") center center / cover no-repeat;
+  opacity: 0.78;
+  z-index: -1;
+  filter: blur(2px);
 }
 
-/* Title */
+/* ───────────────────────────────────────────────────────────────────────── */
+/* Card Wrapper */
+/* ───────────────────────────────────────────────────────────────────────── */
+.SignUpCard {
+  width: 100%;
+  max-width: 520px;
+  background: rgba(5, 5, 9, 0.456);
+  border-radius: 24px;
+  padding: 2rem 1.75rem;           /* adjusted padding */
+  box-shadow: 0 8px 40px rgba(0, 0, 0, 0.4);
+  backdrop-filter: blur(20px);
+  color: #fff;
+  animation: fadeIn 0.6s ease-out;
+}
+
+/* ───────────────────────────────────────────────────────────────────────── */
+/* Brand Header (Logo + Titles) */
+/* ───────────────────────────────────────────────────────────────────────── */
+.brand-header {
+  text-align: center;
+  margin-bottom: 1.5rem;           /* adjusted margin */
+}
+.brand-logo {
+  width: 240px;
+  height: 70px;
+  margin-bottom: 0.75rem;          /* adjusted margin */
+  object-fit: cover;
+}
 .signup-title {
-    font-size: 1.75rem;
-    text-align: center;
-    margin-bottom: 2.5rem;
+  font-size: 1.8rem;
+  font-weight: 600;
+  margin-bottom: 0.5rem;           /* adjusted margin */
+}
+.signup-subtitle {
+  font-size: 0.9rem;
+  color: #aaa;
+  margin-bottom: 1rem;             /* added spacing */
 }
 
-/* Form layout */
+/* ───────────────────────────────────────────────────────────────────────── */
+/* Social Login Buttons */
+/* ───────────────────────────────────────────────────────────────────────── */
+.social-buttons {
+  display: flex;
+  justify-content: center;
+  gap: 0.75rem;
+  flex-wrap: wrap;
+  margin-bottom: 1rem;             /* adjusted margin */
+}
+.social-btn {
+  display: flex;
+  align-items: center;
+  gap: 0.5rem;
+  padding: 0.6rem 1rem;
+  border: none;
+  border-radius: 6px;
+  font-weight: 500;
+  cursor: pointer;
+  transition: transform 0.2s ease, background 0.3s ease;
+}
+.social-btn:hover {
+  transform: scale(1.05);
+}
+.google span{
+    color: #000;
+}
+/* ───────────────────────────────────────────────────────────────────────── */
+/* Separator Line */
+/* ───────────────────────────────────────────────────────────────────────── */
+.separator {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  margin: 1rem 0;                  /* adjusted margin */
+  font-size: 0.8rem;
+  color: #888;
+}
+.separator::before,
+.separator::after {
+  content: "";
+  flex: 1;
+  height: 1px;
+  background: #444;
+}
+.separator span {
+  padding: 0 1rem;
+}
+
+/* ───────────────────────────────────────────────────────────────────────── */
+/* Floating Label Inputs */
+/* ───────────────────────────────────────────────────────────────────────── */
 .signup-form {
-    display: flex;
-    flex-direction: column;
-    gap: 1.25rem;
+  display: flex;
+  flex-direction: column;
+  gap: .25rem;                    /* adjusted gap */
 }
-
-/* Floating label base */
-.floating {
-    position: relative;
+.form-group {
+  margin-bottom: 1rem;             /* fallback spacing */
 }
-
-/* Inputs */
 .floating .form-input {
-    width: 100%;
-    padding: 0 0.5rem;
-    font-size: 1rem;
-    color: #eee;
-    background-color: #222;
-    border: 1px solid transparent;
-    border-radius: 4px;
-    box-sizing: border-box;
-    transition: border-color 0.2s ease;
-    outline: none;
+  width: 100%;
+  background: #111;
+  border: 1px solid #444;
+  color: #eee;
+  padding: 1rem 0.75rem 0.5rem;
+  border-radius: 6px;
+  font-size: 0.95rem;
+  transition: border-color 0.2s ease;
 }
-
-.floating .form-input::placeholder {
-    color: transparent;
-}
-
-/* Floating labels */
 .floating label {
-    position: absolute;
-    top: 0.7rem;
-    left: 1rem;
-    font-size: 1rem;
-    color: #888;
-    pointer-events: none;
-    transition: all 0.2s ease;
+  position: absolute;
+  top: 0.7rem;
+  left: 0.75rem;
+  font-size: 1rem;
+  color: #888;
+  pointer-events: none;
+  transition: all 0.2s ease;
 }
-
+.floating .form-input::placeholder {
+  color: transparent;
+}
+.floating .form-input:focus {
+  border-color: #bbb;
+  box-shadow: 0 0 0 2px rgba(187, 187, 187, 0.2);
+}
 .floating .form-input:focus + label,
 .floating .form-input:not(:placeholder-shown) + label {
-    top: -1.3rem;
-    left: 0rem;
-    font-size: 0.8rem;
-    color: #bbb;
+  top: -1.3rem;
+  left: 0;
+  font-size: 0.8rem;
+  color: #bbb;
 }
 
-/* Focus border */
-.floating .form-input:focus {
-    border-color: #bbb; /* or your accent focus color */
-}
-
-/* Remove spinner if using number inputs */
-input[type="number"]::-webkit-outer-spin-button,
-input[type="number"]::-webkit-inner-spin-button {
-    -webkit-appearance: none;
-    margin: 0;
-}
-input[type="number"] {
-    -moz-appearance: textfield;
-}
-
-/* Submit button */
+/* ───────────────────────────────────────────────────────────────────────── */
+/* Submit Button */
+/* ───────────────────────────────────────────────────────────────────────── */
 .submit-btn {
-    margin-top: 0;
-    padding: 0.9rem;
-    font-size: 1rem;
-    text-transform: uppercase;
-    letter-spacing: 0.05em;
-    background: linear-gradient(90deg, #bbb, #dde);
-    color: #000; /* adjust for contrast */
-    border: none;
-    border-radius: 4px;
-    cursor: pointer;
-    transition: opacity 0.32s ease, background 0.3s ease;
+  background: linear-gradient(90deg, #ccc, #ddd);
+  border: none;
+  border-radius: 6px;
+  padding: 0.85rem;                 /* adjusted padding */
+  font-weight: 600;
+  letter-spacing: 0.05em;
+  color: #000;
+  cursor: pointer;
+  margin-top: 1rem;                /* adjusted margin */
+  transition: background 0.3s ease, transform 0.2s ease;
 }
 .submit-btn:hover {
-    background: linear-gradient(
-        180deg,
-        #bcbcff,
-        #a5a5d8
-    ); /* placeholder gradient */
+  background: linear-gradient(90deg, #bcbcff, #a5a5d8);
+  transform: translateY(-1px);
 }
 
-.submit-btn:disabled {
-    opacity: 0.5;
-    cursor: not-allowed;
-}
-/* —— existing styles above —— */
-
-/* —— social section —— */
-.social-login {
-    margin-top: 1.5rem;
-    text-align: center;
-}
-
-.social-prompt {
-    font-size: 0.9rem;
-    color: #bbb;
-    margin-top: 0.75rem;
-    margin-bottom: 0.75rem;
-}
-
-.social-buttons {
-    display: flex;
-    justify-content: center;
-    gap: 0.75rem;
-}
-
-.social-btn {
-    display: flex;
-    align-items: center;
-    gap: 0.5rem;
-    padding: 0.6rem 1rem;
-    font-size: 0.9rem;
-    border: none;
-    border-radius: 4px;
-    cursor: pointer;
-    transition: background 0.3s ease, opacity 0.32s ease-in-out;
-}
-
-/* Icon sizing */
-.social-icon {
-    font-size: 1.2rem;
-}
-
-/* individual platform colors (replace with your own theme if needed) */
-.social-btn.google {
-    background-color: #fff;
-    color: #000;
-}
-.social-btn.google span {
-    color: #000;
-}
-.social-btn.google:hover {
-    background-color: #f5f5f5;
-}
-
-.social-btn.facebook {
-    background-color: #1877f2;
-    color: #fff;
-}
-.social-btn.facebook:hover {
-    background-color: #165ec9;
-}
-
-.social-btn.twitter {
-    background-color: #1da1f2;
-    color: #fff;
-}
-.social-btn.twitter:hover {
-    background-color: #1991da;
-}
-
-/* reduce opacity if you want a disabled look */
-/* .social-btn:disabled { opacity: 0.6; cursor: not-allowed; } */
-/* Separator styling */
-.separator {
-    display: flex;
-    align-items: center;
-    margin: 1.5rem 0;
-    color: #bbb;
-    font-size: 0.9rem;
-}
-
-.separator::before,
-.separator::after {
-    content: "";
-    flex: 1;
-    height: 1px;
-    background: #444;
-}
-
-.separator::before {
-    margin-right: 0.5em;
-}
-.separator::after {
-    margin-left: 0.5em;
-}
-
-/* — Social Section — */
-.social-login {
-    text-align: center;
-    margin-bottom: 1rem;
-}
-
-.social-prompt {
-    font-size: 0.9rem;
-    color: #bbb;
-    margin-bottom: 0.5rem;
-    text-transform: uppercase;
-    letter-spacing: 0.05em;
-}
-
-.social-buttons {
-    display: flex;
-    justify-content: center;
-    gap: 0.75rem;
-    flex-wrap: wrap;
-}
-
-/* — Separator — */
-.separator {
-    display: flex;
-    align-items: center;
-    margin: 1.5rem 0;
-    color: #444;
-    font-size: 0.8rem;
-}
-
-.separator span {
-    padding: 0 0.5em;
-    color: #bbb;
-}
-
-.separator::before,
-.separator::after {
-    content: "";
-    flex: 1;
-    height: 1px;
-    background: #444;
-}
-
-/* — Form Section — */
-/* (keeps the existing floating-label and button styles) */
-.register-footer__text {
-    display: inline-block;
-    vertical-align: middle;
-
-    font-size: 0.9rem;
-    color: #bbb; /* secondary text color */
-    margin-right: 0.25rem;
-}
-
-.register-footer__link {
-    display: inline-block;
-    vertical-align: middle;
-
-    font-size: 0.9rem;
-    color: #0f0; /* accent green for links */
-    text-decoration: none;
-    cursor: pointer;
-    transition: color 0.2s ease-in-out;
-}
-
-.register-footer__link:hover,
-.register-footer__link:focus {
-    color: #8f8; /* lighter green on hover/focus */
-    text-decoration: underline;
-    outline: none;
-}
+/* ───────────────────────────────────────────────────────────────────────── */
+/* Footer Links */
+/* ───────────────────────────────────────────────────────────────────────── */
 .footer-links {
-    margin-top: 1.25rem;
+  margin-top: 0.575rem;             /* adjusted margin */
+  margin-bottom: 0.2rem;
+  text-align: center;
+}
+.register-footer__text,
+.register-footer__link {
+  font-size: 0.85rem;
+  color: #aaa;
+}
+.register-footer__link {
+  color: #fff;
+  font-weight: 500;
+  margin-left: 0.3rem;
+  transition: color 0.2s ease;
+}
+.register-footer__link:hover {
+  color: #ccc;
 }
 
-.signupLogo {
-    width: 600px;
-    height: auto;
+/* ───────────────────────────────────────────────────────────────────────── */
+/* Keyframes */
+/* ───────────────────────────────────────────────────────────────────────── */
+@keyframes fadeIn {
+  from {
+    opacity: 0;
+    transform: translateY(10px);
+  }
+  to {
+    opacity: 1;
+    transform: translateY(0);
+  }
+}
+
+/* ───────────────────────────────────────────────────────────────────────── */
+/* Responsive Adjustments */
+/* ───────────────────────────────────────────────────────────────────────── */
+@media (max-width: 480px) {
+  .SignUpCard {
+    padding: 1.25rem 1.5rem;
+    border-radius: 16px;
+  }
+  .social-buttons {
+    flex-direction: column;
+    gap: 0.5rem;
+    margin-bottom: 0.25rem;
+  }
+  .brand-logo {
+    margin-bottom: 0.5rem;
+  }
+  .form-input {
+    margin: 0;
+  }
 }

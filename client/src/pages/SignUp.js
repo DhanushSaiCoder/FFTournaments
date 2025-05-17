@@ -1,18 +1,19 @@
 import React from 'react';
-import "../styles/SignUp.css";
-import Logo from "../images/Logo.png"
+import '../styles/SignUp.css';
+import Logo from '../images/Logo.png';
 import { FcGoogle } from 'react-icons/fc';
 import { FaFacebookF, FaTwitter } from 'react-icons/fa';
-import Login from './Login';
 
 const SignUp = () => {
     return (
         <div className="SignUpContainer">
+            <div className="SignUpCard">
+                <div className="brand-header">
+                    <img src={Logo} alt="Logo" className="brand-logo" />
+                    <h2 className="signup-title">Create Your Account</h2>
+                    <p className="signup-subtitle">Join the community. It’s quick and easy.</p>
+                </div>
 
-            <div className="SignUp">
-                <h2 className="signup-title">Sign Up</h2>
-
-                {/* — Social Sign‑Up First — */}
                 <div className="social-login">
                     <div className="social-buttons">
                         <button className="social-btn google">
@@ -30,89 +31,56 @@ const SignUp = () => {
                     </div>
                 </div>
 
-                {/* — Separator — */}
-                <div className="separator">
-                    <span>OR</span>
-                </div>
+                <div className="separator"><span>OR</span></div>
 
-                {/* — Traditional Sign‑Up Form — */}
                 <form className="signup-form">
-                    <div className="form-group floating">
-                        <input
-                            type="text"
-                            id="username"
-                            name="username"
-                            placeholder=" "
-                            required
-                            className="form-input"
-                        />
-                        <label htmlFor="username">Username</label>
-                    </div>
+                    {['username', 'uid', 'email', 'password', 'confirmPassword'].map((field, i) => {
+                        const labels = {
+                            username: 'Username',
+                            uid: 'FF UID',
+                            email: 'Email Address',
+                            password: 'Password',
+                            confirmPassword: 'Confirm Password'
+                        };
 
-                    <div className="form-group floating">
-                        <input
-                            type="number"
-                            id="uid"
-                            name="uid"
-                            placeholder=" "
-                            required
-                            className="form-input"
-                        />
-                        <label htmlFor="uid">FF UID</label>
-                    </div>
+                        const type = field.includes('password')
+                            ? 'password'
+                            : field === 'email'
+                            ? 'email'
+                            : field === 'uid'
+                            ? 'number'
+                            : 'text';
 
-                    <div className="form-group floating">
-                        <input
-                            type="email"
-                            id="email"
-                            name="email"
-                            placeholder=" "
-                            required
-                            className="form-input"
-                        />
-                        <label htmlFor="email">Email Address</label>
-                    </div>
+                        return (
+                            <div className="form-group floating" key={i}>
+                                <input
+                                    type={type}
+                                    id={field}
+                                    name={field}
+                                    placeholder=" "
+                                    required
+                                    className="form-input"
+                                />
+                                <label htmlFor={field}>{labels[field]}</label>
+                            </div>
+                        );
+                    })}
 
-                    <div className="form-group floating">
-                        <input
-                            type="password"
-                            id="password"
-                            name="password"
-                            placeholder=" "
-                            required
-                            className="form-input"
-                        />
-                        <label htmlFor="password">Password</label>
-                    </div>
-
-                    <div className="form-group floating">
-                        <input
-                            type="password"
-                            id="confirmPassword"
-                            name="confirmPassword"
-                            placeholder=" "
-                            required
-                            className="form-input"
-                        />
-                        <label htmlFor="confirmPassword">Confirm Password</label>
-                    </div>
-                    <div className='footer-links'>
-
-                        <span class="register-footer__text">
+                    <div className="footer-links">
+                        <span className="register-footer__text">
                             Already have an account?
                         </span>
                         <a
-                            tabindex="0"
-                            data-testid="login-here-link"
-                            class="register-footer__link"
-                            href='/login'
+                            tabIndex="0"
+                            className="register-footer__link"
+                            href="/login"
                         >
                             Login here.
                         </a>
                     </div>
 
                     <button type="submit" className="submit-btn">
-                        CREATE ACCOUNT
+                        Create Account
                     </button>
                 </form>
             </div>
