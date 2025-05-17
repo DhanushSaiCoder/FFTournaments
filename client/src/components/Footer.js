@@ -1,10 +1,10 @@
 import React from 'react';
+import validRoutes from '../sampleData/validRoutes';
 import "../styles/Footer.css";
 import { useLocation } from 'react-router-dom';
 
 const Footer = () => {
     const location = useLocation()
-    const validRoutes = ["/", "/tournament", "/register", "/rankings", "/contactUs", "/profile", "/settings"]
     // if the pathname do not start with the any of thee valid routes do not show header.
     const shouldShowFooter = location.pathname === "/" || validRoutes.some(route =>
         route != "/" && location.pathname.startsWith(route)

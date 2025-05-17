@@ -2,6 +2,7 @@ import React from 'react';
 import { Link, useLocation } from 'react-router-dom';
 import { CgProfile } from "react-icons/cg";
 import { FaGear } from "react-icons/fa6";
+import validRoutes from './../sampleData/validRoutes';
 import '../styles/Header.css';
 
 const Header = () => {
@@ -10,7 +11,6 @@ const Header = () => {
     window.location.href = '/';
   }
 
-  const validRoutes = ["/", "/tournament", "/register", "/rankings", "/contactUs", "/profile", "/settings"]
   // if the pathname do not start with the any of thee valid routes do not show header.
   const shouldShowHeader = location.pathname === "/" || validRoutes.some(route =>
     route != "/" && location.pathname.startsWith(route)
