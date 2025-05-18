@@ -1,3 +1,37 @@
+const TournamentsTableData = {
+    ongoing: [
+        {
+            _id: "uyasebawbvaiuehsfkjdnv",
+            name: "APT FF CHAMPIONSHIP",
+            totalParticipants: 32,
+            prizePool: 3242,
+            endDate: "2023-10-01",
+        }
+    ],
+
+    upcoming: [
+        {
+            _id: "uyasebawbvaiuehsfkjdnv",
+            name: "APT FF CHAMPIONSHIP",
+            spotsRemaining: 12,
+            maxPrizePool: 3242,
+            startDate: "2023-10-01",
+        }
+    ],
+
+    completed: [
+        {
+            _id: "uyasebawbvaiuehsfkjdnv",
+            name: "APT FF CHAMPIONSHIP",
+            winner: {
+                _id: "uietmentehbemnewmqetmtyjalskdf",
+                username: "Dhanush Sai",
+                prizeWon: 342
+            },
+        }
+    ]
+}
+
 export default {
     _id: "askdjk2lek3kl4n34j34kj34n234h2kj34lk5456jb",
     frequency: "Weekly",
