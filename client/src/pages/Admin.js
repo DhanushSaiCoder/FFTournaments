@@ -1,15 +1,10 @@
 import React from 'react';
+import "../styles/Admin.css"
 
 const Admin = () => {
     return (
-        <div>
-            Admin Panel
-            Admin Panel
-            <h2>adkaf</h2>
-            <h2>adkaf</h2>
-            <h2>adkaf</h2>
-            <h2>adkaf</h2>
-            <h2>adkaf</h2>
+        <div className='AdminPanelContainer'>
+            <h2>ADMIN PANEL</h2>
         </div>
     );
 }
