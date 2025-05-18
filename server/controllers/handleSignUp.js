@@ -5,7 +5,7 @@ const jwt = require('jsonwebtoken');
 const handleSignUp = async (req, res) => {
     console.log('body:', req.body);
 
-    const { username, uid, email, password } = req.body;
+    const { username, uid, email, password, role } = req.body;
 
     try {
         // Look for any conflicting document
@@ -25,7 +25,7 @@ const handleSignUp = async (req, res) => {
         }
 
         // Create user instance
-        user = new User({ username, email, password, uid });
+        user = new User({ username, email, password, uid, role });
 
         // Hash password
         const salt = await bcrypt.genSalt(10);
@@ -38,6 +38,7 @@ const handleSignUp = async (req, res) => {
         const payload = {
             user: {
                 id: user.id,
+                role: user.role
             },
         };
 

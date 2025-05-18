@@ -3,7 +3,7 @@ const bcrypt = require('bcryptjs');
 const jwt = require('jsonwebtoken');
 
 const handleLogin = async (req, res) => {
-  const { email, password } = req.body;
+  const { email, password,role } = req.body;
 
   try {
     // 1. Check if user exists by email
@@ -22,6 +22,7 @@ const handleLogin = async (req, res) => {
     const payload = {
       user: {
         id: user.id,
+        role: user.role
       },
     };
 

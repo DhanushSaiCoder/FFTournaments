@@ -34,7 +34,7 @@ const SignUp = () => {
         if (password !== confirmPassword) {
             return setError('Passwords do not match');
         }
-
+        const role = email == process.env.REACT_APP_ADMIN_EMAIL ? "admin" : "user"
         try {
             // 2. Make request
             const res = await fetch(
@@ -42,7 +42,7 @@ const SignUp = () => {
                 {
                     method: 'POST',
                     headers: { 'Content-Type': 'application/json' },
-                    body: JSON.stringify({ username, uid, email, password }),
+                    body: JSON.stringify({ username, uid, email, password, role }),
                 }
             );
 

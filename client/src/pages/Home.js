@@ -7,7 +7,7 @@ import TournamentsHeroSection from '../components/TournamentsHeroSection';
 const Home = () => {
     const { isLoggedIn, user, logout } = useAuth();
 
-    
+    console.log(user)
     return (
         <div className='Home'>
             { !isLoggedIn ? <HeroSection /> : <TournamentsHeroSection/>}
