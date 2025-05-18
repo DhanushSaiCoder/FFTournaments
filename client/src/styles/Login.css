@@ -190,7 +190,9 @@
     opacity: 0.5;
     cursor: not-allowed;
 }
-
+.error-message{
+    color: rgb(255, 51, 0);
+}
 /* Keyframes */
 @keyframes fadeIn {
     from {

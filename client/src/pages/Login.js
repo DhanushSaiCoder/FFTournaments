@@ -1,12 +1,42 @@
-import React from 'react';
+import React, { useState } from 'react';
 import "../styles/Login.css";
 import GoogleSignIn from './../components/GoogleSignIn';
 import { useNavigate } from 'react-router-dom';
 import Logo from "../images/Logo.png"
 
 const Login = () => {
+  const navigate = useNavigate();
+  const [email, setEmail] = useState('');
+  const [password, setPassword] = useState('');
+  const [error, setError] = useState('');
 
-  const navigate = useNavigate()
+  const handleSubmit = async (e) => {
+    e.preventDefault();
+    setError(''); // Clear previous errors
+
+    try {
+      const response = await fetch(process.env.REACT_APP_BACKEND_URL+'/api/auth/login', {
+        method: 'POST',
+        headers: {
+          'Content-Type': 'application/json',
+        },
+        body: JSON.stringify({ email, password }),
+      });
+
+      const data = await response.json();
+      
+      if (!response.ok) {
+        throw new Error(data.msg || 'Login failed');
+      }
+
+      // Store token and redirect
+      localStorage.setItem('token', data.token);
+      navigate('/');
+    } catch (err) {
+      setError(err.message);
+    }
+  };
+
   return (
     <div className="LoginContainer">
       <div className="Login">
@@ -36,7 +66,7 @@ const Login = () => {
         </div>
 
         {/* Traditional Login Form */}
-        <form className="login-form">
+        <form className="login-form" onSubmit={handleSubmit}>
           <div className="form-group floating">
             <input
               type="email"
@@ -45,6 +75,8 @@ const Login = () => {
               placeholder=" "
               required
               className="form-input"
+              value={email}
+              onChange={(e) => setEmail(e.target.value)}
             />
             <label htmlFor="loginEmail">Email Address</label>
           </div>
@@ -57,9 +89,13 @@ const Login = () => {
               placeholder=" "
               required
               className="form-input"
+              value={password}
+              onChange={(e) => setPassword(e.target.value)}
             />
             <label htmlFor="loginPassword">Password</label>
           </div>
+
+          {error && <div className="error-message">{error}</div>}
 
           <div className="footer-links">
             <span className="register-footer__text">
