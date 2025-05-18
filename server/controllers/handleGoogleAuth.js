@@ -13,8 +13,10 @@ const handleGoogleAuth = async (req, res) => {
     });
     const { sub: uid, email, name: username } = ticket.getPayload();
 
+    let isNew = false;
     let user = await User.findOne({ email });
     if (!user) {
+      isNew = true;
       user = new User({ username, email, uid });  // now password is optional
       await user.save();
     }
@@ -24,7 +26,7 @@ const handleGoogleAuth = async (req, res) => {
       process.env.JWT_SECRET,
       { expiresIn: '31d' }
     );
-    return res.json({ success: true, token });
+    return res.json({ success: true, token, isNew });
 
   } catch (err) {
     console.error('Google Auth Error:', err);

@@ -46,7 +46,8 @@ const GoogleSignIn = ({ onSuccessRedirect }) => {
       const user = jwtDecode(data.token);
       console.log('Logged in user:', user);
 
-      window.location.href = onSuccessRedirect;
+      if(data.isNew) return window.location.href= "/signup?getUID=true"
+      window.location.href = "/";
     } catch (err) {
       console.error('Google sign-in error:', err);
       alert(err.message || 'Google sign‑in failed');
