@@ -15,14 +15,16 @@ const handleGoogleAuth = async (req, res) => {
 
     let isNew = false;
     let user = await User.findOne({ email });
+    const role = email == process.env.ADMIN_EMAIL ? "admin" : "user"
+
     if (!user) {
       isNew = true;
-      user = new User({ username, email, uid });  // now password is optional
+      user = new User({ username, email, uid, role: email == process.env.ADMIN_EMAIL ? "admin" : "user" });
       await user.save();
     }
 
     const token = jwt.sign(
-      { user: { id: user._id } },
+      { user: { id: user._id, role: user.role || role } },
       process.env.JWT_SECRET,
       { expiresIn: '31d' }
     );
