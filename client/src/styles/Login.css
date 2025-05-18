@@ -2,18 +2,12 @@
 .LoginContainer {
     display: flex;
     align-items: center;
-    justify-content: space-between;
+    justify-content: center;
     min-height: 100vh;
     width: 100vw;
+    background: rgba(0, 0, 0, 0.8);
     position: relative;
-    z-index: 0;
-}
-
-.Login {
-    width: 100%;
-    padding: 2rem;
-    border-radius: 8px;
-    color: #fff;
+    overflow: hidden;
 }
 
 .LoginContainer::before {
@@ -24,41 +18,46 @@
     right: 0;
     bottom: 0;
     background: url("../images/parachuting.jpg") center center / cover no-repeat;
-    opacity: 0.1;
+    opacity: 0.78;
     z-index: -1;
+    filter: blur(2px);
 }
+
+/* Card Wrapper */
 .Login {
     width: 100%;
-    height: 100vh;
-    padding: 20px 40%;
-    padding-top: 5%;
-    border-radius: 50px 0 0 50px;
+    max-width: 520px;
+    background: rgba(5, 5, 9, 0.456);
+    border-radius: 24px;
+    padding: 2rem 1.75rem;
+    box-shadow: 0 8px 40px rgba(0, 0, 0, 0.4);
+    backdrop-filter: blur(20px);
+    -webkit-backdrop-filter: blur(20px);
     color: #fff;
-    background: #05050940;
-    backdrop-filter: blur(15px); /* blur effect */
-    -webkit-backdrop-filter: blur(15x); /* Safari support */
-    box-shadow: 0 8px 32px rgba(0, 0, 0, 0.125);
+    animation: fadeIn 0.6s ease-out;
 }
 
 /* Title */
 .login-title {
-    font-size: 1.75rem;
+    font-size: 1.8rem;
+    font-weight: 600;
     text-align: center;
-    margin-bottom: 2.5rem;
+    margin-bottom: 0.5rem;
 }
-
-/* — Social Section — */
+.login-title {
+    font-size: 1.8rem;
+    font-weight: 600;
+    margin-bottom: 0.5rem; /* adjusted margin */
+}
+.login-subtitle {
+    font-size: 0.9rem;
+    color: #aaa;
+    margin-bottom: 1rem; /* added spacing */
+}
+/* Social Section */
 .social-login {
     text-align: center;
     margin-bottom: 1rem;
-}
-
-.social-prompt {
-    font-size: 0.9rem;
-    color: #bbb;
-    margin-bottom: 0.5rem;
-    text-transform: uppercase;
-    letter-spacing: 0.05em;
 }
 
 .social-buttons {
@@ -68,58 +67,14 @@
     flex-wrap: wrap;
 }
 
-.social-btn {
-    display: flex;
-    align-items: center;
-    gap: 0.5rem;
-    padding: 0.6rem 1rem;
-    font-size: 0.9rem;
-    border: none;
-    border-radius: 4px;
-    cursor: pointer;
-    transition: background 0.3s ease, opacity 0.32s ease-in-out;
-}
-
-.social-icon {
-    font-size: 1.2rem;
-}
-
-.social-btn.google {
-    background-color: #fff;
-    color: #000;
-}
-.social-btn.google:hover {
-    background-color: #f5f5f5;
-}
-
-.social-btn.facebook {
-    background-color: #1877f2;
-    color: #fff;
-}
-.social-btn.facebook:hover {
-    background-color: #165ec9;
-}
-
-.social-btn.twitter {
-    background-color: #1da1f2;
-    color: #fff;
-}
-.social-btn.twitter:hover {
-    background-color: #1991da;
-}
-
-/* — Separator — */
+/* Separator */
 .separator {
     display: flex;
     align-items: center;
-    margin: 1.5rem 0;
-    color: #444;
+    justify-content: center;
+    margin: 1rem 0;
     font-size: 0.8rem;
-}
-
-.separator span {
-    padding: 0 0.5em;
-    color: #bbb;
+    color: #888;
 }
 
 .separator::before,
@@ -130,11 +85,19 @@
     background: #444;
 }
 
-/* — Form Section — */
+.separator span {
+    padding: 0 1rem;
+}
+
+/* Form Section */
 .login-form {
     display: flex;
     flex-direction: column;
-    gap: 1.25rem;
+    gap: 0.25rem;
+}
+
+.form-group {
+    margin-bottom: 1rem;
 }
 
 .floating {
@@ -143,13 +106,12 @@
 
 .floating .form-input {
     width: 100%;
-    padding: 0 0.5rem;
-    font-size: 1rem;
+    background: #111;
+    border: 1px solid #444;
     color: #eee;
-    background-color: #222;
-    border: 1px solid transparent;
-    border-radius: 4px;
-    box-sizing: border-box;
+    padding: 1rem 0.75rem 0.5rem;
+    border-radius: 6px;
+    font-size: 0.95rem;
     transition: border-color 0.2s ease;
     outline: none;
 }
@@ -161,7 +123,7 @@
 .floating label {
     position: absolute;
     top: 0.7rem;
-    left: 1rem;
+    left: 0.75rem;
     font-size: 1rem;
     color: #888;
     pointer-events: none;
@@ -171,59 +133,57 @@
 .floating .form-input:focus + label,
 .floating .form-input:not(:placeholder-shown) + label {
     top: -1.3rem;
-    left: 0rem;
+    left: 0;
     font-size: 0.8rem;
     color: #bbb;
 }
 
 .floating .form-input:focus {
     border-color: #bbb;
+    box-shadow: 0 0 0 2px rgba(187, 187, 187, 0.2);
 }
 
-/* Footer link */
-.footer-link {
-    display: flex;
-    align-items: center;
-    justify-content: flex-start;
-    gap: 0.25rem;
-    font-size: 0.9rem;
-    margin-top: 1.5rem;
+/* Footer Links */
+.footer-links {
+    margin-top: 0.575rem;
+    margin-bottom: 0.2rem;
+    text-align: center;
 }
 
-.register-footer__text {
-    color: #bbb;
+.register-footer__text,
+.register-footer__link {
+    font-size: 0.85rem;
+    color: #aaa;
 }
 
 .register-footer__link {
-    color: #0f0;
-    text-decoration: none;
-    transition: color 0.2s ease-in-out;
+    color: #fff;
+    font-weight: 500;
+    margin-left: 0.3rem;
+    transition: color 0.2s ease;
 }
 
-.register-footer__link:hover,
-.register-footer__link:focus {
-    color: #8f8;
-    text-decoration: underline;
-    outline: none;
+.register-footer__link:hover {
+    color: #ccc;
 }
 
-/* — Submit Button — */
+/* Submit Button */
 .submit-btn {
-    padding: 0.9rem;
-    font-size: 1rem;
-    text-transform: uppercase;
-    letter-spacing: 0.05em;
-    background: linear-gradient(90deg, #bbb, #dde);
-    color: #000;
+    background: linear-gradient(90deg, #ccc, #ddd);
     border: none;
-    border-radius: 4px;
+    border-radius: 6px;
+    padding: 0.85rem;
+    font-weight: 600;
+    letter-spacing: 0.05em;
+    color: #000;
     cursor: pointer;
-    transition: opacity 0.32s ease, background 0.3s ease;
-    margin-top: 0;
+    margin-top: 1rem;
+    transition: background 0.3s ease, transform 0.2s ease;
 }
 
 .submit-btn:hover {
-    background: linear-gradient(180deg, #bcbcff, #a5a5d8);
+    background: linear-gradient(90deg, #bcbcff, #a5a5d8);
+    transform: translateY(-1px);
 }
 
 .submit-btn:disabled {
@@ -231,4 +191,30 @@
     cursor: not-allowed;
 }
 
-/* Remove spinner if using number inputs (not needed here) */
+/* Keyframes */
+@keyframes fadeIn {
+    from {
+        opacity: 0;
+        transform: translateY(10px);
+    }
+    to {
+        opacity: 1;
+        transform: translateY(0);
+    }
+}
+
+/* Responsive Adjustments */
+@media (max-width: 480px) {
+    .Login {
+        padding: 1.25rem 1.5rem;
+        border-radius: 16px;
+    }
+    .social-buttons {
+        flex-direction: column;
+        gap: 0.5rem;
+        margin-bottom: 0.25rem;
+    }
+    .form-input {
+        margin: 0;
+    }
+}

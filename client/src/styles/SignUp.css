@@ -127,7 +127,7 @@
 .form-group {
     margin-bottom: 1rem; /* fallback spacing */
 }
-.floating .form-input {
+.floating .signup-form-input {
     width: 100%;
     background: #111;
     border: 1px solid #444;
@@ -146,15 +146,15 @@
     pointer-events: none;
     transition: all 0.2s ease;
 }
-.floating .form-input::placeholder {
+.floating .signup-form-input::placeholder {
     color: transparent;
 }
-.floating .form-input:focus {
+.floating .signup-form-input:focus {
     border-color: #bbb;
     box-shadow: 0 0 0 2px rgba(187, 187, 187, 0.2);
 }
-.floating .form-input:focus + label,
-.floating .form-input:not(:placeholder-shown) + label {
+.floating .signup-form-input:focus + label,
+.floating .signup-form-input:not(:placeholder-shown) + label {
     top: -1.3rem;
     left: 0;
     font-size: 0.8rem;
@@ -234,7 +234,7 @@
     .brand-logo {
         margin-bottom: 0.5rem;
     }
-    .form-input {
+    .signup-form-input {
         margin: 0;
     }
 }

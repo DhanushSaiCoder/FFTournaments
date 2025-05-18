@@ -13,7 +13,7 @@ const SignUp = () => {
         email: '',
         password: '',
         confirmPassword: '',
-
+        
     });
     const [uid, setUid] = useState('')
     const [error, setError] = useState('');
@@ -161,7 +161,7 @@ const SignUp = () => {
                                     name={field}
                                     placeholder=" "
                                     required
-                                    className="form-input"
+                                    className="signup-form-input"
                                     value={form[field]}
                                     onChange={handleChange}
                                 />
