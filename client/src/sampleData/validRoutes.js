@@ -1,3 +1,3 @@
 export default  [
-    "/", "/tournament", "/register", "/rankings", "/contactUs", "/profile", "/settings"
+    "/", "/tournament", "/register", "/rankings", "/contactUs", "/profile", "/settings", "/admin"
 ]
