@@ -1,5 +1,5 @@
 .tournamentsHeroSection {
-    height: 65vh; /* Adjust height to fit the header */
+    height: calc(65vh + 100px); /* Adjust height to fit the header */
     overflow: hidden;
     position: relative;
     display: flex;
@@ -7,6 +7,7 @@
     align-items: center;
     flex-direction: column;
     padding-bottom: 30px;
+    padding-top: 100px;
 }
 
 .tournamentsHeroSection::before {
