@@ -9,8 +9,10 @@ const port = process.env.PORT
 //middleware
 app.use(express.json());
 app.use(cors({
-    origin: process.env.FRONTEND_URL
+  origin: 'http://localhost:3000', // or whatever your frontend runs on
+  credentials: true,
 }));
+
 
 //routing
 app.use('/api/auth', require('./routes/auth.route'))

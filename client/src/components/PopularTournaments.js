@@ -84,7 +84,7 @@ const PopularTournaments = () => {
             <SectionDivider text="POPULAR TOURNAMENTS" />
             {
                 data.map((tournament, index) => (
-                    <div style={index % 2 != 0 ? { backgroundColor: "#40ec792d" } : {}} className='popularTournamentsContent'>
+                    <div key={index} style={index % 2 != 0 ? { backgroundColor: "#40ec792d" } : {}} className='popularTournamentsContent'>
 
 
                         {/* render only if the index is an odd */}

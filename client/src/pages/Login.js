@@ -1,40 +1,72 @@
-import React from 'react';
+import React, { useState } from 'react';
 import "../styles/Login.css";
-
-import { FcGoogle } from 'react-icons/fc';
-import { FaFacebookF, FaTwitter } from 'react-icons/fa';
+import GoogleSignIn from './../components/GoogleSignIn';
+import { useNavigate } from 'react-router-dom';
+import Logo from "../images/Logo.png"
 
 const Login = () => {
+  const navigate = useNavigate();
+  const [email, setEmail] = useState('');
+  const [password, setPassword] = useState('');
+  const [error, setError] = useState('');
+
+  const handleSubmit = async (e) => {
+    e.preventDefault();
+    setError(''); // Clear previous errors
+
+    try {
+      const response = await fetch(process.env.REACT_APP_BACKEND_URL+'/api/auth/login', {
+        method: 'POST',
+        headers: {
+          'Content-Type': 'application/json',
+        },
+        body: JSON.stringify({ email, password }),
+      });
+
+      const data = await response.json();
+      
+      if (!response.ok) {
+        throw new Error(data.msg || 'Login failed');
+      }
+
+      // Store token and redirect
+      localStorage.setItem('token', data.token);
+      navigate('/');
+    } catch (err) {
+      setError(err.message);
+    }
+  };
+
   return (
     <div className="LoginContainer">
       <div className="Login">
-        <h2 className="login-title">Log In</h2>
+        <div className="brand-header">
+          <img
+            onClick={() => navigate('/')}
+            src={Logo}
+            alt="Logo"
+            className="brand-logo"
+          />
+          <h2 className="login-title">Login To Account</h2>
+          <p className="login-subtitle">
+            Continue Your Earning Journey.
+          </p>
+        </div>
 
-        {/* — Social Log‑In First — */}
+        {/* Social Login Section */}
         <div className="social-login">
           <div className="social-buttons">
-            <button className="social-btn google">
-              <FcGoogle className="social-icon" />
-              <span>Google</span>
-            </button>
-            <button className="social-btn facebook">
-              <FaFacebookF className="social-icon" />
-              <span>Facebook</span>
-            </button>
-            <button className="social-btn twitter">
-              <FaTwitter className="social-icon" />
-              <span>Twitter</span>
-            </button>
+            <GoogleSignIn onSuccessRedirect="/" />
           </div>
         </div>
 
-        {/* — Separator — */}
+        {/* Separator */}
         <div className="separator">
           <span>OR</span>
         </div>
 
-        {/* — Traditional Log‑In Form — */}
-        <form className="login-form">
+        {/* Traditional Login Form */}
+        <form className="login-form" onSubmit={handleSubmit}>
           <div className="form-group floating">
             <input
               type="email"
@@ -43,6 +75,8 @@ const Login = () => {
               placeholder=" "
               required
               className="form-input"
+              value={email}
+              onChange={(e) => setEmail(e.target.value)}
             />
             <label htmlFor="loginEmail">Email Address</label>
           </div>
@@ -55,11 +89,15 @@ const Login = () => {
               placeholder=" "
               required
               className="form-input"
+              value={password}
+              onChange={(e) => setPassword(e.target.value)}
             />
             <label htmlFor="loginPassword">Password</label>
           </div>
 
-          <div className="footer-link">
+          {error && <div className="error-message">{error}</div>}
+
+          <div className="footer-links">
             <span className="register-footer__text">
               Don’t have an account?
             </span>

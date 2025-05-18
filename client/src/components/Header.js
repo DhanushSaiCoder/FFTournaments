@@ -3,9 +3,11 @@ import { Link, useLocation } from 'react-router-dom';
 import { CgProfile } from "react-icons/cg";
 import { FaGear } from "react-icons/fa6";
 import validRoutes from './../sampleData/validRoutes';
+import { useAuth } from '../hooks/useAuth';
 import '../styles/Header.css';
 
 const Header = () => {
+  const { isLoggedIn } = useAuth()
   const location = useLocation(); // Get the current location
   const handleLogoClick = () => {
     window.location.href = '/';
@@ -44,14 +46,14 @@ const Header = () => {
         </nav>
       </div>
 
-      <div className='iconsDiv'>
+      {isLoggedIn && <div className='iconsDiv'>
         <Link to="/profile">
           <CgProfile className='userIcon' size={30} />
         </Link>
         <Link to="/settings">
           <FaGear className='settingsIcon' size={30} />
         </Link>
-      </div>
+      </div>}
 
     </div >
   );
