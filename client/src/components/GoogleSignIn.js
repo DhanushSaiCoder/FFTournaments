@@ -1,7 +1,7 @@
 import React, { useEffect } from 'react';
 import { jwtDecode } from 'jwt-decode';
 
-const GoogleSignIn = () => {
+const GoogleSignIn = ({ onSuccessRedirect }) => {
   useEffect(() => {
     const initGoogle = () => {
       if (!window.google?.accounts) return;
@@ -45,7 +45,8 @@ const GoogleSignIn = () => {
       localStorage.setItem('token', data.token);
       const user = jwtDecode(data.token);
       console.log('Logged in user:', user);
-      window.location.href = '/signup?getUID=true';
+
+      window.location.href = onSuccessRedirect;
     } catch (err) {
       console.error('Google sign-in error:', err);
       alert(err.message || 'Google sign‑in failed');

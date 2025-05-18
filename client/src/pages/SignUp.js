@@ -13,7 +13,7 @@ const SignUp = () => {
         email: '',
         password: '',
         confirmPassword: '',
-        
+
     });
     const [uid, setUid] = useState('')
     const [error, setError] = useState('');
@@ -125,7 +125,7 @@ const SignUp = () => {
 
                 {!getUID && <div className="social-login">
                     <div className="social-buttons">
-                        <GoogleSignIn />
+                        <GoogleSignIn onSuccessRedirect="/signup?getUID=true" />
                         {/* <button className="social-btn facebook">
                             <FaFacebookF className="social-icon" />
                             <span>Facebook</span>

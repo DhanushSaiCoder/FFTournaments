@@ -26,7 +26,7 @@ const Login = () => {
         {/* Social Login Section */}
         <div className="social-login">
           <div className="social-buttons">
-            <GoogleSignIn />
+            <GoogleSignIn onSuccessRedirect="/" />
           </div>
         </div>
 
