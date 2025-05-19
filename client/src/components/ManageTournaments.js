@@ -60,21 +60,29 @@ const ManageTournaments = () => {
     };
 
     const handleArrayChange = (field, index, value) => {
-        const newArr = [...form[field]];
-        newArr[index] = value;
-        setForm(f => ({ ...f, [field]: newArr }));
+        const newArray = [...form[field]];
+        newArray[index] = value;
+        setForm(prevForm => ({ ...prevForm, [field]: newArray }));
     };
 
-    const addArrayItem = field => {
-        setForm(f => ({ ...f, [field]: [...f[field], ''] }));
-    };
-
-    const removeArrayItem = (field, idx) => {
-        setForm(f => ({
-            ...f,
-            [field]: f[field].filter((_, i) => i !== idx)
+    const addArrayItem = (field) => {
+        setForm(prevForm => ({
+            ...prevForm,
+            [field]: [...prevForm[field], ''],
         }));
     };
+
+    const removeArrayItem = (field, index) => {
+        setForm(prevForm => {
+            const updatedArray = [...prevForm[field]];
+            updatedArray.splice(index, 1);
+            return {
+                ...prevForm,
+                [field]: updatedArray,
+            };
+        });
+    };
+
 
     const handleSubmit = e => {
         e.preventDefault();
@@ -215,21 +223,34 @@ const ManageTournaments = () => {
 
                     {/* Tags */}
                     <fieldset className="ManageTournaments__fieldset">
-                        <legend className="ManageTournaments__legend">
-                            Tags
-                        </legend>
-                        <input
-                            className="ManageTournaments__input"
-                            name="tags"
-                            value={form.tags.join(',')}
-                            onChange={e =>
-                                setForm(f => ({
-                                    ...f,
-                                    tags: e.target.value.split(',').map(s => s.trim())
-                                }))
-                            }
-                        />
+                        <legend className="ManageTournaments__legend">Tags</legend>
+                        <div className="ManageTournaments__array">
+                            {form.tags.map((tag, idx) => (
+                                <div key={idx} className="ManageTournaments__array - item">
+                                    <input
+                                        className="ManageTournaments__input"
+                                        value={tag}
+                                        onChange={e => handleArrayChange('tags', idx, e.target.value)}
+                                    />
+                                    <button
+                                        type="button"
+                                        className="ManageTournaments__button--remove"
+                                        onClick={() => removeArrayItem('tags', idx)}
+                                    >
+                                        &minus;
+                                    </button>
+                                </div>
+                            ))}
+                            <button
+                                type="button"
+                                className="ManageTournaments__button--add"
+                                onClick={() => addArrayItem('tags')}
+                            >
+                                Add Tag
+                            </button>
+                        </div>
                     </fieldset>
+
 
                     {/* Details & Important Info */}
                     {['details', 'prizeDetails'].map(field => (
