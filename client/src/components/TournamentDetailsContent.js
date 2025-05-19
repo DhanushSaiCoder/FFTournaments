@@ -69,8 +69,8 @@ const TournamentDetailsContent = ({ id }) => {
                 <div className="tDataAndPricesDiv">
                     <div className="tournamentDetailsInTDC">
                         <div className="nameAndFrequencyDiv">
-                            <h3>{frequency}</h3>
-                            <h2>{name}</h2>
+                            <h3>{frequency.toUpperCase()}</h3>
+                            <h2>{name.toUpperCase()}</h2>
                         </div>
                         <div className="tagsDiv">
                             {tags.map((tag, i) => (
