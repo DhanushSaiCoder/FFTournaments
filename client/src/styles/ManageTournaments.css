@@ -150,8 +150,17 @@
     box-shadow: 0 6px 20px rgba(0, 95, 189, 0.4);
 }
 .ManageTournaments__button--add{
-    background-color:#d4d4d4 ;
-    color: #1b1b1b;
+    background-color:#d4d4d420 ;
+    color: #d4d4d4;
+    transition: all 0.123s ease;
+}
+
+
+.ManageTournaments__button--add:hover{
+    background-color:#d4d4d430 ;
+    color: #fff;
+    cursor: pointer;
+
 }
 .ManageTournaments__array-item{
 }
