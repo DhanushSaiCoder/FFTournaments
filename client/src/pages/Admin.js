@@ -1,12 +1,40 @@
+// src/components/Admin.jsx
 import React from 'react';
-import "../styles/Admin.css"
+import { NavLink, Routes, Route } from 'react-router-dom';
+import "../styles/Admin.css";
+import ManageTournaments from './../components/ManageTournaments';
+import ManagePlayers from './../components/managePlayers';
+
+
 
 const Admin = () => {
-    return (
-        <div className='AdminPanelContainer'>
-            <h2>ADMIN PANEL</h2>
-        </div>
-    );
-}
+  return (
+    <div className="AdminPanelContainer">
+      <aside className="AdminSidebar">
+        <h2>ADMIN PANEL</h2>
+        <nav>
+          <NavLink
+            to="/admin/manageTournaments"
+            className={({ isActive }) => isActive ? 'active' : ''}
+          >
+            Manage Tournaments
+          </NavLink>
+          <NavLink
+            to="/admin/managePlayers"
+            className={({ isActive }) => isActive ? 'active' : ''}
+          >
+            Manage Players
+          </NavLink>
+        </nav>
+      </aside>
+      <main className="AdminMain">
+        <Routes>
+          <Route path="manageTournaments" element={<ManageTournaments />} />
+          <Route path="managePlayers" element={<ManagePlayers />} />
+        </Routes>
+      </main>
+    </div>
+  );
+};
 
 export default Admin;
