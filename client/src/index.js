@@ -19,6 +19,7 @@ import ScrollToTop from './components/ScrollToTop';
 import SignUp from './pages/SignUp';
 import Login from './pages/Login';
 import Admin from './pages/Admin';
+import ManageTournaments from './components/ManageTournaments';
 
 const root = ReactDOM.createRoot(document.getElementById('root'));
 root.render(
@@ -36,7 +37,7 @@ root.render(
         <Route path="/contactUs" element={<ContactUs />} />
         <Route path="/profile" element={<Profile />} />
         <Route path="/settings" element={<Settings />} />
-        <Route path="/admin" element={<Admin />} />
+        <Route path="/admin/*" element={<Admin />} />
         <Route path="/signup" element={<SignUp />} />
         <Route path="/login" element={<Login />} />
         <Route path="*" element={<NoPage />} />
