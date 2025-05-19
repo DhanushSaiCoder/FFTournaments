@@ -1,5 +1,3 @@
-/* BEM‑scoped styles for ManageTournaments component */
-
 .ManageTournaments {
     display: flex;
     flex-direction: column;
@@ -13,6 +11,7 @@
     align-items: flex-end;
     justify-content: flex-end;
 }
+
 .ManageTournamentsContent {
     width: calc(100% - 300px);
     display: flex;
@@ -22,6 +21,7 @@
     flex-wrap: wrap;
     
 }
+
 .ManageTournaments__tableSection{
     width: 100%;
 }
@@ -47,11 +47,8 @@
 .ManageTournaments__table thead th {
     height: 35px;
     background: #15151a;
+    border-bottom: 2.5px solid rgba(255, 255, 255, 0.1);
 }
-
-/* .ManageTournaments__table tbody tr:hover {
-    background: rgba(255, 255, 255, 0.08);
-} */
 
 .ManageTournaments__form {
     width: 100%;
