@@ -147,23 +147,39 @@ const ManageTournaments = () => {
         }));
     };
 
-    const handleSubmit = e => {
+    const handleSubmit = async e => {
         e.preventDefault();
+
         if (!form.name || !form.startDate) {
             alert('Name and Start Date are required');
             return;
         }
-        if (form._id) {
-            // update existing
-            setTournaments(prev =>
-                prev.map(t => (t._id === form._id ? { ...form } : t))
+
+        try {
+            const response = await fetch(
+                `${process.env.REACT_APP_BACKEND_URL}/api/tournaments`,
+                {
+                    method: 'POST',
+                    headers: {
+                        'Content-Type': 'application/json'
+                    },
+                    body: JSON.stringify(form)
+                }
             );
-        } else {
-            // create new
-            const newEntry = { ...form, _id: uuidv4() };
-            setTournaments(prev => [...prev, newEntry]);
+
+            if (!response.ok) {
+                const errorData = await response.json();
+                throw new Error(errorData || 'Failed to create tournament');
+            }
+
+            const created = await response.json();
+            setTournaments(t => [...t, created]);  // append the newly created tournament
+            resetForm();
+            alert('Tournament created successfully!');
+        } catch (err) {
+            console.error('Error creating tournament:', err);
+            alert(`Error: ${err.message}`);
         }
-        resetForm();
     };
 
     return (
@@ -200,7 +216,7 @@ const ManageTournaments = () => {
                                             className="ManageTournaments__button ManageTournaments__button--danger"
                                             onClick={() => deleteTournament(t._id)}
                                         >
-                                            <DeleteIcon sx={{color: "red"}} />
+                                            <DeleteIcon sx={{ color: "red" }} />
                                         </button>
                                     </td>
                                 </tr>

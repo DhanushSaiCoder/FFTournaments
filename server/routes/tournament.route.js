@@ -1,8 +1,10 @@
-const express = require('express')
+const express = require('express');
+
 const router = express.Router();
 const tournamentValidator = require("../middleware/validators/tournamentValidator")
-
+const { check, validationResult } = require('express-validator');
 const handleTournamentPost = require('../controllers/handleTournamentPost')
+
 router.post('/', async (req, res) => {
     const errors = validationResult(req);
     if (!errors.isEmpty()) {
@@ -12,4 +14,4 @@ router.post('/', async (req, res) => {
     handleTournamentPost(req, res)
 })
 
-export default router;
+module.exports= router;

@@ -1,7 +1,6 @@
 // validations/tournamentValidator.js
-import { body } from 'express-validator';
-
-export const validateTournament = [
+const {body} = require('express-validator')
+const validateTournament = [
     // frequency: required, one of allowed values
     body('frequency')
         .exists().withMessage('Frequency is required')
@@ -115,3 +114,5 @@ export const validateTournament = [
             .withMessage(`Each item in ${field} must be a string`)
     ),
 ];
+
+module.exports = validateTournament

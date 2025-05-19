@@ -1,4 +1,4 @@
-import mongoose from 'mongoose';
+const mongoose = require("mongoose")
 
 const { Schema, model, Types } = mongoose;
 
@@ -113,4 +113,4 @@ const TournamentSchema = new Schema({
   timestamps: true
 });
 
-export default model('Tournament', TournamentSchema);
+module.exports = model('Tournament', TournamentSchema);
