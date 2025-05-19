@@ -12,7 +12,6 @@ const Admin = () => {
   return (
     <div className="AdminPanelContainer">
       <aside className="AdminSidebar">
-        <h2>ADMIN PANEL</h2>
         <nav>
           <NavLink
             to="/admin/manageTournaments"

@@ -1,6 +1,9 @@
 // validations/tournamentValidator.js
-const {body} = require('express-validator')
+const { body } = require('express-validator')
 const validateTournament = [
+    body('isPopular')
+        .exists().withMessage('`isPopular` field is required')
+        .isBoolean().withMessage('`isPopular` must be a boolean'),
     // frequency: required, one of allowed values
     body('frequency')
         .exists().withMessage('Frequency is required')

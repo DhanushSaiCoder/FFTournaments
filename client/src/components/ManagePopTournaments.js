@@ -3,6 +3,7 @@ import { Table, TableHead, TableBody, TableRow, TableCell, TextField, Checkbox, 
 import { Link, Navigate } from 'react-router-dom';
 import { useAuth } from './../hooks/useAuth';
 import "../styles/ManagePopTournaments.css"
+import Login from './../pages/Login';
 
 const ManagePopularTournaments = () => {
     const { isAdmin } = useAuth()
@@ -57,6 +58,7 @@ const ManagePopularTournaments = () => {
             setSnack({ open: true, message: 'Updated successfully', severity: 'success' });
         } catch (err) {
             console.error(err);
+            console.log(err);
             // Revert on error
             setTournaments((prev) =>
                 prev.map((t) =>

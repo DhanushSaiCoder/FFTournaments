@@ -3,10 +3,7 @@ const mongoose = require("mongoose")
 const { Schema, model, Types } = mongoose;
 
 const ImportantInfoSchema = new Schema({
-  isPopular:{
-    type: Boolean, 
-    default: false
-  },
+
   details: {
     type: [String],
     default: []
@@ -50,6 +47,10 @@ const TournamentSchema = new Schema({
     type: String,
     required: true,
     trim: true
+  },
+  isPopular: {
+    type: Boolean,
+    default: false,
   },
   tags: {
     type: [String],

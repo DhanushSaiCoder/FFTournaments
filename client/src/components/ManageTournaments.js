@@ -199,7 +199,6 @@ const ManageTournaments = () => {
             alert('Required fields are missing');
             return;
         }
-
         try {
             const response = await fetch(
                 `${process.env.REACT_APP_BACKEND_URL}/api/tournaments`,
@@ -208,7 +207,7 @@ const ManageTournaments = () => {
                     headers: {
                         'Content-Type': 'application/json'
                     },
-                    body: JSON.stringify(formData)
+                    body: editingId ? JSON.stringify(formData) : JSON.stringify({...formData, isPopular: false})
                 }
             );
 
