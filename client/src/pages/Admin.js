@@ -4,6 +4,7 @@ import { NavLink, Routes, Route } from 'react-router-dom';
 import "../styles/Admin.css";
 import ManageTournaments from './../components/ManageTournaments';
 import ManagePlayers from './../components/managePlayers';
+import ManagePopTournaments from '../components/ManagePopTournaments';
 
 
 
@@ -19,6 +20,14 @@ const Admin = () => {
           >
             Manage Tournaments
           </NavLink>
+
+          <NavLink
+            to="/admin/managePopularTournaments"
+            className={({ isActive }) => isActive ? 'active' : ''}
+          >
+            Manage Pop Tournaments
+          </NavLink>
+
           <NavLink
             to="/admin/managePlayers"
             className={({ isActive }) => isActive ? 'active' : ''}
@@ -31,6 +40,8 @@ const Admin = () => {
         <Routes>
           <Route path="manageTournaments" element={<ManageTournaments />} />
           <Route path="managePlayers" element={<ManagePlayers />} />
+          <Route path="managePopularTournaments" element={<ManagePopTournaments />} />
+
         </Routes>
       </main>
     </div>

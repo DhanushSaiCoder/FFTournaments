@@ -3,6 +3,10 @@ const mongoose = require("mongoose")
 const { Schema, model, Types } = mongoose;
 
 const ImportantInfoSchema = new Schema({
+  isPopular:{
+    type: Boolean, 
+    default: false
+  },
   details: {
     type: [String],
     default: []

@@ -79,6 +79,7 @@ const oddGradient = {
 }
 
 const PopularTournaments = () => {
+    
     return (
         <div className='popularTournamentsContainer'>
             <SectionDivider text="POPULAR TOURNAMENTS" />

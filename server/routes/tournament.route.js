@@ -40,6 +40,39 @@ router.post('/', async (req, res) => {
 
     handleTournamentPost(req, res)
 })
+router.patch(
+  '/:id',
+  // Optional: you could add auth middleware here, e.g. ensureAdmin
+  [
+    check('isPopular')
+      .exists().withMessage('isPopular field is required')
+      .isBoolean().withMessage('isPopular must be a boolean'),
+  ],
+  async (req, res) => {
+    // Validate request body
+    const errors = validationResult(req);
+    if (!errors.isEmpty()) {
+      return res.status(400).json({ errors: errors.array() });
+    }
+
+    const { isPopular } = req.body;
+    try {
+      const tournament = await Tournament.findById(req.params.id);
+      if (!tournament) {
+        return res.status(404).json({ message: 'Tournament not found' });
+      }
+
+      tournament.isPopular = isPopular;
+      await tournament.save();
+
+      res.json({ message: 'isPopular updated', tournament });
+    } catch (err) {
+      console.error('Error updating isPopular:', err);
+      res.status(500).json({ message: 'Internal Server Error', error: err.message });
+    }
+  }
+);
+
 
 
 
