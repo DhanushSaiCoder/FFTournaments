@@ -4,34 +4,8 @@ import '../styles/ManageTournaments.css';
 import EditIcon from '@mui/icons-material/Edit';
 import DeleteIcon from '@mui/icons-material/Delete';
 
-const exampleTournament = {
-    _id: 'abc123',
-    frequency: 'Weekly',
-    name: 'Sunday Showdown',
-    tags: ['FPS', 'Solo'],
-    details: ['Fast-paced', 'Invite only'],
-    gameMode: 'BR',
-    maxPrizePool: 5000,
-    maxPlayers: 100,
-    prizePerKill: 10,
-    entryFee: 50,
-    startDate: '2025-06-01',
-    endDate: '2025-06-02',
-    startTime: '18:00',
-    startDateTime: '2025-06-01T18:00',
-    prizes: { first: 3000, second: 1500, third: 500 },
-    prizeDetails: ['Cash payout', 'Winner gets trophy'],
-    importantInformation: {
-        details: ['Be online 15 min early'],
-        rules: ['No cheating', 'Respect others'],
-        howToJoin: ['Register on dashboard'],
-        howToClaimPrizeMoney: ['Contact admin within 24h']
-    }
-};
-
 const ManageTournaments = () => {
     const initialFormState = {
-        _id: '',
         frequency: '',
         name: '',
         tags: [],
@@ -55,8 +29,34 @@ const ManageTournaments = () => {
         }
     };
 
-    const [tournaments, setTournaments] = useState([exampleTournament]);
+    const [tournaments, setTournaments] = useState([
+        {
+            id: uuidv4(),
+            frequency: 'Weekly',
+            name: 'Sunday Showdown',
+            tags: ['FPS', 'Solo'],
+            details: ['Fast-paced', 'Invite only'],
+            gameMode: 'BR',
+            maxPrizePool: 5000,
+            maxPlayers: 100,
+            prizePerKill: 10,
+            entryFee: 50,
+            startDate: '2025-06-01',
+            endDate: '2025-06-02',
+            startTime: '18:00',
+            startDateTime: '2025-06-01T18:00',
+            prizes: { first: 3000, second: 1500, third: 500 },
+            prizeDetails: ['Cash payout', 'Winner gets trophy'],
+            importantInformation: {
+                details: ['Be online 15 min early'],
+                rules: ['No cheating', 'Respect others'],
+                howToJoin: ['Register on dashboard'],
+                howToClaimPrizeMoney: ['Contact admin within 24h']
+            }
+        }
+    ]);
     const [form, setForm] = useState(initialFormState);
+    const [editingId, setEditingId] = useState(null);
 
     useEffect(() => {
         if (form.startDate && form.startTime) {
@@ -69,17 +69,19 @@ const ManageTournaments = () => {
 
     const resetForm = () => {
         setForm(initialFormState);
+        setEditingId(null);
     };
 
     const deleteTournament = id => {
-        setTournaments(prev => prev.filter(t => t._id !== id));
-        if (form._id === id) {
+        setTournaments(prev => prev.filter(t => t.id !== id));
+        if (editingId === id) {
             resetForm();
         }
     };
 
     const editTournament = t => {
         setForm({ ...t });
+        setEditingId(t.id);
     };
 
     const handleChange = e => {
@@ -96,7 +98,6 @@ const ManageTournaments = () => {
         }));
     };
 
-    // ... (keep array handlers and info array handlers the same)
     const handleArrayChange = (field, index, value) => {
         const newArray = [...form[field]];
         newArray[index] = value;
@@ -177,7 +178,7 @@ const ManageTournaments = () => {
             const response = await fetch(
                 `${process.env.REACT_APP_BACKEND_URL}/api/tournaments`,
                 {
-                    method: 'POST',
+                    method: editingId ? 'PUT' : 'POST', // Use PUT for updates
                     headers: {
                         'Content-Type': 'application/json'
                     },
@@ -185,14 +186,21 @@ const ManageTournaments = () => {
                 }
             );
 
-            if (!response.ok) throw new Error('Failed to create tournament');
+            if (!response.ok) throw new Error(`Failed to ${editingId ? 'update' : 'create'} tournament`);
 
-            const created = await response.json();
-            setTournaments(t => [...t, created]);
+            const result = await response.json();
+            if (editingId) {
+                setTournaments(prev =>
+                    prev.map(t => (t.id === editingId ? { ...result, id: editingId } : t))
+                );
+                alert('Tournament updated successfully!');
+            } else {
+                setTournaments(t => [...t, { ...result, id: uuidv4() }]); // Assign a new client-side ID
+                alert('Tournament created successfully!');
+            }
             resetForm();
-            alert('Tournament created successfully!');
         } catch (err) {
-            console.error('Error creating tournament:', err);
+            console.error(`Error ${editingId ? 'updating' : 'creating'} tournament:`, err);
             alert(`Error: ${err.message}`);
         }
     };
@@ -200,7 +208,7 @@ const ManageTournaments = () => {
     return (
         <div className="ManageTournaments">
             <div className="ManageTournamentsContent">
-                {/* Existing Tournaments Table (unchanged) */}
+                {/* Existing Tournaments Table */}
                 <section className="ManageTournaments__tableSection">
                     <h2>Existing Tournaments</h2>
                     <table className="ManageTournaments__table">
@@ -214,12 +222,11 @@ const ManageTournaments = () => {
                         </thead>
                         <tbody>
                             {tournaments.map(t => (
-                                <tr className='adminTTableRow' key={t._id}>
+                                <tr className='adminTTableRow' key={t.id}>
                                     <td>{t.name}</td>
                                     <td>{t.startDateTime}</td>
                                     <td>{t.entryFee}</td>
                                     <td>
-
                                         <button
                                             type="button"
                                             className="ManageTournaments__button--edit"
@@ -230,7 +237,7 @@ const ManageTournaments = () => {
                                         <button
                                             type="button"
                                             className="ManageTournaments__button ManageTournaments__button--danger"
-                                            onClick={() => deleteTournament(t._id)}
+                                            onClick={() => deleteTournament(t.id)}
                                         >
                                             <DeleteIcon sx={{ color: "red" }} />
                                         </button>
@@ -358,7 +365,6 @@ const ManageTournaments = () => {
                         </div>
                     </fieldset>
 
-                    {/* Rest of the form remains the same */}
                     {/* Tags */}
                     <fieldset className="ManageTournaments__fieldset">
                         <legend className="ManageTournaments__legend">Tags</legend>
@@ -457,7 +463,7 @@ const ManageTournaments = () => {
                     </fieldset>
 
                     <button type="submit" className="ManageTournaments__button--submit">
-                        {form._id ? 'Update Tournament' : 'Create Tournament'}
+                        {editingId ? 'Update Tournament' : 'Create Tournament'}
                     </button>
                 </form>
             </div>
