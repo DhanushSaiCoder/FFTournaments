@@ -49,7 +49,7 @@ const Header = () => {
               <Link to="/contactUs">CONTACT US</Link>
             </li>
             {isAdmin && (
-              <li className={location.pathname === '/admin' ? 'active' : ''}>
+              <li className={location.pathname.startsWith('/admin') ? 'active' : ''}>
                 <Link to="/admin">ADMIN PANEL</Link>
               </li>
             )}

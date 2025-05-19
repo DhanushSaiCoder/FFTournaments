@@ -226,7 +226,7 @@ const ManageTournaments = () => {
                         <legend className="ManageTournaments__legend">Tags</legend>
                         <div className="ManageTournaments__array">
                             {form.tags.map((tag, idx) => (
-                                <div key={idx} className="ManageTournaments__array - item">
+                                <div key={idx} className="ManageTournaments__array-item">
                                     <input
                                         className="ManageTournaments__input"
                                         value={tag}
@@ -265,7 +265,7 @@ const ManageTournaments = () => {
                                 {form[field].map((item, idx) => (
                                     <div
                                         key={idx}
-                                        className="ManageTournaments__array - item"
+                                        className="ManageTournaments__array-item"
                                     >
                                         <input
                                             className="ManageTournaments__input"
@@ -309,7 +309,7 @@ const ManageTournaments = () => {
                                     {arr.map((item, idx) => (
                                         <div
                                             key={idx}
-                                            className="ManageTournaments__array - item"
+                                            className="ManageTournaments__array-item"
                                         >
                                             <input
                                                 className="ManageTournaments__input"

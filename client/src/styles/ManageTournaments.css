@@ -118,6 +118,9 @@
     font-size: 1.1rem;
     cursor: pointer;
     transition: background 0.2s, transform 0.2s;
+    display: flex;
+    align-items: center;
+    justify-content: center;
 }
 
 .ManageTournaments__button--remove:hover {
@@ -148,6 +151,8 @@
 }
 .ManageTournaments__button--add{
     background-color:rgba(0, 95, 189, 0.4) ;
+}
+.ManageTournaments__array-item{
 }
 @keyframes fadeIn {
     from {
