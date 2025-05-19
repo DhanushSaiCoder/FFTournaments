@@ -18,6 +18,20 @@ router.get('/', async (req, res) => {
     }
 })
 
+router.get('/:id', async (req, res) => {
+    try {
+        const tournament = await Tournament.findById(req.params.id); // or use .findOne({_id: req.params.id})
+        if (!tournament) {
+            return res.status(404).json({ message: "Tournament not found" });
+        }
+        res.json(tournament);
+    } catch (error) {
+        console.error("Error fetching tournament:", error);
+        res.status(500).json({ message: "Internal Server Error", error: error.message });
+    }
+});
+
+
 router.post('/', async (req, res) => {
     const errors = validationResult(req);
     if (!errors.isEmpty()) {
