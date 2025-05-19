@@ -241,7 +241,10 @@ const ManageTournaments = () => {
                         <thead>
                             <tr>
                                 <th>Name</th>
+                                <th>Game Mode</th>
                                 <th>Start</th>
+                                <th>End</th>
+                                <th>Max Prize Pool</th>
                                 <th>Entry Fee</th>
                                 <th>Actions</th>
                             </tr>
@@ -250,23 +253,36 @@ const ManageTournaments = () => {
                             {tournaments.map(t => (
                                 <tr className='adminTTableRow' key={t.id}>
                                     <td>{t.name}</td>
-                                    <td>{t.startDateTime}</td>
+                                    <td>{t.gameMode}</td>
+                                    <td>
+                                        {new Intl.DateTimeFormat('en-IN', {
+                                            dateStyle: 'short',
+                                            timeStyle: 'short',
+                                        }).format(new Date(t.startDateTime))}
+                                    </td>
+
+                                    <td>{new Intl.DateTimeFormat('en-IN').format(new Date(t.endDate))}</td>
+
+                                    <td>₹{t.maxPrizePool}/-</td>
                                     <td>{t.entryFee}</td>
                                     <td>
-                                        <button
-                                            type="button"
-                                            className="ManageTournaments__button--edit"
-                                            onClick={() => editTournament(t)}
-                                        >
-                                            <EditIcon />
-                                        </button>
-                                        <button
-                                            type="button"
-                                            className="ManageTournaments__button ManageTournaments__button--danger"
-                                            onClick={() => deleteTournament(t.id)}
-                                        >
-                                            <DeleteIcon sx={{ color: "red" }} />
-                                        </button>
+                                        <div className='actionsDiv'>
+
+                                            <button
+                                                type="button"
+                                                className="ManageTournaments__button--edit"
+                                                onClick={() => editTournament(t)}
+                                            >
+                                                <EditIcon />
+                                            </button>
+                                            <button
+                                                type="button"
+                                                className="ManageTournaments__button ManageTournaments__button--danger"
+                                                onClick={() => deleteTournament(t.id)}
+                                            >
+                                                <DeleteIcon sx={{ color: "red" }} />
+                                            </button>
+                                        </div>
                                     </td>
                                 </tr>
                             ))}
@@ -460,39 +476,39 @@ const ManageTournaments = () => {
                         <legend className="ManageTournaments__legend">Important Info</legend>
                         {Object.entries(form.importantInformation).map(([section, arr]) => (
                             <div key={section} className="ManageTournaments__array">
-                        <h4>{section.charAt(0).toUpperCase() + section.slice(1)}</h4>
-                        {arr.map((item, idx) => (
-                            <div key={idx} className="ManageTournaments__array-item">
-                                <input
-                                    className="ManageTournaments__input"
-                                    value={item}
-                                    onChange={e => handleInfoArrayChange(section, idx, e.target.value)}
-                                />
+                                <h4>{section.charAt(0).toUpperCase() + section.slice(1)}</h4>
+                                {arr.map((item, idx) => (
+                                    <div key={idx} className="ManageTournaments__array-item">
+                                        <input
+                                            className="ManageTournaments__input"
+                                            value={item}
+                                            onChange={e => handleInfoArrayChange(section, idx, e.target.value)}
+                                        />
+                                        <button
+                                            type="button"
+                                            className="ManageTournaments__button--remove"
+                                            onClick={() => removeInfoArrayItem(section, idx)}
+                                        >
+                                            &minus;
+                                        </button>
+                                    </div>
+                                ))}
                                 <button
                                     type="button"
-                                    className="ManageTournaments__button--remove"
-                                    onClick={() => removeInfoArrayItem(section, idx)}
+                                    className="ManageTournaments__button--add"
+                                    onClick={() => addInfoArrayItem(section)}
                                 >
-                                    &minus;
+                                    Add {section}
                                 </button>
                             </div>
                         ))}
-                        <button
-                            type="button"
-                            className="ManageTournaments__button--add"
-                            onClick={() => addInfoArrayItem(section)}
-                        >
-                            Add {section}
-                        </button>
-                    </div>
-                        ))}
-                </fieldset>
+                    </fieldset>
 
-                <button type="submit" className="ManageTournaments__button--submit">
-                    {editingId ? 'Update Tournament' : 'Create Tournament'}
-                </button>
-            </form>
-        </div>
+                    <button type="submit" className="ManageTournaments__button--submit">
+                        {editingId ? 'Update Tournament' : 'Create Tournament'}
+                    </button>
+                </form>
+            </div>
         </div >
     );
 };
