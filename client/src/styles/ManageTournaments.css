@@ -154,6 +154,28 @@
 }
 .ManageTournaments__array-item{
 }
+
+.ManageTournaments__button--edit, .ManageTournaments__button--danger{
+    border: none;
+    background-color: #fff8f220;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    padding: 5px 10px;
+    width: 50px;
+    height: 50px;
+    margin: 10px;
+    border-radius: 50%;
+
+}
+.ManageTournaments__button--edit:hover, .ManageTournaments__button--danger:hover{
+    background-color: #fff8f240;
+    cursor: pointer;
+}
+.ManageTournaments__button--danger{
+    color: red;
+}
+
 @keyframes fadeIn {
     from {
         opacity: 0;

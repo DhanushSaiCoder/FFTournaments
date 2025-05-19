@@ -1,6 +1,8 @@
 import React, { useState, useEffect } from 'react';
 import { v4 as uuidv4 } from 'uuid';
-import '../styles/ManageTournaments.css'; 
+import '../styles/ManageTournaments.css';
+import EditIcon from '@mui/icons-material/Edit';
+import DeleteIcon from '@mui/icons-material/Delete';
 
 const exampleTournament = {
     _id: 'abc123',
@@ -27,15 +29,32 @@ const exampleTournament = {
 };
 
 const ManageTournaments = () => {
-    const [tournaments, setTournaments] = useState([exampleTournament]);
-    const [form, setForm] = useState({
-        _id: '', frequency: '', name: '', tags: [], details: [], gameMode: '',
-        maxPrizePool: '', maxPlayers: '', prizePerKill: '', entryFee: '',
-        startDate: '', startTime: '', startDateTime: '',
+    const initialFormState = {
+        _id: '',
+        frequency: '',
+        name: '',
+        tags: [],
+        details: [],
+        gameMode: '',
+        maxPrizePool: '',
+        maxPlayers: '',
+        prizePerKill: '',
+        entryFee: '',
+        startDate: '',
+        startTime: '',
+        startDateTime: '',
         prizes: { first: '', second: '', third: '' },
         prizeDetails: [],
-        importantInformation: { details: [], rules: [], howToJoin: [], howToClaimPrizeMoney: [] }
-    });
+        importantInformation: {
+            details: [],
+            rules: [],
+            howToJoin: [],
+            howToClaimPrizeMoney: []
+        }
+    };
+
+    const [tournaments, setTournaments] = useState([exampleTournament]);
+    const [form, setForm] = useState(initialFormState);
 
     useEffect(() => {
         if (form.startDate && form.startTime) {
@@ -45,6 +64,22 @@ const ManageTournaments = () => {
             }));
         }
     }, [form.startDate, form.startTime]);
+
+    const resetForm = () => {
+        setForm(initialFormState);
+    };
+
+    const deleteTournament = id => {
+        setTournaments(prev => prev.filter(t => t._id !== id));
+        if (form._id === id) {
+            resetForm();
+        }
+    };
+
+    const editTournament = t => {
+        // populate form with selected tournament
+        setForm({ ...t });
+    };
 
     const handleChange = e => {
         const { name, value } = e.target;
@@ -64,10 +99,10 @@ const ManageTournaments = () => {
         setForm(prevForm => ({ ...prevForm, [field]: newArray }));
     };
 
-    const addArrayItem = (field) => {
+    const addArrayItem = field => {
         setForm(prevForm => ({
             ...prevForm,
-            [field]: [...prevForm[field], ''],
+            [field]: [...prevForm[field], '']
         }));
     };
 
@@ -114,25 +149,26 @@ const ManageTournaments = () => {
 
     const handleSubmit = e => {
         e.preventDefault();
-        const newEntry = { ...form, _id: uuidv4() };
-        if (!newEntry.name || !newEntry.startDate) {
+        if (!form.name || !form.startDate) {
             alert('Name and Start Date are required');
             return;
         }
-        setTournaments([...tournaments, newEntry]);
-        setForm({
-            _id: '', frequency: '', name: '', tags: [], details: [], gameMode: '',
-            maxPrizePool: '', maxPlayers: '', prizePerKill: '', entryFee: '',
-            startDate: '', startTime: '', startDateTime: '',
-            prizes: { first: '', second: '', third: '' },
-            prizeDetails: [],
-            importantInformation: { details: [], rules: [], howToJoin: [], howToClaimPrizeMoney: [] }
-        });
+        if (form._id) {
+            // update existing
+            setTournaments(prev =>
+                prev.map(t => (t._id === form._id ? { ...form } : t))
+            );
+        } else {
+            // create new
+            const newEntry = { ...form, _id: uuidv4() };
+            setTournaments(prev => [...prev, newEntry]);
+        }
+        resetForm();
     };
 
     return (
         <div className="ManageTournaments">
-            <div className='ManageTournamentsContent'>
+            <div className="ManageTournamentsContent">
                 <section className="ManageTournaments__tableSection">
                     <h2>Existing Tournaments</h2>
                     <table className="ManageTournaments__table">
@@ -141,14 +177,32 @@ const ManageTournaments = () => {
                                 <th>Name</th>
                                 <th>Start</th>
                                 <th>Entry Fee</th>
+                                <th>Actions</th>
                             </tr>
                         </thead>
                         <tbody>
                             {tournaments.map(t => (
-                                <tr key={t._id}>
+                                <tr className='adminTTableRow' key={t._id}>
                                     <td>{t.name}</td>
                                     <td>{t.startDateTime}</td>
                                     <td>{t.entryFee}</td>
+                                    <td>
+
+                                        <button
+                                            type="button"
+                                            className="ManageTournaments__button--edit"
+                                            onClick={() => editTournament(t)}
+                                        >
+                                            <EditIcon />
+                                        </button>
+                                        <button
+                                            type="button"
+                                            className="ManageTournaments__button ManageTournaments__button--danger"
+                                            onClick={() => deleteTournament(t._id)}
+                                        >
+                                            <DeleteIcon sx={{color: "red"}} />
+                                        </button>
+                                    </td>
                                 </tr>
                             ))}
                         </tbody>
@@ -238,17 +292,31 @@ const ManageTournaments = () => {
                                         value={tag}
                                         onChange={e => handleArrayChange('tags', idx, e.target.value)}
                                     />
-                                    <button type="button" className="ManageTournaments__button--remove" onClick={() => removeArrayItem('tags', idx)}>&minus;</button>
+                                    <button
+                                        type="button"
+                                        className="ManageTournaments__button--remove"
+                                        onClick={() => removeArrayItem('tags', idx)}
+                                    >
+                                        &minus;
+                                    </button>
                                 </div>
                             ))}
-                            <button type="button" className="ManageTournaments__button--add" onClick={() => addArrayItem('tags')}>Add Tag</button>
+                            <button
+                                type="button"
+                                className="ManageTournaments__button--add"
+                                onClick={() => addArrayItem('tags')}
+                            >
+                                Add Tag
+                            </button>
                         </div>
                     </fieldset>
 
                     {/* Details & Prize Details */}
                     {['details', 'prizeDetails'].map(field => (
                         <fieldset key={field} className="ManageTournaments__fieldset">
-                            <legend className="ManageTournaments__legend">{field === 'details' ? 'Details' : 'Prize Details'}</legend>
+                            <legend className="ManageTournaments__legend">
+                                {field === 'details' ? 'Details' : 'Prize Details'}
+                            </legend>
                             <div className="ManageTournaments__array">
                                 {form[field].map((item, idx) => (
                                     <div key={idx} className="ManageTournaments__array-item">
@@ -257,10 +325,22 @@ const ManageTournaments = () => {
                                             value={item}
                                             onChange={e => handleArrayChange(field, idx, e.target.value)}
                                         />
-                                        <button type="button" className="ManageTournaments__button--remove" onClick={() => removeArrayItem(field, idx)}>&minus;</button>
+                                        <button
+                                            type="button"
+                                            className="ManageTournaments__button--remove"
+                                            onClick={() => removeArrayItem(field, idx)}
+                                        >
+                                            &minus;
+                                        </button>
                                     </div>
                                 ))}
-                                <button type="button" className="ManageTournaments__button--add" onClick={() => addArrayItem(field)}>Add {field}</button>
+                                <button
+                                    type="button"
+                                    className="ManageTournaments__button--add"
+                                    onClick={() => addArrayItem(field)}
+                                >
+                                    Add {field}
+                                </button>
                             </div>
                         </fieldset>
                     ))}
@@ -278,15 +358,29 @@ const ManageTournaments = () => {
                                             value={item}
                                             onChange={e => handleInfoArrayChange(section, idx, e.target.value)}
                                         />
-                                        <button type="button" className="ManageTournaments__button--remove" onClick={() => removeInfoArrayItem(section, idx)}>&minus;</button>
+                                        <button
+                                            type="button"
+                                            className="ManageTournaments__button--remove"
+                                            onClick={() => removeInfoArrayItem(section, idx)}
+                                        >
+                                            &minus;
+                                        </button>
                                     </div>
                                 ))}
-                                <button type="button" className="ManageTournaments__button--add" onClick={() => addInfoArrayItem(section)}>Add {section}</button>
+                                <button
+                                    type="button"
+                                    className="ManageTournaments__button--add"
+                                    onClick={() => addInfoArrayItem(section)}
+                                >
+                                    Add {section}
+                                </button>
                             </div>
                         ))}
                     </fieldset>
 
-                    <button type="submit" className="ManageTournaments__button--submit">Create Tournament</button>
+                    <button type="submit" className="ManageTournaments__button--submit">
+                        {form._id ? 'Update Tournament' : 'Create Tournament'}
+                    </button>
                 </form>
             </div>
         </div>
