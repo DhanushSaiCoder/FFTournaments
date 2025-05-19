@@ -10,15 +10,16 @@ const exampleTournament = {
     name: 'Sunday Showdown',
     tags: ['FPS', 'Solo'],
     details: ['Fast-paced', 'Invite only'],
-    gameMode: 'Solo',
+    gameMode: 'BR',
     maxPrizePool: 5000,
     maxPlayers: 100,
     prizePerKill: 10,
     entryFee: 50,
     startDate: '2025-06-01',
+    endDate: '2025-06-02',
     startTime: '18:00',
     startDateTime: '2025-06-01T18:00',
-    prizes: { first: '₹3000', second: '₹1500', third: '₹500' },
+    prizes: { first: 3000, second: 1500, third: 500 },
     prizeDetails: ['Cash payout', 'Winner gets trophy'],
     importantInformation: {
         details: ['Be online 15 min early'],
@@ -41,6 +42,7 @@ const ManageTournaments = () => {
         prizePerKill: '',
         entryFee: '',
         startDate: '',
+        endDate: '',
         startTime: '',
         startDateTime: '',
         prizes: { first: '', second: '', third: '' },
@@ -77,22 +79,24 @@ const ManageTournaments = () => {
     };
 
     const editTournament = t => {
-        // populate form with selected tournament
         setForm({ ...t });
     };
 
     const handleChange = e => {
-        const { name, value } = e.target;
-        setForm(f => ({ ...f, [name]: value }));
+        const { name, value, type } = e.target;
+        const parsedValue = type === 'number' ? Number(value) : value;
+        setForm(f => ({ ...f, [name]: parsedValue }));
     };
 
     const handleNested = (group, key, value) => {
+        const parsedValue = group === 'prizes' ? Number(value) : value;
         setForm(f => ({
             ...f,
-            [group]: { ...f[group], [key]: value }
+            [group]: { ...f[group], [key]: parsedValue }
         }));
     };
 
+    // ... (keep array handlers and info array handlers the same)
     const handleArrayChange = (field, index, value) => {
         const newArray = [...form[field]];
         newArray[index] = value;
@@ -150,8 +154,22 @@ const ManageTournaments = () => {
     const handleSubmit = async e => {
         e.preventDefault();
 
-        if (!form.name || !form.startDate) {
-            alert('Name and Start Date are required');
+        // Convert string numbers to actual numbers
+        const formData = {
+            ...form,
+            maxPrizePool: Number(form.maxPrizePool),
+            maxPlayers: Number(form.maxPlayers),
+            prizePerKill: Number(form.prizePerKill),
+            entryFee: Number(form.entryFee),
+            prizes: {
+                first: Number(form.prizes.first),
+                second: Number(form.prizes.second),
+                third: Number(form.prizes.third)
+            }
+        };
+
+        if (!form.name || !form.startDate || !form.endDate || !form.gameMode) {
+            alert('Required fields are missing');
             return;
         }
 
@@ -163,17 +181,14 @@ const ManageTournaments = () => {
                     headers: {
                         'Content-Type': 'application/json'
                     },
-                    body: JSON.stringify(form)
+                    body: JSON.stringify(formData)
                 }
             );
 
-            if (!response.ok) {
-                const errorData = await response.json();
-                throw new Error(errorData || 'Failed to create tournament');
-            }
+            if (!response.ok) throw new Error('Failed to create tournament');
 
             const created = await response.json();
-            setTournaments(t => [...t, created]);  // append the newly created tournament
+            setTournaments(t => [...t, created]);
             resetForm();
             alert('Tournament created successfully!');
         } catch (err) {
@@ -185,6 +200,7 @@ const ManageTournaments = () => {
     return (
         <div className="ManageTournaments">
             <div className="ManageTournamentsContent">
+                {/* Existing Tournaments Table (unchanged) */}
                 <section className="ManageTournaments__tableSection">
                     <h2>Existing Tournaments</h2>
                     <table className="ManageTournaments__table">
@@ -229,18 +245,46 @@ const ManageTournaments = () => {
                     {/* Basic Info */}
                     <fieldset className="ManageTournaments__fieldset">
                         <legend className="ManageTournaments__legend">Basic Info</legend>
-                        {['name', 'frequency', 'gameMode'].map(field => (
-                            <label key={field} className="ManageTournaments__label">
-                                {field.charAt(0).toUpperCase() + field.slice(1)}
-                                <input
-                                    className="ManageTournaments__input"
-                                    name={field}
-                                    value={form[field]}
-                                    onChange={handleChange}
-                                    required={field === 'name'}
-                                />
-                            </label>
-                        ))}
+                        <label className="ManageTournaments__label">
+                            Name*
+                            <input
+                                className="ManageTournaments__input"
+                                name="name"
+                                value={form.name}
+                                onChange={handleChange}
+                                required
+                            />
+                        </label>
+                        <label className="ManageTournaments__label">
+                            Frequency*
+                            <select
+                                className="ManageTournaments__input"
+                                name="frequency"
+                                value={form.frequency}
+                                onChange={handleChange}
+                                required
+                            >
+                                <option value="">Select Frequency</option>
+                                {['Daily', 'Weekly', 'Monthly', 'One-time'].map(opt => (
+                                    <option key={opt} value={opt}>{opt}</option>
+                                ))}
+                            </select>
+                        </label>
+                        <label className="ManageTournaments__label">
+                            Game Mode*
+                            <select
+                                className="ManageTournaments__input"
+                                name="gameMode"
+                                value={form.gameMode}
+                                onChange={handleChange}
+                                required
+                            >
+                                <option value="">Select Game Mode</option>
+                                {['BR', 'CS', 'DM', 'TDM'].map(opt => (
+                                    <option key={opt} value={opt}>{opt}</option>
+                                ))}
+                            </select>
+                        </label>
                     </fieldset>
 
                     {/* Schedule */}
@@ -256,13 +300,24 @@ const ManageTournaments = () => {
                                 required
                             />
                         </label>
-                        <label className="ManageTournaments__label">Start Time
+                        <label className="ManageTournaments__label">End Date*
+                            <input
+                                className="ManageTournaments__input"
+                                type="date"
+                                name="endDate"
+                                value={form.endDate}
+                                onChange={handleChange}
+                                required
+                            />
+                        </label>
+                        <label className="ManageTournaments__label">Start Time*
                             <input
                                 className="ManageTournaments__input"
                                 type="time"
                                 name="startTime"
                                 value={form.startTime}
                                 onChange={handleChange}
+                                required
                             />
                         </label>
                     </fieldset>
@@ -270,33 +325,40 @@ const ManageTournaments = () => {
                     {/* Fees & Prizes */}
                     <fieldset className="ManageTournaments__fieldset">
                         <legend className="ManageTournaments__legend">Fees & Prizes</legend>
-                        {['entryFee', 'maxPrizePool', 'prizePerKill'].map(field => (
+                        {['entryFee', 'maxPrizePool', 'maxPlayers', 'prizePerKill'].map(field => (
                             <label key={field} className="ManageTournaments__label">
-                                {field.replace(/([A-Z])/g, ' $1').trim()}
+                                {field.replace(/([A-Z])/g, ' $1').trim()}*
                                 <input
                                     className="ManageTournaments__input"
                                     type="number"
                                     name={field}
                                     value={form[field]}
                                     onChange={handleChange}
+                                    required
+                                    min={0}
                                 />
                             </label>
                         ))}
                         <div className="ManageTournaments__nestedPrizes">
-                            <h4>Prizes</h4>
+                            <h4>Prizes*</h4>
                             {['first', 'second', 'third'].map(pos => (
                                 <label key={pos} className="ManageTournaments__label">
                                     {pos.charAt(0).toUpperCase() + pos.slice(1)}
+                                    {pos === 'first' && '*'}
                                     <input
+                                        type="number"
                                         className="ManageTournaments__input"
                                         value={form.prizes[pos]}
                                         onChange={e => handleNested('prizes', pos, e.target.value)}
+                                        required={pos === 'first'}
+                                        min={0}
                                     />
                                 </label>
                             ))}
                         </div>
                     </fieldset>
 
+                    {/* Rest of the form remains the same */}
                     {/* Tags */}
                     <fieldset className="ManageTournaments__fieldset">
                         <legend className="ManageTournaments__legend">Tags</legend>
