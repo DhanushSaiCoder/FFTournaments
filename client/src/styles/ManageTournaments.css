@@ -6,7 +6,7 @@
     align-items: flex-start;
     min-height: 100vh;
     padding: 2rem;
-    background: rgba(0, 0, 0, 0.75);
+    /* background: rgba(0, 0, 0, 0.75); */
     color: #f0f0f0;
     font-family: "Segoe UI", sans-serif;
     display: flex;
