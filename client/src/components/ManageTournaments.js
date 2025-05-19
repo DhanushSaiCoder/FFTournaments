@@ -59,6 +59,32 @@ const ManageTournaments = () => {
     const [editingId, setEditingId] = useState(null);
 
     useEffect(() => {
+        const fetchTournaments = async () => {
+            try {
+                const response = await fetch(
+                    `${process.env.REACT_APP_BACKEND_URL}/api/tournaments`,
+                    {
+                        method: 'GET',
+                        headers: {
+                            'Content-Type': 'application/json'
+                        }
+                    }
+                );
+
+                if (!response.ok) throw new Error(`Failed to FETCH tournaments`);
+
+                const result = await response.json();
+                setTournaments(result);
+            } catch (err) {
+                console.error(`Error fetching tournaments:`, err);
+                alert(`Error: ${err.message}`);
+            }
+        };
+
+        fetchTournaments();
+    }, []);
+
+    useEffect(() => {
         if (form.startDate && form.startTime) {
             setForm(f => ({
                 ...f,
