@@ -87,21 +87,26 @@ export default function TournamentsContent() {
                             {activeTab === 'ongoing' && (
                                 <>
                                     <td>{t.maxPlayers}</td>
-                                    <td>{t.maxPrizePool}</td>
-                                    <td>{t.endDate}</td>
+                                    <td>₹{t.maxPrizePool}/-</td>
+                                    <td>{new Intl.DateTimeFormat('en-IN').format(new Date(t.endDate))}</td>
                                 </>
                             )}
                             {activeTab === 'upcoming' && (
                                 <>
                                     <td>{t.maxPlayers}</td>
-                                    <td>{t.maxPrizePool}</td>
-                                    <td>{t.startDate}</td>
+                                    <td>₹{t.maxPrizePool}/-</td>
+                                    <td>
+                                        {new Intl.DateTimeFormat('en-IN', {
+                                            dateStyle: 'short',
+                                            timeStyle: 'short',
+                                        }).format(new Date(t.startDateTime))}
+                                    </td>
                                 </>
                             )}
                             {activeTab === 'completed' && (
                                 <>
                                     <td>{t.participants}</td>
-                                    <td>{t.maxPrizePool}</td>
+                                    <td>₹{t.maxPrizePool}/-</td>
                                     <td>{t.startDate}</td>
                                     <td>{t.endDate}</td>
                                 </>
