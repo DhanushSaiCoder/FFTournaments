@@ -51,7 +51,7 @@
 
 .ManageTournaments__form {
     width: 100%;
-    /* max-width: 540px; */
+    margin-top: 40px;
     display: flex;
     align-items: flex-start;
     justify-content: flex-start;
@@ -155,6 +155,7 @@
     align-self: flex-end;
     background: linear-gradient(135deg, #48a9f8, #005fbd);
     color: #fff;
+    width: 30%;
 }
 
 .ManageTournaments__button--submit:hover {

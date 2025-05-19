@@ -3,7 +3,7 @@ import { v4 as uuidv4 } from 'uuid';
 import '../styles/ManageTournaments.css';
 import EditIcon from '@mui/icons-material/Edit';
 import DeleteIcon from '@mui/icons-material/Delete';
-
+import SectionDivider from "../components/SectionDivider"
 const ManageTournaments = () => {
     const initialFormState = {
         frequency: '',
@@ -273,7 +273,7 @@ const ManageTournaments = () => {
                         </tbody>
                     </table>
                 </section>
-
+                <SectionDivider text={editingId ? "UPDATE TOURNAMENT" : "NEW TOURNAMENT"} />
                 <form className="ManageTournaments__form" onSubmit={handleSubmit}>
                     {/* Basic Info */}
                     <fieldset className="ManageTournaments__fieldset">
@@ -460,40 +460,40 @@ const ManageTournaments = () => {
                         <legend className="ManageTournaments__legend">Important Info</legend>
                         {Object.entries(form.importantInformation).map(([section, arr]) => (
                             <div key={section} className="ManageTournaments__array">
-                                <h4>{section.charAt(0).toUpperCase() + section.slice(1)}</h4>
-                                {arr.map((item, idx) => (
-                                    <div key={idx} className="ManageTournaments__array-item">
-                                        <input
-                                            className="ManageTournaments__input"
-                                            value={item}
-                                            onChange={e => handleInfoArrayChange(section, idx, e.target.value)}
-                                        />
-                                        <button
-                                            type="button"
-                                            className="ManageTournaments__button--remove"
-                                            onClick={() => removeInfoArrayItem(section, idx)}
-                                        >
-                                            &minus;
-                                        </button>
-                                    </div>
-                                ))}
+                        <h4>{section.charAt(0).toUpperCase() + section.slice(1)}</h4>
+                        {arr.map((item, idx) => (
+                            <div key={idx} className="ManageTournaments__array-item">
+                                <input
+                                    className="ManageTournaments__input"
+                                    value={item}
+                                    onChange={e => handleInfoArrayChange(section, idx, e.target.value)}
+                                />
                                 <button
                                     type="button"
-                                    className="ManageTournaments__button--add"
-                                    onClick={() => addInfoArrayItem(section)}
+                                    className="ManageTournaments__button--remove"
+                                    onClick={() => removeInfoArrayItem(section, idx)}
                                 >
-                                    Add {section}
+                                    &minus;
                                 </button>
                             </div>
                         ))}
-                    </fieldset>
+                        <button
+                            type="button"
+                            className="ManageTournaments__button--add"
+                            onClick={() => addInfoArrayItem(section)}
+                        >
+                            Add {section}
+                        </button>
+                    </div>
+                        ))}
+                </fieldset>
 
-                    <button type="submit" className="ManageTournaments__button--submit">
-                        {editingId ? 'Update Tournament' : 'Create Tournament'}
-                    </button>
-                </form>
-            </div>
+                <button type="submit" className="ManageTournaments__button--submit">
+                    {editingId ? 'Update Tournament' : 'Create Tournament'}
+                </button>
+            </form>
         </div>
+        </div >
     );
 };
 
