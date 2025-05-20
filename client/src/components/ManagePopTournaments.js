@@ -131,7 +131,7 @@ const ManagePopularTournaments = () => {
                                     },
                                 }} key={t._id}>
                                     <TableCell sx={{ color: '#fff', backgroundColor: '#121212' }}>
-                                        <Link to={`/tournaments/${t._id}`} style={{ textDecoration: 'none' }}>
+                                        <Link to={`/tournament/${t._id}`} style={{ textDecoration: 'none' }}>
                                             {t.name}
                                         </Link>
                                     </TableCell>

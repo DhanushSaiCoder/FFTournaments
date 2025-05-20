@@ -50,7 +50,7 @@ const Header = () => {
             </li>
             {isAdmin && (
               <li className={location.pathname.startsWith('/admin') ? 'active' : ''}>
-                <Link to="/admin">ADMIN PANEL</Link>
+                <Link to="/admin/manageTournaments">ADMIN PANEL</Link>
               </li>
             )}
           </ul>

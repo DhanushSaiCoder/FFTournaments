@@ -4,6 +4,8 @@ import '../styles/ManageTournaments.css';
 import EditIcon from '@mui/icons-material/Edit';
 import DeleteIcon from '@mui/icons-material/Delete';
 import SectionDivider from "../components/SectionDivider"
+import { Table, TableHead, TableBody, TableRow, TableCell, TextField, Checkbox, Snackbar, Alert, Typography, Box } from '@mui/material';
+
 const ManageTournaments = () => {
     const initialFormState = {
         frequency: '',
@@ -207,7 +209,7 @@ const ManageTournaments = () => {
                     headers: {
                         'Content-Type': 'application/json'
                     },
-                    body: editingId ? JSON.stringify(formData) : JSON.stringify({...formData, isPopular: false})
+                    body: editingId ? JSON.stringify(formData) : JSON.stringify({ ...formData, isPopular: false })
                 }
             );
 
@@ -235,7 +237,9 @@ const ManageTournaments = () => {
             <div className="ManageTournamentsContent">
                 {/* Existing Tournaments Table */}
                 <section className="ManageTournaments__tableSection">
-                    <h2>Existing Tournaments</h2>
+                    <Typography variant="h4" gutterBottom>
+                        Manage Tournaments
+                    </Typography>
                     <table className="ManageTournaments__table">
                         <thead>
                             <tr>
