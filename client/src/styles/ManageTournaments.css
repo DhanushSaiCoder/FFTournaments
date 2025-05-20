@@ -6,12 +6,20 @@
     padding: 2rem;
     /* background: rgba(0, 0, 0, 0.75); */
     color: #f0f0f0;
-    font-family: "Segoe UI", sans-serif;
     display: flex;
     align-items: flex-end;
     justify-content: flex-end;
 }
-
+.AdminMain {
+    min-height: 100vh;
+    color: #f0f0f0;
+    display: flex;
+    align-items: flex-end;
+    justify-content: flex-end;
+    align-items: center;
+    justify-content: flex-start;
+    flex-direction: column;
+}
 .ManageTournamentsContent {
     width: calc(100% - 300px);
     display: flex;
@@ -19,10 +27,9 @@
     justify-content: flex-start;
     flex-direction: column;
     flex-wrap: wrap;
-    
 }
 
-.ManageTournaments__tableSection{
+.ManageTournaments__tableSection {
     width: 100%;
 }
 
@@ -163,23 +170,22 @@
     transform: translateY(-2px);
     box-shadow: 0 6px 20px rgba(0, 95, 189, 0.4);
 }
-.ManageTournaments__button--add{
-    background-color:#d4d4d420 ;
+.ManageTournaments__button--add {
+    background-color: #d4d4d420;
     color: #d4d4d4;
     transition: all 0.123s ease;
 }
 
-
-.ManageTournaments__button--add:hover{
-    background-color:#d4d4d430 ;
+.ManageTournaments__button--add:hover {
+    background-color: #d4d4d430;
     color: #fff;
     cursor: pointer;
-
 }
-.ManageTournaments__array-item{
+.ManageTournaments__array-item {
 }
 
-.ManageTournaments__button--edit, .ManageTournaments__button--danger{
+.ManageTournaments__button--edit,
+.ManageTournaments__button--danger {
     border: none;
     background-color: #fff8f220;
     display: flex;
@@ -190,16 +196,16 @@
     height: 50px;
     margin: 10px;
     border-radius: 50%;
-
 }
-.ManageTournaments__button--edit:hover, .ManageTournaments__button--danger:hover{
+.ManageTournaments__button--edit:hover,
+.ManageTournaments__button--danger:hover {
     background-color: #fff8f240;
     cursor: pointer;
 }
-.ManageTournaments__button--danger{
+.ManageTournaments__button--danger {
     background-color: rgba(255, 30, 0, 0.473);
 }
-.actionsDiv{
+.actionsDiv {
     height: 60px;
     width: auto;
     display: flex;
@@ -232,4 +238,3 @@
         text-align: center;
     }
 }
-
