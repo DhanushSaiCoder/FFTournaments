@@ -1,7 +1,7 @@
 import React, { useState, useEffect } from 'react';
 import '../styles/TournamentsContent.css';
 import { useNavigate } from 'react-router-dom';
-
+import { fetchTournaments } from '../services/tournamentService';
 
 const TABS = ['upcoming', 'ongoing', 'completed'];
 
@@ -26,32 +26,19 @@ export default function TournamentsContent() {
 
     const data = categorized[activeTab];
 
+
+    //fetch Tournaments
     useEffect(() => {
-        const fetchTournaments = async () => {
+        const loadTournaments = async () => {
             try {
-                const response = await fetch(
-                    `${process.env.REACT_APP_BACKEND_URL}/api/tournaments`,
-                    {
-                        method: 'GET',
-                        headers: {
-                            'Content-Type': 'application/json'
-                        }
-                    }
-                );
-
-                if (!response.ok) throw new Error(`Failed to FETCH tournaments`);
-
-                const result = await response.json();
-                console.log("data: ", result)
-                setTournamentsData(result);
+                const data = await fetchTournaments();
+                setTournamentsData(data);
             } catch (err) {
-                console.error(`Error fetching tournaments:`, err);
-                alert(`Error: ${err.message}`);
+                console.error('Failed to load tournaments:', err);
             }
         };
-
-        fetchTournaments();
-    }, [])
+        loadTournaments();
+    }, []);
 
     return (
         <div className="tournamentsContent">

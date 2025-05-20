@@ -5,6 +5,8 @@ import EditIcon from '@mui/icons-material/Edit';
 import DeleteIcon from '@mui/icons-material/Delete';
 import SectionDivider from "../components/SectionDivider"
 import { Table, TableHead, TableBody, TableRow, TableCell, TextField, Checkbox, Snackbar, Alert, Typography, Box } from '@mui/material';
+import { fetchTournaments } from "../services/tournamentService"
+
 
 const ManageTournaments = () => {
     const initialFormState = {
@@ -61,30 +63,17 @@ const ManageTournaments = () => {
     const [editingId, setEditingId] = useState(null);
 
     useEffect(() => {
-        const fetchTournaments = async () => {
+        const loadTournaments = async () => {
             try {
-                const response = await fetch(
-                    `${process.env.REACT_APP_BACKEND_URL}/api/tournaments`,
-                    {
-                        method: 'GET',
-                        headers: {
-                            'Content-Type': 'application/json'
-                        }
-                    }
-                );
-
-                if (!response.ok) throw new Error(`Failed to FETCH tournaments`);
-
-                const result = await response.json();
-                setTournaments(result);
+                const data = await fetchTournaments();
+                setTournaments(data);
             } catch (err) {
-                console.error(`Error fetching tournaments:`, err);
-                alert(`Error: ${err.message}`);
+                console.error('Failed to load tournaments:', err);
             }
         };
+        loadTournaments();
+    }, []);  
 
-        fetchTournaments();
-    }, []);
 
     useEffect(() => {
         if (form.startDate && form.startTime) {
