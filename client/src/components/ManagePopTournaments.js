@@ -6,7 +6,7 @@ import "../styles/ManagePopTournaments.css"
 import Login from './../pages/Login';
 
 const ManagePopularTournaments = () => {
-    const { isAdmin } = useAuth()
+    const { isAdmin } = useAuth();
     const [tournaments, setTournaments] = useState([]);
     const [searchTerm, setSearchTerm] = useState('');
     const [snack, setSnack] = useState({ open: false, message: '', severity: 'success' });
@@ -58,7 +58,6 @@ const ManagePopularTournaments = () => {
             setSnack({ open: true, message: 'Updated successfully', severity: 'success' });
         } catch (err) {
             console.error(err);
-            console.log(err);
             // Revert on error
             setTournaments((prev) =>
                 prev.map((t) =>
@@ -70,15 +69,17 @@ const ManagePopularTournaments = () => {
     };
 
     // Filter tournaments by name
-    const filtered = tournaments.filter((t) =>
-        t.name.toLowerCase().includes(searchTerm.toLowerCase())
-    );
+    const filtered = tournaments
+        .filter((t) =>
+            t.name.toLowerCase().includes(searchTerm.toLowerCase())
+        )
+        // Sort so popular appear first
+        .sort((a, b) => (b.isPopular === true ? 1 : 0) - (a.isPopular === true ? 1 : 0));
 
-
+        
     return (
         <div className="ManagePopTournamentsContainer">
             <div className='ManagePopTournamentsContent'>
-
                 <Box p={4} >
                     <Typography variant="h4" gutterBottom>
                         Manage Popular Tournaments
@@ -110,7 +111,6 @@ const ManagePopularTournaments = () => {
                             },
                         }}
                     />
-
 
                     <Table>
                         <TableHead>
@@ -164,8 +164,6 @@ const ManagePopularTournaments = () => {
                 </Box>
             </div>
         </div>
-
-
     );
 };
 
