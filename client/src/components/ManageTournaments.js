@@ -1,5 +1,7 @@
 import React, { useState, useEffect } from 'react';
 import '../styles/ManageTournaments.css';
+import { useNavigate } from "react-router-dom";
+
 import SectionDivider from "../components/SectionDivider";
 import {
     Table, TableHead, TableBody, TableRow, TableCell,
@@ -19,6 +21,7 @@ import IconButton from '@mui/material/IconButton';
 
 
 const ManageTournaments = () => {
+    const navigate = useNavigate()
     // ─── Snackbar state ───────────────────────────────────────
     const [snack, setSnack] = useState({
         open: false,
@@ -199,7 +202,19 @@ const ManageTournaments = () => {
                 <TableBody sx={{ color: "#d4d4d4" }}>
                     {tournaments.map(t => (
                         <TableRow key={t._id} sx={{ '&:hover': { backgroundColor: 'rgba(255,255,255,0.05)' } }}>
-                            <TableCell sx={{ color: "#d4d4d4" }}>{t.name}</TableCell>
+                            <TableCell
+                                sx={{
+                                    color: "#d4d4d4",
+                                    '&:hover': {
+                                        textDecoration: 'underline',
+                                        cursor: 'pointer'
+                                    }
+                                }}
+                                onClick={() => navigate(`/tournament/${t._id}`)}
+                            >
+                                {t.name}
+                            </TableCell>
+
                             <TableCell sx={{ color: "#d4d4d4" }}>{t.gameMode}</TableCell>
                             <TableCell sx={{ color: "#d4d4d4" }}>
                                 {new Intl.DateTimeFormat('en-IN', { dateStyle: 'short', timeStyle: 'short' }).format(new Date(t.startDateTime))}
