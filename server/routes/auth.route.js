@@ -12,7 +12,7 @@ const loginValidator = require('../middleware/validators/loginValidator')
 //controllers
 const handleSignUp = require('../controllers/handleSignUp')
 const handleLogin = require('../controllers/handleLogin')
-//singup route
+//singuph route
 router.post('/signup', signupValidator, async (req, res) => {
 
     const errors = validationResult(req);

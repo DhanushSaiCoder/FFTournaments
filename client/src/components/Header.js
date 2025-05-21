@@ -6,10 +6,12 @@ import validRoutes from './../sampleData/validRoutes';
 import { useAuth } from '../hooks/useAuth';
 import '../styles/Header.css';
 import { getToken } from './../utils/auth.util';
+import useNavSound from '../hooks/useNavSound';
 
 const Header = () => {
   const location = useLocation();
   const navigate = useNavigate();
+  const playClick = useNavSound();
 
   const { isLoggedIn, user } = useAuth();
 
@@ -37,20 +39,20 @@ const Header = () => {
         <nav>
           <ul>
             <li className={location.pathname === '/' ? 'active' : ''}>
-              <Link to="/">HOME</Link>
+              <Link onClick={playClick} to="/">HOME</Link>
             </li>
             <li className={location.pathname.startsWith('/tournament') || location.pathname.startsWith("/register") ? 'active' : ''}>
-              <Link to="/tournaments">TOURNAMENTS</Link>
+              <Link onClick={playClick}  to="/tournaments">TOURNAMENTS</Link>
             </li>
             <li className={location.pathname === '/rankings' ? 'active' : ''}>
-              <Link to="/rankings">RANKINGS</Link>
+              <Link onClick={playClick}  to="/rankings">RANKINGS</Link>
             </li>
             <li className={location.pathname === '/contactUs' ? 'active' : ''}>
-              <Link to="/contactUs">CONTACT US</Link>
+              <Link  onClick={playClick} to="/contactUs">CONTACT US</Link>
             </li>
             {isAdmin && (
               <li className={location.pathname.startsWith('/admin') ? 'active' : ''}>
-                <Link to="/admin">ADMIN PANEL</Link>
+                <Link onClick={playClick}  to="/admin/manageTournaments">ADMIN PANEL</Link>
               </li>
             )}
           </ul>
@@ -59,10 +61,10 @@ const Header = () => {
 
       {isLoggedIn && (
         <div className='iconsDiv'>
-          <Link to="/profile">
+          <Link onClick={playClick}  to="/profile">
             <CgProfile className='userIcon' size={30} />
           </Link>
-          <Link to="/settings">
+          <Link onClick={playClick}  to="/settings">
             <FaGear className='settingsIcon' size={30} />
           </Link>
         </div>

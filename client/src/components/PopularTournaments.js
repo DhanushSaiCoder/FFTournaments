@@ -1,8 +1,9 @@
-import React from 'react';
+import React,{useState, useEffect} from 'react';
 import "../styles/PopularTournaments.css";
 import SectionDivider from './SectionDivider';
 import App from './../App';
 import PricingChart from './PricingChart';
+import { fetchTournaments } from '../services/tournamentService';
 
 const data = [
     {
@@ -15,13 +16,13 @@ const data = [
             "The Ultimate winner is crowned the APT FF Champion."
         ],
         prizes: {
-            first: "₹1000",
-            second: "₹500",
+            first: "1000",
+            second: "500",
             third: null,
         },
         prizeDetails: ["The more players join, the bigger the prize pool!", "No kill rewards—100% of the prize pool goes to the winners!"],
-        prizePerKill: "₹10",
-        entryFee: "₹50",
+        prizePerKill: "10",
+        entryFee: "50",
         maxPlayers: 48,
         date: "2023-10-01",
         time: "10:00 AM",
@@ -36,13 +37,13 @@ const data = [
             "The Ultimate winner is crowned the APT FF Champion."
         ],
         prizes: {
-            first: "₹1000",
-            second: "₹500",
-            third: "₹250",
+            first: "1000",
+            second: "500",
+            third: "250",
         },
-        prizePerKill: "₹10",
+        prizePerKill: "10",
         prizeDetails: ["The more players join, the bigger the prize pool!", "No kill rewards—100% of the prize pool goes to the winners!"],
-        entryFee: "₹50",
+        entryFee: "50",
         maxPlayers: 48,
         date: "2023-10-01",
         time: "10:00 AM",
@@ -57,13 +58,13 @@ const data = [
             "The last player standing in the final match is crowned the Ultimate FF Champion."
         ],
         prizes: {
-            first: "₹5000",
-            second: "₹3000",
-            third: "₹1000",
+            first: "5000",
+            second: "3000",
+            third: "1000",
         },
-        prizePerKill: "₹20",
+        prizePerKill: "20",
         prizeDetails: ["Higher kill count increases your earnings!", "Top 3 winners also get exclusive in-game rewards!"],
-        entryFee: "₹100",
+        entryFee: "100",
         maxPlayers: 100,
         date: "2023-11-15",
         time: "5:00 PM",
@@ -75,10 +76,49 @@ const oddGradient = {
     background: "linear-gradient(90deg, #54ff98, #3ee777)",
     WebkitBackgroundClip: "text",
     WebkitTextFillColor: "transparent",
-    
+
 }
 
 const PopularTournaments = () => {
+
+    const [tournaments, setTournaments] = useState([
+        {
+            frequency: 'Weekly',
+            name: 'Sunday Showdown',
+            tags: ['FPS', 'Solo'],
+            details: ['Fast-paced', 'Invite only'],
+            gameMode: 'BR',
+            maxPrizePool: 5000,
+            maxPlayers: 100,
+            prizePerKill: 10,
+            entryFee: 50,
+            startDate: '2025-06-01',
+            endDate: '2025-06-02',
+            startTime: '18:00',
+            startDateTime: '2025-06-01T18:00',
+            prizes: { first: 3000, second: 1500, third: 500 },
+            prizeDetails: ['Cash payout', 'Winner gets trophy'],
+            importantInformation: {
+                details: ['Be online 15 min early'],
+                rules: ['No cheating', 'Respect others'],
+                howToJoin: ['Register on dashboard'],
+                howToClaimPrizeMoney: ['Contact admin within 24h']
+            }
+        }
+    ]);
+
+    useEffect(() => {
+        const loadTournaments = async () => {
+            try {
+                const data = await fetchTournaments();
+                setTournaments(data);
+            } catch (err) {
+                console.error('Failed to load tournaments:', err);
+            }
+        };
+        loadTournaments();
+    }, []);
+
     return (
         <div className='popularTournamentsContainer'>
             <SectionDivider text="POPULAR TOURNAMENTS" />

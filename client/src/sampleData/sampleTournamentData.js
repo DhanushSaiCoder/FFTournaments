@@ -48,6 +48,7 @@ export default {
     prizePerKill: 15,
     entryFee: 25,
     startDate: "2023-10-01",
+    endDate: "2023-10-03",
     startTime: "10:00 AM",
     startDateTime: "2023-10-01T10:00:00",
     prizes: {

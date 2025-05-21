@@ -10,7 +10,6 @@ const Tournaments = () => {
 
     return (
         <div className='Tournaments'>
-            <SectionDivider text="ALL TOURNAMENTS" />
             <TournametsContent />
         </div>
     );

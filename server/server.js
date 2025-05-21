@@ -16,6 +16,7 @@ app.use(cors({
 
 //routing
 app.use('/api/auth', require('./routes/auth.route'))
+app.use('/api/tournaments', require('./routes/tournament.route'))
 
 // connect to mongodb
 mongoose.connect(process.env.MONGO_URI)

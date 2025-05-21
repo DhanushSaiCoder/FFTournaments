@@ -1,25 +1,40 @@
-/* BEM‑scoped styles for ManageTournaments component */
-
 .ManageTournaments {
     display: flex;
     flex-direction: column;
     align-items: flex-start;
     min-height: 100vh;
     padding: 2rem;
-    background: rgba(0, 0, 0, 0.75);
+    /* background: rgba(0, 0, 0, 0.75); */
     color: #f0f0f0;
-    font-family: "Segoe UI", sans-serif;
     display: flex;
     align-items: flex-end;
     justify-content: flex-end;
 }
+.AdminMain {
+    min-height: 100vh;
+    color: #f0f0f0;
+    display: flex;
+    align-items: flex-end;
+    justify-content: flex-end;
+    align-items: center;
+    justify-content: flex-start;
+    flex-direction: column;
+}
 .ManageTournamentsContent {
     width: calc(100% - 300px);
+    display: flex;
+    align-items: flex-start;
+    justify-content: flex-start;
+    flex-direction: column;
+    flex-wrap: wrap;
+}
+
+.ManageTournaments__tableSection {
+    width: 100%;
 }
 
 .ManageTournaments__table {
     width: 100%;
-    max-width: 540px;
     margin-bottom: 2rem;
     background: rgba(255, 255, 255, 0.05);
     border-radius: 1rem;
@@ -37,20 +52,22 @@
 }
 
 .ManageTournaments__table thead th {
-    background: rgba(255, 255, 255, 0.1);
-}
-
-.ManageTournaments__table tbody tr:hover {
-    background: rgba(255, 255, 255, 0.08);
+    height: 35px;
+    background: #15151a;
+    border-bottom: 2.5px solid rgba(255, 255, 255, 0.1);
 }
 
 .ManageTournaments__form {
     width: 100%;
-    max-width: 540px;
+    margin-top: 40px;
     display: flex;
+    align-items: flex-start;
+    justify-content: flex-start;
     flex-direction: column;
-    gap: 1.5rem;
+    flex-wrap: wrap;
+    gap: 20px;
     animation: fadeIn 0.6s ease-out both;
+    max-height: 100vh;
 }
 
 .ManageTournaments__fieldset {
@@ -59,6 +76,9 @@
     border-radius: 1rem;
     padding: 1.5rem 1rem;
     position: relative;
+    min-width: 30%;
+    max-width: 30%;
+    min-height: 200px;
 }
 
 .ManageTournaments__legend {
@@ -143,20 +163,29 @@
     align-self: flex-end;
     background: linear-gradient(135deg, #48a9f8, #005fbd);
     color: #fff;
+    width: 30%;
 }
 
 .ManageTournaments__button--submit:hover {
     transform: translateY(-2px);
     box-shadow: 0 6px 20px rgba(0, 95, 189, 0.4);
 }
-.ManageTournaments__button--add{
-    background-color:#d4d4d4 ;
-    color: #1b1b1b;
-}
-.ManageTournaments__array-item{
+.ManageTournaments__button--add {
+    background-color: #d4d4d420;
+    color: #d4d4d4;
+    transition: all 0.123s ease;
 }
 
-.ManageTournaments__button--edit, .ManageTournaments__button--danger{
+.ManageTournaments__button--add:hover {
+    background-color: #d4d4d430;
+    color: #fff;
+    cursor: pointer;
+}
+.ManageTournaments__array-item {
+}
+
+.ManageTournaments__button--edit,
+.ManageTournaments__button--danger {
     border: none;
     background-color: #fff8f220;
     display: flex;
@@ -167,14 +196,21 @@
     height: 50px;
     margin: 10px;
     border-radius: 50%;
-
 }
-.ManageTournaments__button--edit:hover, .ManageTournaments__button--danger:hover{
+.ManageTournaments__button--edit:hover,
+.ManageTournaments__button--danger:hover {
     background-color: #fff8f240;
     cursor: pointer;
 }
-.ManageTournaments__button--danger{
+.ManageTournaments__button--danger {
     background-color: rgba(255, 30, 0, 0.473);
+}
+.actionsDiv {
+    height: 60px;
+    width: auto;
+    display: flex;
+    align-items: center;
+    justify-content: center;
 }
 
 @keyframes fadeIn {

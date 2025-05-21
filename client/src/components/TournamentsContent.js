@@ -1,56 +1,14 @@
-import React, { useState } from 'react';
+import React, { useState, useEffect } from 'react';
 import '../styles/TournamentsContent.css';
 import { useNavigate } from 'react-router-dom';
+import { fetchTournaments } from '../services/tournamentService';
 
-// SAMPLE DATA FOR TOURNAMENTS CONTENT
-const tournamentsData = [
-    {
-        _id: 'a1b2c3d4e5f6g7h8i9j0',
-        name: 'ULTIMATE BR SHOWDOWN',
-        participants: 100,
-        prizePool: '$10000',
-        endDate: '2023-12-01',
-        startDate: '2023-11-01',
-    },
-    {
-        _id: 'z9y8x7w6v5u4t3s2r1q0',
-        name: 'CHAMPIONSHIP CLASH',
-        participants: 75,
-        prizePool: '$7500',
-        endDate: '2024-01-15',
-        startDate: '2023-12-15',
-    },
-    {
-        _id: 'p0o9i8u7y6t5r4e3w2q1',
-        name: 'BATTLE ROYALE LEGENDS',
-        participants: 60,
-        prizePool: '$6000',
-        endDate: '2024-02-01',
-        startDate: '2024-01-01',
-    },
-    {
-        _id: 'm1n2b3v4c5x6z7a8s9d0',
-        name: 'SURVIVAL OF THE FITTEST',
-        participants: 80,
-        prizePool: '$8000',
-        endDate: '2024-03-01',
-        startDate: '2024-02-01',
-    },
-    {
-        _id: 'q1w2e3r4t5y6u7i8o9p0',
-        name: 'THE FINAL STAND',
-        participants: 90,
-        prizePool: '$9000',
-        endDate: '2024-04-01',
-        startDate: '2024-03-01',
-    },
-];
-
-const TABS = [ 'upcoming','ongoing', 'completed'];
+const TABS = ['upcoming', 'ongoing', 'completed'];
 
 export default function TournamentsContent() {
     const navigate = useNavigate();
     const [activeTab, setActiveTab] = useState('upcoming');
+    const [tournamentsData, setTournamentsData] = useState([])
 
     // categorize by date
     const now = new Date();
@@ -67,6 +25,20 @@ export default function TournamentsContent() {
     };
 
     const data = categorized[activeTab];
+
+
+    //fetch Tournaments
+    useEffect(() => {
+        const loadTournaments = async () => {
+            try {
+                const data = await fetchTournaments();
+                setTournamentsData(data);
+            } catch (err) {
+                console.error('Failed to load tournaments:', err);
+            }
+        };
+        loadTournaments();
+    }, []);
 
     return (
         <div className="tournamentsContent">
@@ -101,22 +73,27 @@ export default function TournamentsContent() {
                             <td className="tournamentName">{t.name}</td>
                             {activeTab === 'ongoing' && (
                                 <>
-                                    <td>{t.participants}</td>
-                                    <td>{t.prizePool}</td>
-                                    <td>{t.endDate}</td>
+                                    <td>{t.maxPlayers}</td>
+                                    <td>₹{t.maxPrizePool}/-</td>
+                                    <td>{new Intl.DateTimeFormat('en-IN').format(new Date(t.endDate))}</td>
                                 </>
                             )}
                             {activeTab === 'upcoming' && (
                                 <>
-                                    <td>{t.participants}</td>
-                                    <td>{t.prizePool}</td>
-                                    <td>{t.startDate}</td>
+                                    <td>{t.maxPlayers}</td>
+                                    <td>₹{t.maxPrizePool}/-</td>
+                                    <td>
+                                        {new Intl.DateTimeFormat('en-IN', {
+                                            dateStyle: 'short',
+                                            timeStyle: 'short',
+                                        }).format(new Date(t.startDateTime))}
+                                    </td>
                                 </>
                             )}
                             {activeTab === 'completed' && (
                                 <>
                                     <td>{t.participants}</td>
-                                    <td>{t.prizePool}</td>
+                                    <td>₹{t.maxPrizePool}/-</td>
                                     <td>{t.startDate}</td>
                                     <td>{t.endDate}</td>
                                 </>

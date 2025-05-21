@@ -1,7 +1,7 @@
 import React, { useState, useEffect } from 'react';
 import '../styles/TournamentTimer.css';
 
-const TournamentTimer = () => {
+const TournamentTimer = ({startDateTime}) => {
     const [timeLeft, setTimeLeft] = useState({
         days: '00',
         hours: '00',
@@ -10,7 +10,7 @@ const TournamentTimer = () => {
     });
 
     useEffect(() => {
-        const targetDate = new Date('2025-05-07T19:00:00'); // Replace with your actual tournament date/time
+        const targetDate = new Date(startDateTime); // Replace with your actual tournament date/time
 
         const updateTimer = () => {
             const now = new Date();
