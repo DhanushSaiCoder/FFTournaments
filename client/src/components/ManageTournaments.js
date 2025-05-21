@@ -184,7 +184,7 @@ const ManageTournaments = () => {
     };
 
     return (
-        <Box p={4} sx={{ color: '#fff', width: "60vw" }}>
+        <Box p={4} sx={{ color: '#fff', width: "65vw" }}>
             <Typography variant="h4" gutterBottom>Manage Tournaments</Typography>
 
             {/* Existing tournaments */}
