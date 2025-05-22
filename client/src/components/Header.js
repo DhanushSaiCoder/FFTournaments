@@ -15,10 +15,6 @@ const Header = () => {
 
   const { isLoggedIn, user } = useAuth();
 
-  useEffect(() => {
-    if (!isLoggedIn) navigate("/signup");
-  }, [isLoggedIn, navigate]);
-
   const isAdmin = user?.role === "admin";
 
   const handleLogoClick = () => {
